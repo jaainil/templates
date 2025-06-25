@@ -344,6 +344,27 @@
     "tags": ["automation"]
   },
   {
+    "id": "neko",
+    "name": "Neko",
+    "version": "latest",
+    "description": "Neko is a self-hosted virtual browser that runs in Docker and uses WebRTC technology. It allows multiple users to share a single browser instance remotely with ultra-low latency streaming (<300ms). Perfect for watch parties, collaborative browsing, interactive presentations, remote support, and secure throwaway browsing. Features multi-participant control, live broadcasting to platforms like Twitch/YouTube, and can run any Linux application beyond just browsers.",
+    "links": {
+      "github": "https://github.com/m1k1o/neko",
+      "website": "https://neko.m1k1o.net/",
+      "docs": "https://neko.m1k1o.net/docs/"
+    },
+    "logo": "logo.png",
+    "tags": [
+      "virtual-browser",
+      "webrtc",
+      "collaboration",
+      "remote-desktop",
+      "streaming",
+      "self-hosted",
+      "docker"
+    ]
+  },
+  {
     "id": "nitter",
     "name": "Nitter",
     "version": "latest",
