@@ -26,6 +26,28 @@
     "tags": ["rss", "reader", "news", "feeds", "self-hosted", "web"]
   },
   {
+    "id": "judge0",
+    "name": "Judge0",
+    "version": "1.13.1",
+    "description": "Judge0 is a robust, scalable, and open-source online code execution system that supports 60+ programming languages. Built for competitive programming platforms, e-learning systems, candidate assessment, online IDEs, and code editors. Features sandboxed execution, custom resource limits, multi-file program support, detailed execution results, and comprehensive API with webhook support.",
+    "links": {
+      "github": "https://github.com/judge0/judge0",
+      "website": "https://judge0.com/",
+      "docs": "https://ce.judge0.com/"
+    },
+    "logo": "image.png",
+    "tags": [
+      "code-execution",
+      "programming",
+      "compiler",
+      "api",
+      "education",
+      "competitive-programming",
+      "sandbox",
+      "self-hosted"
+    ]
+  },
+  {
     "id": "freescout",
     "name": "FreeScout",
     "version": "latest",
