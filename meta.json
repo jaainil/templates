@@ -2650,5 +2650,32 @@
       "shared-expenses",
       "bill-splitting"
     ]
+  },
+  {
+    "id": "myip",
+    "name": "MyIP",
+    "version": "5.0.2",
+    "description": "The best IP Toolbox. Check your IPs, IP geolocation, DNS leaks, WebRTC connections, speed test, ping test, MTR test, website availability, whois search, MAC lookup, browser fingerprints, cybersecurity checklist and more!",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/jason5ng32/MyIP",
+      "website": "https://ipcheck.ing/",
+      "docs": "https://github.com/jason5ng32/MyIP#readme"
+    },
+    "tags": [
+      "ip",
+      "network",
+      "dns",
+      "security",
+      "tools",
+      "speed-test",
+      "ping",
+      "mtr",
+      "whois",
+      "webrtc",
+      "geolocation",
+      "cybersecurity",
+      "self-hosted"
+    ]
   }
 ]
