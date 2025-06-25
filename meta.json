@@ -3533,5 +3533,26 @@
       "privacy",
       "all-in-one"
     ]
+  },
+  {
+    "id": "readflow",
+    "name": "Readflow",
+    "version": "edge",
+    "description": "Readflow is an open-source read-it-later and RSS reader that lets you save, organize, and read articles from anywhere in one place, with PDF and image proxy support, categories, webhooks, and mobile-friendly PWA interface.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/ncarlier/readflow",
+      "website": "https://about.readflow.app/",
+      "docs": "https://docs.readflow.app/"
+    },
+    "tags": [
+      "rss",
+      "read-it-later",
+      "reader",
+      "news",
+      "pwa",
+      "self-hosted",
+      "golang"
+    ]
   }
 ]
