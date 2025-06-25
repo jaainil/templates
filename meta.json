@@ -1072,6 +1072,28 @@
     "tags": ["self-hosted", "bookmarks", "link-sharing"]
   },
   {
+    "id": "hyprnote",
+    "name": "HyprNote",
+    "version": "latest",
+    "description": "HyprNote is an AI-powered meeting notepad that transcribes and summarizes meetings locally with complete privacy. Features real-time transcription, speaker identification, automatic note enhancement, offline functionality, and seamless integration with popular meeting platforms like Zoom, Teams, and Google Meet. Combines your handwritten notes with audio context to create perfect meeting summaries without sending data to external servers.",
+    "links": {
+      "github": "https://github.com/hyprnote/hyprnote",
+      "website": "https://hyprnote.com/",
+      "docs": "https://hyprnote.com/"
+    },
+    "logo": "logo.svg",
+    "tags": [
+      "ai",
+      "meeting-notes",
+      "transcription",
+      "privacy",
+      "offline",
+      "productivity",
+      "note-taking",
+      "meeting-tools"
+    ]
+  },
+  {
     "id": "windows",
     "name": "Windows (dockerized)",
     "version": "4.00",
