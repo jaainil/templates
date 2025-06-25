@@ -2814,6 +2814,29 @@
     "tags": ["file-sharing", "self-hosted", "open-source"]
   },
   {
+    "id": "papra",
+    "name": "Papra",
+    "version": "latest",
+    "description": "A minimalistic, open-source document management and archiving platform. Store, organize, and retrieve your documents effortlessly with features like full-text search, organizations, tags, email ingestion, and automated document processing.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/papra-hq/papra",
+      "website": "https://papra.app/",
+      "docs": "https://docs.papra.app/"
+    },
+    "tags": [
+      "document-management",
+      "archive",
+      "documents",
+      "organization",
+      "search",
+      "self-hosted",
+      "open-source",
+      "productivity",
+      "file-storage"
+    ]
+  },
+  {
     "id": "karakeep",
     "name": "KaraKeep",
     "version": "0.25.0",
