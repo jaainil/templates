@@ -3449,5 +3449,29 @@
       "self-hosted",
       "web-ui"
     ]
+  },
+  {
+    "id": "metube",
+    "name": "MeTube",
+    "version": "latest",
+    "description": "Web GUI for youtube-dl (using the yt-dlp fork) with playlist support. Allows you to download videos from YouTube and other sites through a beautiful web interface with advanced configuration options, custom directories, playlist support, and concurrent downloads.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/alexta69/metube",
+      "website": "https://github.com/alexta69/metube",
+      "docs": "https://github.com/alexta69/metube#readme"
+    },
+    "tags": [
+      "youtube-dl",
+      "yt-dlp",
+      "youtube",
+      "media",
+      "video-downloader",
+      "downloader",
+      "playlist",
+      "web-ui",
+      "self-hosted",
+      "concurrent-downloads"
+    ]
   }
 ]
