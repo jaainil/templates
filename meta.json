@@ -506,6 +506,27 @@
     ]
   },
   {
+    "id": "dumbdrop",
+    "name": "DumbDrop",
+    "version": "latest",
+    "description": "DumbDrop is a stupid simple file upload application that provides a clean, modern interface for dragging and dropping files. Features include drag-and-drop uploads, multiple file selection, directory upload support, optional PIN protection, configurable file size limits, file extension filtering, mobile-friendly interface, and Apprise notifications. Perfect for quick file sharing and uploads with zero client-side dependencies.",
+    "links": {
+      "github": "https://github.com/DumbWareio/DumbDrop",
+      "website": "https://www.dumbware.io/DumbDrop",
+      "docs": "https://github.com/DumbWareio/DumbDrop#readme"
+    },
+    "logo": "logo.svg",
+    "tags": [
+      "file-upload",
+      "file-sharing",
+      "drag-and-drop",
+      "notifications",
+      "mobile-friendly",
+      "self-hosted",
+      "simple-ui"
+    ]
+  },
+  {
     "id": "nocodb",
     "name": "NocoDB",
     "version": "0.257.2",
