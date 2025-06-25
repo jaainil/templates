@@ -3428,5 +3428,26 @@
       "policies",
       "flows"
     ]
+  },
+  {
+    "id": "yt-dlp-webui",
+    "name": "yt-dlp Web UI",
+    "version": "latest",
+    "description": "A simple self-hosted web interface for yt-dlp, allowing you to download videos from YouTube and other sites through your browser.",
+    "logo": "logo.ico",
+    "links": {
+      "github": "https://github.com/marcopiovanello/yt-dlp-web-ui",
+      "website": "https://github.com/marcopiovanello/yt-dlp-web-ui",
+      "docs": "https://github.com/marcopiovanello/yt-dlp-web-ui#readme"
+    },
+    "tags": [
+      "yt-dlp",
+      "youtube",
+      "media",
+      "video-downloader",
+      "downloader",
+      "self-hosted",
+      "web-ui"
+    ]
   }
 ]
