@@ -527,6 +527,27 @@
     ]
   },
   {
+    "id": "dumbassets",
+    "name": "DumbAssets",
+    "version": "latest",
+    "description": "DumbAssets is a stupid simple asset management system designed to track and manage your physical and digital assets with ease. Features include asset tracking, inventory management, optional PIN protection, demo mode for testing, multi-currency support, and Apprise notifications. Perfect for small businesses, home offices, or personal asset tracking with a clean, straightforward interface.",
+    "links": {
+      "github": "https://github.com/DumbWareio/DumbAssets",
+      "website": "https://www.dumbware.io/DumbAssets",
+      "docs": "https://github.com/DumbWareio/DumbAssets#readme"
+    },
+    "logo": "logo.svg",
+    "tags": [
+      "asset-management",
+      "inventory-tracking",
+      "business-tools",
+      "multi-currency",
+      "notifications",
+      "self-hosted",
+      "simple-ui"
+    ]
+  },
+  {
     "id": "nocodb",
     "name": "NocoDB",
     "version": "0.257.2",
