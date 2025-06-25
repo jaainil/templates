@@ -2806,5 +2806,33 @@
       "file-explorer",
       "simple-installation"
     ]
+  },
+  {
+    "id": "pinchflat",
+    "name": "Pinchflat",
+    "version": "2025.6.6",
+    "description": "Your next YouTube media manager. A self-hosted app for downloading YouTube content built using yt-dlp. Lightweight, self-contained, and easy to use with automatic content downloading from channels and playlists. Perfect for media center apps like Plex, Jellyfin, and Kodi.",
+    "logo": "logo.png",
+    "links": {
+      "github": "https://github.com/kieraneglin/pinchflat",
+      "website": "https://github.com/kieraneglin/pinchflat",
+      "docs": "https://github.com/kieraneglin/pinchflat/wiki"
+    },
+    "tags": [
+      "youtube",
+      "media",
+      "youtube-dl",
+      "yt-dlp",
+      "downloader",
+      "media-manager",
+      "plex",
+      "jellyfin",
+      "kodi",
+      "self-hosted",
+      "elixir",
+      "video-archiver",
+      "content-manager",
+      "automation"
+    ]
   }
 ]
