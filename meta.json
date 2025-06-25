@@ -463,6 +463,27 @@
     "tags": ["document-signing"]
   },
   {
+    "id": "dumbpad",
+    "name": "DumbPad",
+    "version": "latest",
+    "description": "DumbPad is a stupid simple, modern notepad application with auto-save functionality, dark mode support, and collaborative editing. Features include fuzzy search by filename and content, markdown formatting, PWA support, optional PIN protection, and file-based storage. Perfect for quick notes, ideas, and simple text editing with a clean, responsive interface that works on any device.",
+    "links": {
+      "github": "https://github.com/DumbWareio/DumbPad",
+      "website": "https://www.dumbware.io/DumbPad",
+      "docs": "https://github.com/DumbWareio/DumbPad#readme"
+    },
+    "logo": "logo.svg",
+    "tags": [
+      "notepad",
+      "text-editor",
+      "markdown",
+      "auto-save",
+      "collaborative",
+      "self-hosted",
+      "pwa"
+    ]
+  },
+  {
     "id": "nocodb",
     "name": "NocoDB",
     "version": "0.257.2",
