@@ -28,7 +28,7 @@ services:
     image: browserless/chrome:1-chrome-stable
     restart: unless-stopped
     ports:
-      - "9222:3000"
+      - "3000"
     environment:
       - DEBUG=browserless*
       - MAX_CONCURRENT_SESSIONS=10
