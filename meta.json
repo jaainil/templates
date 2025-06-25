@@ -2604,5 +2604,28 @@
       "real-time",
       "dashboard"
     ]
+  },
+  {
+    "id": "grimoire",
+    "name": "Grimoire",
+    "version": "0.5.0",
+    "description": "Bookmark manager for the wizards 🧙. Unleash your inner sorcerer and conquer the chaos of bookmarks! Features fuzzy search, tags and categories, metadata extraction, personal notes, browser extension support, and a beautiful dark mode.",
+    "logo": "logo.png",
+    "links": {
+      "github": "https://github.com/goniszewski/grimoire",
+      "website": "https://grimoire.pro/",
+      "docs": "https://grimoire.pro/docs"
+    },
+    "tags": [
+      "bookmarks",
+      "bookmark-manager",
+      "self-hosted",
+      "typescript",
+      "svelte",
+      "sveltekit",
+      "tailwindcss",
+      "organization",
+      "productivity"
+    ]
   }
 ]
