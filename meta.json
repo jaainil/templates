@@ -495,6 +495,31 @@
     "tags": ["automation"]
   },
   {
+    "id": "kener",
+    "name": "Kener",
+    "version": "v3.2.18",
+    "description": "Kener is a modern, sleek, and lightweight status page system built with SvelteKit and Node.js. It provides a hassle-free way to create beautiful status pages with minimal effort. Features real-time monitoring, custom domains, incident management via GitHub issues, badge generation, customizable themes, timezone support, responsive design, email notifications via Resend or SMTP, and support for multiple databases (SQLite, PostgreSQL, MySQL). Perfect for teams wanting a simple yet powerful status page solution.",
+    "logo": "kener.png",
+    "links": {
+      "github": "https://github.com/rajnandan1/kener",
+      "website": "https://kener.ing/",
+      "docs": "https://kener.ing/docs"
+    },
+    "tags": [
+      "status-page",
+      "monitoring",
+      "incident-management",
+      "real-time",
+      "sveltekit",
+      "nodejs",
+      "responsive",
+      "self-hosted",
+      "notifications",
+      "uptime",
+      "observability"
+    ]
+  },
+  {
     "id": "wordpress",
     "name": "Wordpress",
     "version": "latest",
