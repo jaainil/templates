@@ -3650,5 +3650,37 @@
       "tailwind",
       "prisma"
     ]
+  },
+  {
+    "id": "linkstack",
+    "name": "LinkStack",
+    "version": "latest",
+    "description": "LinkStack is a highly customizable, self-hosted open-source Linktree alternative that allows you to create a personalized and professional profile page showcasing all your important links in one place. Built with Laravel and PHP, it features an intuitive admin panel, drag-and-drop setup, custom themes, multi-user support, analytics, built-in SMTP server, and dark mode. Perfect for content creators, businesses, and individuals who want to overcome social media's one-link limitation while maintaining complete control over their data and online presence.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/LinkStackOrg/LinkStack",
+      "website": "https://linkstack.org",
+      "docs": "https://docs.linkstack.org"
+    },
+    "tags": [
+      "linktree",
+      "link-management",
+      "profile-page",
+      "social-media",
+      "laravel",
+      "php",
+      "self-hosted",
+      "privacy",
+      "themes",
+      "analytics",
+      "multi-user",
+      "drag-and-drop",
+      "mysql",
+      "apache",
+      "smtp",
+      "customizable",
+      "admin-panel",
+      "dark-mode"
+    ]
   }
 ]
