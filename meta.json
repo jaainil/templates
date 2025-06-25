@@ -2677,5 +2677,31 @@
       "cybersecurity",
       "self-hosted"
     ]
+  },
+  {
+    "id": "habitica",
+    "name": "Habitica",
+    "version": "5.32.4",
+    "description": "A habit tracker app which treats your goals like a Role Playing Game. Level up as you succeed, lose HP as you fail, and earn Gold to buy weapons and armor! Features tasks, rewards, parties, quests, and a complete RPG experience for productivity.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/HabitRPG/habitica",
+      "website": "https://habitica.com/",
+      "docs": "https://habitica.fandom.com/wiki/Habitica_Wiki"
+    },
+    "tags": [
+      "habit-tracker",
+      "productivity",
+      "gamification",
+      "rpg",
+      "tasks",
+      "habits",
+      "goals",
+      "self-hosted",
+      "nodejs",
+      "vue",
+      "mongodb",
+      "lifestyle"
+    ]
   }
 ]
