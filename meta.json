@@ -2703,5 +2703,32 @@
       "mongodb",
       "lifestyle"
     ]
+  },
+  {
+    "id": "tubearchivist",
+    "name": "TubeArchivist",
+    "version": "0.5.4",
+    "description": "Your self-hosted YouTube media server. Subscribe to channels, download videos using yt-dlp, index and make videos searchable, play videos, and keep track of viewed content. Features Elasticsearch for search, Redis for caching, and a beautiful web interface.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/tubearchivist/tubearchivist",
+      "website": "https://www.tubearchivist.com/",
+      "docs": "https://docs.tubearchivist.com/"
+    },
+    "tags": [
+      "youtube",
+      "media-server",
+      "video-archiver",
+      "self-hosted",
+      "elasticsearch",
+      "redis",
+      "yt-dlp",
+      "download-manager",
+      "video-streaming",
+      "archive",
+      "search",
+      "python",
+      "django"
+    ]
   }
 ]
