@@ -3582,5 +3582,37 @@
       "mongodb",
       "api-integration"
     ]
+  },
+  {
+    "id": "snapp",
+    "name": "Snapp",
+    "version": "0.9-rc-020",
+    "description": "Snapp is a self-hosted URL shortening solution built with SvelteKit that offers a complete link management platform. Features include custom short codes, expiration dates, secret links, usage analytics, URL reputation checking with VirusTotal integration, and extended metrics with Umami Analytics support. Built with a modern stack including SvelteKit, Prisma, Lucia Auth, and supports multiple database providers (SQLite, PostgreSQL, MySQL). Perfect for individuals and organizations who want control over their URL shortening service with advanced features and privacy.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/urania-dev/snapp",
+      "website": "https://snapp.li",
+      "docs": "https://github.com/urania-dev/snapp#readme"
+    },
+    "tags": [
+      "url-shortener",
+      "link-management",
+      "analytics",
+      "sveltekit",
+      "svelte",
+      "prisma",
+      "sqlite",
+      "postgresql",
+      "mysql",
+      "oauth",
+      "oidc",
+      "multi-database",
+      "self-hosted",
+      "typescript",
+      "tailwind",
+      "lucia-auth",
+      "virus-total",
+      "umami-analytics"
+    ]
   }
 ]
