@@ -344,6 +344,26 @@
     "tags": ["automation"]
   },
   {
+    "id": "nitter",
+    "name": "Nitter",
+    "version": "latest",
+    "description": "Nitter is a free and open source alternative Twitter front-end focused on privacy and performance. It provides a JavaScript-free, ad-free browsing experience with RSS feeds, themes, and mobile support. All requests go through the backend to prevent Twitter tracking, making it ~15x lighter than Twitter with faster page loads. Perfect for privacy-conscious users who want to browse Twitter content without being tracked.",
+    "links": {
+      "github": "https://github.com/zedeus/nitter",
+      "website": "https://nitter.net/",
+      "docs": "https://github.com/zedeus/nitter/wiki"
+    },
+    "logo": "logo.png",
+    "tags": [
+      "privacy",
+      "twitter",
+      "frontend",
+      "social-media",
+      "self-hosted",
+      "rss"
+    ]
+  },
+  {
     "id": "kestra",
     "name": "Kestra",
     "version": "latest",
