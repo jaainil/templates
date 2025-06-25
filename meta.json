@@ -3174,6 +3174,33 @@
     ]
   },
   {
+    "id": "opengist",
+    "name": "OpenGist",
+    "version": "1.10.0",
+    "description": "OpenGist is a self-hosted pastebin powered by Git, providing an open-source alternative to GitHub Gist. Features syntax highlighting for 100+ languages, markdown and CSV support, public/unlisted/private snippets, Git operations over HTTP and SSH, search functionality, user management, OAuth2 authentication (GitHub, GitLab, Gitea, OIDC), snippet embedding, revision history, like/fork system, and ZIP downloads. Perfect for code sharing and collaboration.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/thomiceli/opengist",
+      "website": "https://opengist.io/",
+      "docs": "https://opengist.io/"
+    },
+    "tags": [
+      "pastebin",
+      "gist",
+      "code-sharing",
+      "git",
+      "syntax-highlighting",
+      "markdown",
+      "oauth",
+      "self-hosted",
+      "golang",
+      "typescript",
+      "snippets",
+      "collaboration",
+      "version-control"
+    ]
+  },
+  {
     "id": "directorylister",
     "name": "DirectoryLister",
     "version": "5.1.0",
