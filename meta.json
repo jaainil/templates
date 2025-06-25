@@ -2582,5 +2582,27 @@
       "statistics",
       "rating"
     ]
+  },
+  {
+    "id": "openpanel",
+    "name": "OpenPanel",
+    "version": "latest",
+    "description": "OpenPanel is a comprehensive analytics platform with real-time data processing. It combines PostgreSQL for reliable data storage, Redis for high-performance caching, and ClickHouse for fast analytical queries, providing powerful insights into your data.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/Openpanel-dev/openpanel",
+      "website": "https://openpanel.dev/",
+      "docs": "https://docs.openpanel.dev/"
+    },
+    "tags": [
+      "analytics",
+      "data-processing",
+      "self-hosted",
+      "postgresql",
+      "redis",
+      "clickhouse",
+      "real-time",
+      "dashboard"
+    ]
   }
 ]
