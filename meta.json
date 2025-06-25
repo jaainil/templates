@@ -3473,5 +3473,33 @@
       "self-hosted",
       "concurrent-downloads"
     ]
+  },
+  {
+    "id": "tianji",
+    "name": "Tianji",
+    "version": "latest",
+    "description": "Tianji is an all-in-one insight hub that combines website analytics, uptime monitoring, and server status monitoring. It provides a unified dashboard for tracking website performance, monitoring server health, measuring uptime, and analyzing visitor behavior. Features include real-time analytics, comprehensive uptime monitoring with alerting, server resource monitoring, telemetry collection, survey management, and a beautiful status page. Perfect for developers and small teams who need lightweight monitoring solutions without the complexity of multiple tools.",
+    "logo": "tianji.svg",
+    "links": {
+      "github": "https://github.com/msgbyte/tianji",
+      "website": "https://tianji.msgbyte.com/",
+      "docs": "https://tianji.msgbyte.com/docs/intro"
+    },
+    "tags": [
+      "analytics",
+      "monitoring",
+      "uptime",
+      "server-status",
+      "website-analytics",
+      "dashboard",
+      "telemetry",
+      "survey",
+      "status-page",
+      "all-in-one",
+      "self-hosted",
+      "typescript",
+      "docker",
+      "postgresql"
+    ]
   }
 ]
