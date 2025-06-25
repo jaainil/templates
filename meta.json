@@ -3501,5 +3501,37 @@
       "docker",
       "postgresql"
     ]
+  },
+  {
+    "id": "web-check",
+    "name": "Web-Check",
+    "version": "latest",
+    "description": "Web-Check is a comprehensive all-in-one OSINT tool for analyzing any website. It provides detailed insights into IP information, SSL certificates, DNS records, cookies, headers, domain info, security configurations, server architecture, performance metrics, and much more. Features include security analysis, performance testing, SEO insights, technology stack detection, social media tags analysis, firewall detection, and over 30 different website analysis modules. Perfect for security researchers, developers, and anyone needing comprehensive website intelligence.",
+    "logo": "web-check.png",
+    "links": {
+      "github": "https://github.com/Lissy93/web-check",
+      "website": "https://web-check.xyz",
+      "docs": "https://web-check.xyz/about"
+    },
+    "tags": [
+      "osint",
+      "security",
+      "website-analysis",
+      "security-tools",
+      "reconnaissance",
+      "web-security",
+      "penetration-testing",
+      "domain-analysis",
+      "ssl-analysis",
+      "dns-analysis",
+      "performance-testing",
+      "seo-analysis",
+      "technology-detection",
+      "self-hosted",
+      "typescript",
+      "docker",
+      "privacy",
+      "all-in-one"
+    ]
   }
 ]
