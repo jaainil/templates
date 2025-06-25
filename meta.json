@@ -2653,6 +2653,33 @@
     "tags": ["communication", "community", "privacy"]
   },
   {
+    "id": "convertx",
+    "name": "ConvertX",
+    "version": "v0.14.1",
+    "description": "ConvertX is a powerful self-hosted online file converter that supports over 1,000 file formats. It provides a comprehensive solution for converting between various file types including documents (via Pandoc), images (via ImageMagick, Vips, GraphicsMagick), videos (via FFmpeg), e-books (via Calibre), 3D assets (via Assimp), vector graphics (via Inkscape), and many more. Features include batch processing, password protection, multiple user accounts, automatic file cleanup, and a clean web interface.",
+    "links": {
+      "github": "https://github.com/C4illin/ConvertX",
+      "website": "https://github.com/C4illin/ConvertX",
+      "docs": "https://github.com/C4illin/ConvertX#readme"
+    },
+    "logo": "convertx.png",
+    "tags": [
+      "file-converter",
+      "conversion",
+      "documents",
+      "images",
+      "video",
+      "audio",
+      "pdf",
+      "3d-models",
+      "batch-processing",
+      "self-hosted",
+      "ffmpeg",
+      "pandoc",
+      "imagemagick"
+    ]
+  },
+  {
     "id": "rsshub",
     "name": "RSSHub",
     "version": "1.0.0",
