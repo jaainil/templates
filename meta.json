@@ -1191,6 +1191,31 @@
     "tags": ["self-hosted", "bookmarks", "link-sharing"]
   },
   {
+    "id": "hoppscotch",
+    "name": "Hoppscotch",
+    "version": "latest",
+    "description": "Hoppscotch is a lightweight, fast, and open-source API development platform and Postman alternative. Features real-time collaboration, multi-protocol support (HTTP, GraphQL, WebSocket, MQTT), workspaces, environment variables, pre-request scripts, test assertions, code generation, and desktop/web/CLI clients. Self-host with PostgreSQL database, OAuth authentication (Google, GitHub, Microsoft), email integration, and comprehensive admin dashboard for complete API development workflow management.",
+    "logo": "logo.png",
+    "links": {
+      "github": "https://github.com/hoppscotch/hoppscotch",
+      "website": "https://hoppscotch.com/",
+      "docs": "https://docs.hoppscotch.io/"
+    },
+    "tags": [
+      "api-development",
+      "postman-alternative",
+      "http-client",
+      "graphql",
+      "websocket",
+      "collaboration",
+      "testing",
+      "self-hosted",
+      "oauth",
+      "postgresql",
+      "development-tools"
+    ]
+  },
+  {
     "id": "hyprnote",
     "name": "HyprNote",
     "version": "latest",
