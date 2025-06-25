@@ -2730,5 +2730,28 @@
       "python",
       "django"
     ]
+  },
+  {
+    "id": "flaresolverr",
+    "name": "FlareSolverr",
+    "version": "3.3.25",
+    "description": "A proxy server to bypass Cloudflare and DDoS-GUARD protection. FlareSolverr starts a proxy server that uses Selenium with undetected-chromedriver to create a web browser, solve Cloudflare challenges, and return cookies for use with other HTTP clients.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/FlareSolverr/FlareSolverr",
+      "website": "https://github.com/FlareSolverr/FlareSolverr",
+      "docs": "https://github.com/FlareSolverr/FlareSolverr#usage"
+    },
+    "tags": [
+      "proxy",
+      "cloudflare",
+      "bypass",
+      "automation",
+      "security",
+      "web-scraping",
+      "self-hosted",
+      "selenium",
+      "python"
+    ]
   }
 ]
