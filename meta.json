@@ -3343,5 +3343,38 @@
       "file-sharing",
       "document-management"
     ]
+  },
+  {
+    "id": "authentik",
+    "name": "Authentik",
+    "version": "2025.6.2",
+    "description": "Authentik is an open-source identity provider and single sign-on (SSO) platform that focuses on flexibility and versatility. Features include OAuth2, SAML, SCIM, LDAP support, user self-service portal, multi-factor authentication, social logins, custom policies and flows, extensive user management, API access, and Docker integration for outposts. Perfect for securing applications with enterprise-grade authentication and authorization.",
+    "logo": "authentik.svg",
+    "links": {
+      "github": "https://github.com/goauthentik/authentik",
+      "website": "https://goauthentik.io/",
+      "docs": "https://docs.goauthentik.io/"
+    },
+    "tags": [
+      "identity-provider",
+      "sso",
+      "authentication",
+      "authorization",
+      "oauth2",
+      "saml",
+      "ldap",
+      "scim",
+      "multi-factor-auth",
+      "social-login",
+      "user-management",
+      "security",
+      "enterprise",
+      "self-hosted",
+      "python",
+      "django",
+      "typescript",
+      "policies",
+      "flows"
+    ]
   }
 ]
