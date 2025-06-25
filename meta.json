@@ -328,6 +328,30 @@
     "tags": ["cms"]
   },
   {
+    "id": "gumroad-clone",
+    "name": "Gumroad Clone",
+    "version": "latest",
+    "description": "Gumroad Clone is an open-source e-commerce platform for selling digital products. This is the official Gumroad source code made available to the community. Features include digital product sales, payment processing via Stripe and PayPal, file delivery, customer management, analytics, and a complete seller dashboard. Perfect for creators, developers, and entrepreneurs looking to sell digital goods like software, ebooks, courses, and digital art with a proven, battle-tested platform.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/antiwork/gumroad",
+      "website": "https://gumroad.com/",
+      "docs": "https://github.com/antiwork/gumroad#readme"
+    },
+    "tags": [
+      "e-commerce",
+      "digital-products",
+      "marketplace",
+      "payments",
+      "stripe",
+      "paypal",
+      "file-delivery",
+      "analytics",
+      "ruby-on-rails",
+      "self-hosted"
+    ]
+  },
+  {
     "id": "lodestone",
     "name": "Lodestone",
     "version": "0.5.1",
