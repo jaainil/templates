@@ -166,6 +166,30 @@
     "tags": ["backend", "database", "api"]
   },
   {
+    "id": "pocketbase-sveltekit",
+    "name": "PocketBase + SvelteKit",
+    "version": "0.22.27",
+    "description": "PocketBase is a Backend-as-a-Service (BaaS) that provides a complete backend solution with SQLite database, REST API, real-time subscriptions, authentication, and file storage. This template provides a ready-to-use PocketBase instance that can serve as the backend for SvelteKit applications or any frontend framework. Features include admin panel, user authentication, database collections, file uploads, and extensible JavaScript hooks.",
+    "logo": "logo.jpg",
+    "links": {
+      "github": "https://github.com/pocketbase/pocketbase",
+      "website": "https://pocketbase.io/",
+      "docs": "https://pocketbase.io/docs/"
+    },
+    "tags": [
+      "backend",
+      "database",
+      "api",
+      "baas",
+      "sqlite",
+      "authentication",
+      "real-time",
+      "sveltekit",
+      "javascript",
+      "self-hosted"
+    ]
+  },
+  {
     "id": "plausible",
     "name": "Plausible",
     "version": "v2.1.5",
