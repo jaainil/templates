@@ -114,6 +114,31 @@
     "dokploy_version": ">=0.22.5"
   },
   {
+    "id": "suna",
+    "name": "Suna",
+    "version": "latest",
+    "description": "Suna is a fully open-source generalist AI agent that acts on your behalf to accomplish real-world tasks. Features browser automation, file management, web crawling, API integration, code execution, and natural language interaction. Combines powerful capabilities including market research, data analysis, travel planning, content creation, and workflow automation through conversational prompts. Built with FastAPI backend, Next.js frontend, and secure Docker execution environment.",
+    "links": {
+      "github": "https://github.com/kortix-ai/suna",
+      "website": "https://suna.so/",
+      "docs": "https://github.com/kortix-ai/suna#readme"
+    },
+    "logo": "logo.svg",
+    "tags": [
+      "ai",
+      "agent",
+      "automation",
+      "browser-automation",
+      "web-scraping",
+      "api-integration",
+      "code-execution",
+      "productivity",
+      "research",
+      "data-analysis",
+      "self-hosted"
+    ]
+  },
+  {
     "id": "pre0.22.5-supabase",
     "name": "SupaBase",
     "version": "1.25.04 / dokploy < 0.22.5",
