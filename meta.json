@@ -548,6 +548,28 @@
     ]
   },
   {
+    "id": "omni-tools",
+    "name": "Omni-Tools",
+    "version": "latest",
+    "description": "Omni-Tools is a self-hosted collection of powerful web-based tools for everyday tasks. Features include image/video processing (resizer, converter, trimmer), string/list manipulation (case converters, text formatters), date/time calculators, math tools, and miscellaneous utilities like JSON, PDF, and CSV tools. All processing happens client-side with no data leaving your device. Lightweight 28MB Docker image for fast deployment.",
+    "links": {
+      "github": "https://github.com/iib0011/omni-tools",
+      "website": "https://omnitools.app",
+      "docs": "https://github.com/iib0011/omni-tools#readme"
+    },
+    "logo": "logo.png",
+    "tags": [
+      "web-tools",
+      "productivity",
+      "image-processing",
+      "video-manipulation",
+      "text-formatters",
+      "developer-tools",
+      "client-side",
+      "self-hosted"
+    ]
+  },
+  {
     "id": "nocodb",
     "name": "NocoDB",
     "version": "0.257.2",
