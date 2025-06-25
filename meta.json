@@ -3254,5 +3254,61 @@
       "content-manager",
       "automation"
     ]
+  },
+  {
+    "id": "pingvin-share",
+    "name": "Pingvin Share",
+    "version": "latest",
+    "description": "A self-hosted file sharing platform that allows you to upload and share files with a beautiful, responsive interface. Features include drag-and-drop uploads, password protection, expiration dates, optional malware scanning with ClamAV integration, and a clean, modern UI. Perfect for securely sharing files with friends, family, or colleagues.",
+    "logo": "pingvin-share.svg",
+    "links": {
+      "github": "https://github.com/stonith404/pingvin-share",
+      "website": "https://pingvin-share.dev.eliasschneider.com/",
+      "docs": "https://github.com/stonith404/pingvin-share#README"
+    },
+    "tags": [
+      "file-sharing",
+      "upload",
+      "file-manager",
+      "self-hosted",
+      "security",
+      "malware-scanning",
+      "password-protection",
+      "expiration",
+      "nextjs",
+      "typescript",
+      "storage",
+      "clamav",
+      "privacy"
+    ]
+  },
+  {
+    "id": "scira",
+    "name": "Scira",
+    "version": "latest",
+    "description": "Scira is a comprehensive AI-powered development platform that integrates multiple AI providers, development tools, and APIs. Features include multi-AI model support (OpenAI, Anthropic, Groq, XAI), authentication systems, database connectivity, media processing, maps integration, weather data, and extensive API integrations. Perfect for building AI-powered applications with full-stack capabilities.",
+    "logo": "scira.png",
+    "links": {
+      "github": "https://github.com/zaidmukaddam/scira",
+      "website": "https://scira.ai/",
+      "docs": "https://github.com/zaidmukaddam/scira#README"
+    },
+    "tags": [
+      "ai",
+      "development-platform",
+      "multi-ai",
+      "openai",
+      "anthropic",
+      "groq",
+      "authentication",
+      "database",
+      "api-integration",
+      "nextjs",
+      "typescript",
+      "self-hosted",
+      "developer-tools",
+      "full-stack",
+      "ai-platform"
+    ]
   }
 ]
