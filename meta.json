@@ -2627,5 +2627,28 @@
       "organization",
       "productivity"
     ]
+  },
+  {
+    "id": "ihatemoney",
+    "name": "I Hate Money",
+    "version": "6.1.3",
+    "description": "A simple shared budget manager web application that eases shared budget management. Perfect for sharing expenses with friends, roommates, or travel groups. Tracks who bought what, when, and for whom, helping to settle bills effortlessly.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/spiral-project/ihatemoney",
+      "website": "https://ihatemoney.org/",
+      "docs": "https://ihatemoney.readthedocs.io/"
+    },
+    "tags": [
+      "budget-manager",
+      "expense-sharing",
+      "finance",
+      "money",
+      "self-hosted",
+      "python",
+      "flask",
+      "shared-expenses",
+      "bill-splitting"
+    ]
   }
 ]
