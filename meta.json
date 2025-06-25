@@ -515,6 +515,27 @@
     "tags": ["database"]
   },
   {
+    "id": "plane",
+    "name": "Plane",
+    "version": "latest",
+    "description": "Plane is an open-source project management platform that serves as a powerful alternative to Jira, Linear, Monday, and Asana. It helps teams track issues, epics, cycles, and roadmaps with features like customizable views (List, Kanban, Calendar), AI-powered Pages for documentation, real-time analytics, and collaborative tools. Built with modern tech stack including Next.js, Django, and PostgreSQL, it offers unlimited members in the free tier and focuses on simplicity without sacrificing functionality.",
+    "links": {
+      "github": "https://github.com/makeplane/plane",
+      "website": "https://plane.so/",
+      "docs": "https://developers.plane.so/"
+    },
+    "logo": "logo.webp",
+    "tags": [
+      "project-management",
+      "issue-tracker",
+      "kanban",
+      "agile",
+      "collaboration",
+      "jira-alternative",
+      "self-hosted"
+    ]
+  },
+  {
     "id": "rocketchat",
     "name": "Rocketchat",
     "version": "6.9.2",
