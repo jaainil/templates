@@ -3614,5 +3614,41 @@
       "virus-total",
       "umami-analytics"
     ]
+  },
+  {
+    "id": "reactive-resume",
+    "name": "Reactive Resume",
+    "version": "latest",
+    "description": "Reactive Resume is a one-of-a-kind resume builder that keeps your privacy in mind. Completely secure, customizable, portable, open-source and free forever. Features include real-time editing, dozens of professional templates, drag-and-drop customization, OpenAI integration for writing enhancement, multi-language support, PDF generation with Chrome engine, and sharing capabilities with view tracking. Built with React, NestJS, PostgreSQL, and MinIO for a complete resume creation and management experience.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/AmruthPillai/Reactive-Resume",
+      "website": "https://rxresu.me",
+      "docs": "https://docs.rxresu.me"
+    },
+    "tags": [
+      "resume-builder",
+      "pdf-generation",
+      "cv-builder",
+      "react",
+      "nestjs",
+      "postgresql",
+      "minio",
+      "chrome",
+      "pdf",
+      "templates",
+      "drag-and-drop",
+      "openai",
+      "multi-language",
+      "oauth",
+      "github-auth",
+      "google-auth",
+      "openid",
+      "privacy",
+      "self-hosted",
+      "typescript",
+      "tailwind",
+      "prisma"
+    ]
   }
 ]
