@@ -2779,5 +2779,32 @@
       "agent",
       "artificial-intelligence"
     ]
+  },
+  {
+    "id": "directorylister",
+    "name": "DirectoryLister",
+    "version": "5.1.0",
+    "description": "The easiest way to expose the contents of any web-accessible folder for browsing and sharing. Features zero-configuration installation, light/dark themes, file search, hash verification, README rendering, zip downloads, and multi-language support. Perfect for file sharing and directory browsing.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/DirectoryLister/DirectoryLister",
+      "website": "https://www.directorylister.com/",
+      "docs": "https://docs.directorylister.com/"
+    },
+    "tags": [
+      "file-sharing",
+      "directory-browser",
+      "file-manager",
+      "php",
+      "web-server",
+      "file-listing",
+      "download",
+      "browse-files",
+      "self-hosted",
+      "apache",
+      "nginx",
+      "file-explorer",
+      "simple-installation"
+    ]
   }
 ]
