@@ -484,6 +484,28 @@
     ]
   },
   {
+    "id": "dumbbudget",
+    "name": "DumbBudget",
+    "version": "latest",
+    "description": "DumbBudget is a simple, secure personal budgeting app with PIN protection and multi-currency support. Track income and expenses with real-time balance calculations, categorize transactions, filter by date ranges, and export to CSV. Features a clean, responsive interface with light/dark themes, PWA support, and file-based storage for easy backup and migration.",
+    "links": {
+      "github": "https://github.com/DumbWareio/DumbBudget",
+      "website": "https://www.dumbware.io/DumbBudget",
+      "docs": "https://github.com/DumbWareio/DumbBudget#readme"
+    },
+    "logo": "logo.svg",
+    "tags": [
+      "budgeting",
+      "finance",
+      "money-management",
+      "expense-tracking",
+      "personal-finance",
+      "multi-currency",
+      "pwa",
+      "self-hosted"
+    ]
+  },
+  {
     "id": "nocodb",
     "name": "NocoDB",
     "version": "0.257.2",
