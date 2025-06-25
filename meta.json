@@ -203,6 +203,30 @@
     "tags": ["analytics"]
   },
   {
+    "id": "cap",
+    "name": "Cap",
+    "version": "latest",
+    "description": "Cap is the open-source alternative to Loom. A beautiful, lightweight, and powerful screen recording platform for creating tutorials, presentations, and sharing content. Features high-quality video capture, instant sharing, privacy-first approach, cross-platform support, and self-hosting capabilities with custom S3 storage.",
+    "logo": "logo.png",
+    "links": {
+      "github": "https://github.com/CapSoftware/Cap",
+      "website": "https://cap.so/",
+      "docs": "https://cap.so/docs"
+    },
+    "tags": [
+      "screen-recording",
+      "video-capture",
+      "screen-sharing",
+      "tutorials",
+      "presentations",
+      "collaboration",
+      "self-hosted",
+      "privacy",
+      "cross-platform",
+      "loom-alternative"
+    ]
+  },
+  {
     "id": "calcom",
     "name": "Calcom",
     "version": "v2.7.6",
