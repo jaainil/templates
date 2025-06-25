@@ -3554,5 +3554,33 @@
       "self-hosted",
       "golang"
     ]
+  },
+  {
+    "id": "your_spotify",
+    "name": "Your Spotify",
+    "version": "latest",
+    "description": "Your Spotify is a self-hosted application that allows you to request information about your Spotify listens and display it in a self-hosted web application. It consists of a web server which gathers data from the Spotify API and a client which displays this data. Features include personal music analytics, detailed listening statistics, track history, playlists analysis, artist preferences, temporal listening patterns, and beautiful data visualizations. Perfect for Spotify users who want to explore their music habits with enhanced privacy and customization.",
+    "logo": "spotify.png",
+    "links": {
+      "github": "https://github.com/Yooooomi/your_spotify",
+      "website": "https://github.com/Yooooomi/your_spotify",
+      "docs": "https://github.com/Yooooomi/your_spotify#readme"
+    },
+    "tags": [
+      "spotify",
+      "music",
+      "analytics",
+      "statistics",
+      "personal-data",
+      "music-analytics",
+      "data-visualization",
+      "listening-history",
+      "privacy",
+      "self-hosted",
+      "nodejs",
+      "react",
+      "mongodb",
+      "api-integration"
+    ]
   }
 ]
