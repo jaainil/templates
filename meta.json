@@ -1130,6 +1130,28 @@
     "tags": ["open-source"]
   },
   {
+    "id": "linkding",
+    "name": "Linkding",
+    "version": "latest",
+    "description": "Linkding is a self-hosted bookmark manager designed to be minimal, fast, and easy to set up. Features clean UI optimized for readability, tag organization, bulk editing, markdown notes, read-it-later functionality, automatic website archiving, browser extensions, REST API, and Progressive Web App support. Perfect for managing personal bookmarks with privacy and full control over your data.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/sissbruecker/linkding",
+      "website": "https://linkding.link/",
+      "docs": "https://linkding.link/"
+    },
+    "tags": [
+      "bookmarks",
+      "link-sharing",
+      "self-hosted",
+      "privacy",
+      "web-app",
+      "api",
+      "sqlite",
+      "postgres"
+    ]
+  },
+  {
     "id": "linkwarden",
     "name": "Linkwarden",
     "version": "2.9.3",
