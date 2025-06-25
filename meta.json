@@ -2753,5 +2753,31 @@
       "selenium",
       "python"
     ]
+  },
+  {
+    "id": "openhands",
+    "name": "OpenHands",
+    "version": "0.46.0",
+    "description": "An open platform for AI software developers as generalist agents. OpenHands agents can modify code, run commands, browse the web, call APIs, and perform any task a human developer can do. Features a web interface, multiple LLM support, and Docker-based sandbox execution.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/All-Hands-AI/OpenHands",
+      "website": "https://all-hands.dev/",
+      "docs": "https://docs.all-hands.dev/"
+    },
+    "tags": [
+      "ai",
+      "coding-assistant",
+      "developer-tools",
+      "automation",
+      "llm",
+      "chatgpt",
+      "claude",
+      "self-hosted",
+      "python",
+      "typescript",
+      "agent",
+      "artificial-intelligence"
+    ]
   }
 ]
