@@ -3434,7 +3434,7 @@
     "name": "yt-dlp Web UI",
     "version": "latest",
     "description": "A simple self-hosted web interface for yt-dlp, allowing you to download videos from YouTube and other sites through your browser.",
-    "logo": "logo.ico",
+    "logo": "image.png",
     "links": {
       "github": "https://github.com/marcopiovanello/yt-dlp-web-ui",
       "website": "https://github.com/marcopiovanello/yt-dlp-web-ui",
