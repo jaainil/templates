@@ -76,29 +76,32 @@ const TemplateGrid: React.FC<TemplateGridProps> = ({ view }) => {
   const uniqueTemplates = useMemo(() => {
     if (!templates || templates.length === 0) return [];
 
-    const templateMap = new Map<string, Template>();
-    const seenNames = new Set<string>();
+    console.log("Raw templates loaded:", templates.length);
+
+    // Use Map to ensure we only keep the first occurrence of each ID
+    const uniqueMap = new Map<string, Template>();
 
     templates.forEach((template, index) => {
-      // Generate a unique key - use id if unique, otherwise fallback to name or index
-      let uniqueKey = template.id;
-
-      if (templateMap.has(uniqueKey) || !uniqueKey) {
-        // If ID is duplicate or missing, create unique key
-        uniqueKey = template.name;
-        if (seenNames.has(uniqueKey)) {
-          uniqueKey = `${template.name}-${index}`;
-        }
+      // Skip if we've already seen this ID
+      if (uniqueMap.has(template.id)) {
+        console.log(`Duplicate found: ${template.id} at index ${index}`);
+        return;
       }
 
-      seenNames.add(template.name);
-      templateMap.set(uniqueKey, {
-        ...template,
-        id: uniqueKey, // Ensure the ID is unique
-      });
+      // Validate template has required fields
+      if (!template.id || !template.name) {
+        console.warn(`Invalid template at index ${index}:`, template);
+        return;
+      }
+
+      uniqueMap.set(template.id, template);
     });
 
-    return Array.from(templateMap.values());
+    const uniqueArray = Array.from(uniqueMap.values());
+    console.log("Unique templates after deduplication:", uniqueArray.length);
+    console.log("Duplicates removed:", templates.length - uniqueArray.length);
+
+    return uniqueArray;
   }, [templates]);
 
   // Initialize Fuse.js for fuzzy search
