@@ -3368,7 +3368,7 @@
     "name": "Voltaserve",
     "version": "latest",
     "description": "Voltaserve is a comprehensive file management and collaboration platform with enterprise-grade features. Built with microservices architecture, it includes document conversion, AI-powered features, search capabilities, WebDAV support, identity management, and S3-compatible storage. Features include real-time collaboration, version control, advanced search with Meilisearch, file previews, and AI integration with Gemini API.",
-    "logo": "logo.svg",
+    "logo": "voltaserve.png",
     "links": {
       "github": "https://github.com/kouprlabs/voltaserve",
       "website": "https://voltaserve.com/",
