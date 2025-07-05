@@ -18,8 +18,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-    networks:
-      - dokploy-network
     restart: unless-stopped
 
   # Auto-migration service - handles database migrations automatically
@@ -35,8 +33,6 @@ services:
       hoppscotch-db:
         condition: service_healthy
     command: sh -c "pnpx prisma migrate deploy"
-    networks:
-      - dokploy-network
     restart: "no"
 
   # Hoppscotch AIO (All-In-One) container
@@ -44,7 +40,7 @@ services:
     image: hoppscotch/hoppscotch:latest
     container_name: hoppscotch-aio
     ports:
-      - "${PORT}:3000"
+      - "3000"
       - "${ADMIN_PORT}:3100"
       - "${BACKEND_PORT}:3170"
     environment:
@@ -126,8 +122,6 @@ services:
         condition: service_healthy
       hoppscotch-migrate:
         condition: service_completed_successfully
-    networks:
-      - dokploy-network
     restart: unless-stopped
 
 volumes:

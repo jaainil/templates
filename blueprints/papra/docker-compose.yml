@@ -9,8 +9,6 @@ services:
       - "${PORT}:1221"
     volumes:
       - papra_data:/app/app-data
-    networks:
-      - dokploy-network
     environment:
       - CLIENT_BASE_URL=${CLIENT_BASE_URL}
       - SERVER_BASE_URL=${SERVER_BASE_URL}

@@ -13,8 +13,6 @@ services:
     container_name: appwrite
     <<: *x-logging
     restart: unless-stopped
-    networks:
-      - dokploy-network
     labels:
       - traefik.enable=true
       - traefik.constraint-label-stack=appwrite
@@ -126,8 +124,6 @@ services:
     container_name: appwrite-console
     <<: *x-logging
     restart: unless-stopped
-    networks:
-      - dokploy-network
     labels:
       - "traefik.enable=true"
       - "traefik.constraint-label-stack=appwrite"
@@ -200,8 +196,6 @@ services:
     container_name: appwrite-realtime
     <<: *x-logging
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - mariadb
       - redis
@@ -232,8 +226,6 @@ services:
     <<: *x-logging
     container_name: appwrite-worker-audits
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - redis
       - mariadb
@@ -258,8 +250,6 @@ services:
     <<: *x-logging
     container_name: appwrite-worker-webhooks
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - redis
       - mariadb
@@ -286,8 +276,6 @@ services:
     <<: *x-logging
     container_name: appwrite-worker-deletes
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - redis
       - mariadb
@@ -344,8 +332,6 @@ services:
     <<: *x-logging
     container_name: appwrite-worker-databases
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - redis
       - mariadb
@@ -370,8 +356,6 @@ services:
     <<: *x-logging
     container_name: appwrite-worker-builds
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - redis
       - mariadb
@@ -433,8 +417,6 @@ services:
     <<: *x-logging
     container_name: appwrite-worker-certificates
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - redis
       - mariadb
@@ -466,8 +448,6 @@ services:
     <<: *x-logging
     container_name: appwrite-worker-functions
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - redis
       - mariadb
@@ -504,8 +484,6 @@ services:
     <<: *x-logging
     container_name: appwrite-worker-mails
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - redis
     environment:
@@ -536,8 +514,6 @@ services:
     container_name: appwrite-worker-messaging
     <<: *x-logging
     restart: unless-stopped
-    networks:
-      - dokploy-network
     volumes:
       - appwrite-uploads:/storage/uploads:rw
     depends_on:
@@ -586,8 +562,6 @@ services:
     <<: *x-logging
     container_name: appwrite-worker-migrations
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - mariadb
     environment:
@@ -616,8 +590,6 @@ services:
     <<: *x-logging
     container_name: appwrite-task-maintenance
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - redis
     environment:
@@ -650,8 +622,6 @@ services:
     container_name: appwrite-worker-usage
     <<: *x-logging
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - redis
       - mariadb
@@ -677,8 +647,6 @@ services:
     entrypoint: worker-usage-dump
     container_name: appwrite-worker-usage-dump
     <<: *x-logging
-    networks:
-      - dokploy-network
     depends_on:
       - redis
       - mariadb
@@ -705,8 +673,6 @@ services:
     container_name: appwrite-task-scheduler-functions
     <<: *x-logging
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - mariadb
       - redis
@@ -730,8 +696,6 @@ services:
     container_name: appwrite-task-scheduler-executions
     <<: *x-logging
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - mariadb
       - redis
@@ -755,8 +719,6 @@ services:
     container_name: appwrite-task-scheduler-messages
     <<: *x-logging
     restart: unless-stopped
-    networks:
-      - dokploy-network
     depends_on:
       - mariadb
       - redis
@@ -779,8 +741,6 @@ services:
     container_name: appwrite-assistant
     <<: *x-logging
     restart: unless-stopped
-    networks:
-      - dokploy-network
     environment:
       - _APP_ASSISTANT_OPENAI_API_KEY
 
@@ -791,8 +751,6 @@ services:
     restart: unless-stopped
     stop_signal: SIGINT
     image: openruntimes/executor:0.6.11
-    networks:
-      - dokploy-network
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - appwrite-builds:/storage/builds:rw
@@ -835,8 +793,6 @@ services:
     container_name: appwrite-mariadb
     <<: *x-logging
     restart: unless-stopped
-    networks:
-      - dokploy-network
     volumes:
       - appwrite-mariadb:/var/lib/mysql:rw
     environment:
@@ -857,8 +813,6 @@ services:
       --maxmemory 512mb
       --maxmemory-policy allkeys-lru
       --maxmemory-samples 5
-    networks:
-      - dokploy-network
     volumes:
       - appwrite-redis:/data:rw
 

@@ -11,8 +11,6 @@ services:
       - pocketbase_data:/pb_data
       - pocketbase_public:/pb_public
       - pocketbase_hooks:/pb_hooks
-    networks:
-      - dokploy-network
     environment:
       - ORIGIN=${ORIGIN}
       - POCKETBASE_ADMIN_EMAIL=${ADMIN_EMAIL}

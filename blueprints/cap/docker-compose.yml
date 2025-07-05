@@ -6,9 +6,7 @@ services:
     container_name: cap-web
     restart: unless-stopped
     ports:
-      - "${PORT}:3000"
-    networks:
-      - dokploy-network
+      - "3000"
     environment:
       - DATABASE_URL=mysql://root:${DB_ROOT_PASSWORD}@cap-mysql:3306/${DB_NAME}?ssl={"rejectUnauthorized":false}
       - WEB_URL=${WEB_URL}
@@ -35,8 +33,6 @@ services:
     restart: unless-stopped
     ports:
       - "${DB_PORT}:3306"
-    networks:
-      - dokploy-network
     environment:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
@@ -54,8 +50,6 @@ services:
     ports:
       - "${MINIO_API_PORT}:9000"
       - "${MINIO_CONSOLE_PORT}:9001"
-    networks:
-      - dokploy-network
     environment:
       - MINIO_ROOT_USER=${S3_ACCESS_KEY}
       - MINIO_ROOT_PASSWORD=${S3_SECRET_KEY}

@@ -7,7 +7,7 @@ services:
       - SANDBOX_RUNTIME_CONTAINER_IMAGE=${SANDBOX_RUNTIME_CONTAINER_IMAGE}
       - WORKSPACE_MOUNT_PATH=${WORKSPACE_MOUNT_PATH}
     ports:
-      - "${PORT}:3000"
+      - "3000"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:

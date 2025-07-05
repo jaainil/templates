@@ -3,8 +3,6 @@ services:
     image: zadam/trilium:latest
     ports:
       - 8080
-    networks:
-      - dokploy-network
     restart: always
     volumes:
       - /root/trilium-backups:/home/node/trilium-data/backup
