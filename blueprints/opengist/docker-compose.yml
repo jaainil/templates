@@ -61,8 +61,6 @@ services:
       OG_CUSTOM_CSS: ${OG_CUSTOM_CSS:-}
       OG_CUSTOM_TITLE: ${OG_CUSTOM_TITLE:-Opengist}
       OG_CUSTOM_LOGO_URL: ${OG_CUSTOM_LOGO_URL:-}
-    networks:
-      - dokploy-network
     restart: unless-stopped
 
 volumes:

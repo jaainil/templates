@@ -29,8 +29,6 @@ services:
       LD_DB_HOST: ${LD_DB_HOST:-localhost}
       LD_DB_PORT: ${LD_DB_PORT:-}
       LD_DB_OPTIONS: ${LD_DB_OPTIONS:-{}}
-    networks:
-      - dokploy-network
     restart: unless-stopped
 
 volumes:
