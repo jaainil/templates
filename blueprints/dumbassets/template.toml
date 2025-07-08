@@ -1,32 +1,51 @@
-name = "DumbAssets"
-description = "Simple asset management system"
-port = 3000
-
-[environment]
-PORT = "${PORT}"
+[variables]
+main_domain = "${domain}"
 
 # Application Configuration
-SITE_TITLE = "DumbAssets"
-BASE_URL = "http://${DOMAIN}"
+site_title = "DumbAssets"
+base_url = "https://${main_domain}"
 
 # Security Configuration
-DUMBASSETS_PIN = "${password:4}"
-ALLOWED_ORIGINS = "http://${DOMAIN}"
+dumbassets_pin = "${password:4}"
+allowed_origins = "https://${main_domain}"
 
 # Environment Settings
-NODE_ENV = "production"
-DEBUG = "false"
-DEMO_MODE = "false"
+node_env = "production"
+debug = "false"
+demo_mode = "false"
 
 # Currency Settings
-CURRENCY_CODE = "USD"
-CURRENCY_LOCALE = "en-US"
+currency_code = "USD"
+currency_locale = "en-US"
+
+# Notification Settings
+apprise_url = ""
+
+[config]
+mounts = []
+
+[[config.domains]]
+serviceName = "dumbassets"
+port = 3000
+host = "${main_domain}"
+
+[config.env]
+# Application Configuration
+SITE_TITLE = "${site_title}"
+BASE_URL = "${base_url}"
+
+# Security Configuration
+DUMBASSETS_PIN = "${dumbassets_pin}"
+ALLOWED_ORIGINS = "${allowed_origins}"
+
+# Environment Settings
+NODE_ENV = "${node_env}"
+DEBUG = "${debug}"
+DEMO_MODE = "${demo_mode}"
+
+# Currency Settings
+CURRENCY_CODE = "${currency_code}"
+CURRENCY_LOCALE = "${currency_locale}"
 
 # Notification Settings (Optional)
-APPRISE_URL = ""
-
-[domains]
-[[domains.main]]
-host = "${DOMAIN}"
-port = "${PORT}"
-path = "/" 
+APPRISE_URL = "" 

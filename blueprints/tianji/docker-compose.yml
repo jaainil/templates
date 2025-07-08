@@ -5,7 +5,7 @@ services:
     image: moonrailgun/tianji:latest
     restart: unless-stopped
     ports:
-      - "12345:12345"
+      - "12345"
     environment:
       DATABASE_URL: postgresql://tianji:tianji@postgres:5432/tianji
       JWT_SECRET: ${JWT_SECRET}

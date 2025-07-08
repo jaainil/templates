@@ -1,12 +1,11 @@
-name = "Omni-Tools"
-description = "Collection of useful web tools"
-port = 8080
+[variables]
+main_domain = "${domain}"
 
-[environment]
-PORT = "${PORT}"
+[config]
+mounts = []
 
-[domains]
-[[domains.main]]
-host = "${DOMAIN}"
-port = "${PORT}"
-path = "/" 
+[[config.domains]]
+serviceName = "omni-tools"
+port = "80"
+host = "${main_domain}"
+

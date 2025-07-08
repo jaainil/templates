@@ -5,6 +5,9 @@ volumes:
     driver: local
   redis:
     driver: local
+  authentik_media:
+  authentik_certs:
+  authentik_templates:
 
 services:
   postgresql:
@@ -62,8 +65,8 @@ services:
       - authentik_media:/media
       - authentik_templates:/templates
     ports:
-      - "${COMPOSE_PORT_HTTP:-9000}:9000"
-      - "${COMPOSE_PORT_HTTPS:-9443}:9443"
+      - "9000"
+      - "9443"
     depends_on:
       postgresql:
         condition: service_healthy
@@ -92,8 +95,6 @@ services:
       AUTHENTIK_EMAIL__FROM: ${AUTHENTIK_EMAIL__FROM:-authentik@localhost}
       # Error Reporting
       AUTHENTIK_ERROR_REPORTING__ENABLED: ${AUTHENTIK_ERROR_REPORTING__ENABLED:-true}
-    # Docker socket integration for outposts (optional)
-    # Remove these if not needed for security
     user: root
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -105,8 +106,3 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-
-volumes:
-  authentik_media:
-  authentik_certs:
-  authentik_templates: 

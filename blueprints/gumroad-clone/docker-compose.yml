@@ -7,7 +7,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
-      - "${DB_PORT}:3306"
+      - "3306"
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_DATABASE=${DB_NAME}
@@ -18,25 +18,21 @@ services:
       - "--default-authentication-plugin=mysql_native_password"
       - "--collation-server=utf8mb4_unicode_ci"
       - "--character-set-server=utf8mb4"
-    networks:
-      - dokploy-network
 
   redis:
     image: redis:7.0.7
     restart: unless-stopped
     command: ["redis-server", "--appendonly", "yes"]
     ports:
-      - "${REDIS_PORT}:6379"
+      - "6379"
     volumes:
       - redis_data:/data
-    networks:
-      - dokploy-network
 
   gumroad-app:
     image: antiwork/gumroad:latest
     restart: unless-stopped
     ports:
-      - "${PORT}:3000"
+      - "3000"
     depends_on:
       - mysql
       - redis
@@ -59,14 +55,8 @@ services:
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
       - S3_BUCKET=${S3_BUCKET}
-    networks:
-      - dokploy-network
     volumes:
       - app_storage:/app/storage
-
-networks:
-  dokploy-network:
-    external: true
 
 volumes:
   mysql_data:

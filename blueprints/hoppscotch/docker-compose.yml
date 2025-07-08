@@ -2,7 +2,6 @@ services:
   # PostgreSQL database for Hoppscotch
   hoppscotch-db:
     image: postgres:15
-    container_name: hoppscotch-db
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -18,14 +17,11 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-    networks:
-      - dokploy-network
     restart: unless-stopped
 
   # Auto-migration service - handles database migrations automatically
   hoppscotch-migrate:
     image: hoppscotch/hoppscotch:latest
-    container_name: hoppscotch-migrate
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@hoppscotch-db:5432/${POSTGRES_DB}?connect_timeout=300
       JWT_SECRET: ${JWT_SECRET}
@@ -35,18 +31,15 @@ services:
       hoppscotch-db:
         condition: service_healthy
     command: sh -c "pnpx prisma migrate deploy"
-    networks:
-      - dokploy-network
     restart: "no"
 
   # Hoppscotch AIO (All-In-One) container
   hoppscotch-aio:
     image: hoppscotch/hoppscotch:latest
-    container_name: hoppscotch-aio
     ports:
-      - "${PORT}:3000"
-      - "${ADMIN_PORT}:3100"
-      - "${BACKEND_PORT}:3170"
+      - "3000"
+      - "3100"
+      - "3170"
     environment:
       # Database configuration
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@hoppscotch-db:5432/${POSTGRES_DB}?connect_timeout=300
@@ -126,13 +119,7 @@ services:
         condition: service_healthy
       hoppscotch-migrate:
         condition: service_completed_successfully
-    networks:
-      - dokploy-network
     restart: unless-stopped
 
 volumes:
   hoppscotch_db_data:
-
-networks:
-  dokploy-network:
-    external: true

@@ -1,9 +1,8 @@
 services:
   linkding:
-    container_name: linkding
     image: sissbruecker/linkding:latest
     ports:
-      - "${PORT}:9090"
+      - "9090"
     volumes:
       - linkding_data:/etc/linkding/data
     environment:
@@ -29,13 +28,7 @@ services:
       LD_DB_HOST: ${LD_DB_HOST:-localhost}
       LD_DB_PORT: ${LD_DB_PORT:-}
       LD_DB_OPTIONS: ${LD_DB_OPTIONS:-{}}
-    networks:
-      - dokploy-network
     restart: unless-stopped
 
 volumes:
   linkding_data:
-
-networks:
-  dokploy-network:
-    external: true

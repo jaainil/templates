@@ -1,24 +1,33 @@
-name = "Neko"
-description = "Virtual browser sharing platform"
-port = 8080
-
-[environment]
-PORT = "${PORT}"
+[variables]
+main_domain = "${domain}"
 
 # Desktop Configuration
-DESKTOP_SCREEN = "1920x1080@60"
+neko_desktop_screen = "1920x1080@30"
 
 # Authentication Configuration
-USER_PASSWORD = "${password:16}"
-ADMIN_PASSWORD = "${password:16}"
+neko_member_multiuser_user_password = "${password:16}"
+neko_member_multiuser_admin_password = "${password:16}"
 
 # WebRTC Configuration
-WEBRTC_PORT_RANGE = "52000-52100"
-WEBRTC_EPR = "52000-52100"
-WEBRTC_ICELITE = "1"
+neko_webrtc_epr = "52000-52100"
+neko_webrtc_icelite = "1"
 
-[domains]
-[[domains.main]]
-host = "${DOMAIN}"
-port = "${PORT}"
-path = "/" 
+[config]
+mounts = []
+
+[[config.domains]]
+serviceName = "neko"
+port = 8080
+host = "${main_domain}"
+
+[config.env]
+# Desktop Configuration
+NEKO_DESKTOP_SCREEN = "${neko_desktop_screen}"
+
+# Authentication Configuration
+NEKO_MEMBER_MULTIUSER_USER_PASSWORD = "${neko_member_multiuser_user_password}"
+NEKO_MEMBER_MULTIUSER_ADMIN_PASSWORD = "${neko_member_multiuser_admin_password}"
+
+# WebRTC Configuration
+NEKO_WEBRTC_EPR = "${neko_webrtc_epr}"
+NEKO_WEBRTC_ICELITE = "${neko_webrtc_icelite}" 

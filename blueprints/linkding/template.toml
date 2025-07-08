@@ -2,30 +2,65 @@ name = "Linkding"
 description = "Self-hosted bookmark manager with clean UI, tag organization, and REST API"
 
 [variables]
-PORT = { type = "number", defaultValue = 9090, description = "Port for Linkding web interface" }
+main_domain = "${domain}"
 
 # Initial superuser configuration
-LD_SUPERUSER_NAME = { type = "text", defaultValue = "admin", description = "Username for the initial superuser account" }
-LD_SUPERUSER_PASSWORD = { type = "password", description = "Password for the initial superuser account" }
+LD_SUPERUSER_NAME = "admin"
+LD_SUPERUSER_PASSWORD = "${password:16}"
 
 # Application configuration
-LD_CONTEXT_PATH = { type = "text", defaultValue = "", description = "Context path for running linkding (must end with /)" }
-LD_DISABLE_BACKGROUND_TASKS = { type = "boolean", defaultValue = false, description = "Disable background tasks for bookmark processing" }
-LD_DISABLE_URL_VALIDATION = { type = "boolean", defaultValue = false, description = "Disable URL validation for bookmarks" }
+LD_CONTEXT_PATH = ""
+LD_DISABLE_BACKGROUND_TASKS = "false"
+LD_DISABLE_URL_VALIDATION = "false"
 
 # Authentication proxy configuration
-LD_ENABLE_AUTH_PROXY = { type = "boolean", defaultValue = false, description = "Enable authentication proxy support (Authelia, etc.)" }
-LD_AUTH_PROXY_USERNAME_HEADER = { type = "text", defaultValue = "", description = "Header name for auth proxy username" }
-LD_AUTH_PROXY_LOGOUT_URL = { type = "text", defaultValue = "", description = "Logout URL for auth proxy" }
+LD_ENABLE_AUTH_PROXY = "false"
+LD_AUTH_PROXY_USERNAME_HEADER = ""
+LD_AUTH_PROXY_LOGOUT_URL = ""
 
 # Security configuration
-LD_CSRF_TRUSTED_ORIGINS = { type = "text", defaultValue = "", description = "Comma-separated list of trusted origins for CSRF" }
+LD_CSRF_TRUSTED_ORIGINS = ""
 
 # Database configuration (PostgreSQL support)
-LD_DB_ENGINE = { type = "select", defaultValue = "sqlite", options = ["sqlite", "postgres"], description = "Database engine to use" }
-LD_DB_DATABASE = { type = "text", defaultValue = "linkding", description = "Database name (for PostgreSQL)" }
-LD_DB_USER = { type = "text", defaultValue = "linkding", description = "Database username (for PostgreSQL)" }
-LD_DB_PASSWORD = { type = "password", description = "Database password (for PostgreSQL)" }
-LD_DB_HOST = { type = "text", defaultValue = "localhost", description = "Database host (for PostgreSQL)" }
-LD_DB_PORT = { type = "number", defaultValue = 5432, description = "Database port (for PostgreSQL)" }
-LD_DB_OPTIONS = { type = "text", defaultValue = "{}", description = "Additional database options as JSON" } 
+LD_DB_ENGINE = "sqlite"
+LD_DB_DATABASE = "linkding"
+LD_DB_USER = "linkding"
+LD_DB_PASSWORD = "${password:16}"
+LD_DB_HOST = "localhost"
+LD_DB_PORT = "5432"
+LD_DB_OPTIONS = "{}"
+
+[config]
+mounts = []
+
+[[config.domains]]
+serviceName = "linkding"
+port = 9090
+host = "${main_domain}"
+
+[config.env]
+# Initial superuser configuration
+LD_SUPERUSER_NAME = "${LD_SUPERUSER_NAME}"
+LD_SUPERUSER_PASSWORD = "${LD_SUPERUSER_PASSWORD}"
+
+# Application configuration
+LD_CONTEXT_PATH = "${LD_CONTEXT_PATH}"
+LD_DISABLE_BACKGROUND_TASKS = "${LD_DISABLE_BACKGROUND_TASKS}"
+LD_DISABLE_URL_VALIDATION = "${LD_DISABLE_URL_VALIDATION}"
+
+# Authentication proxy configuration
+LD_ENABLE_AUTH_PROXY = "${LD_ENABLE_AUTH_PROXY}"
+LD_AUTH_PROXY_USERNAME_HEADER = "${LD_AUTH_PROXY_USERNAME_HEADER}"
+LD_AUTH_PROXY_LOGOUT_URL = "${LD_AUTH_PROXY_LOGOUT_URL}"
+
+# Security configuration
+LD_CSRF_TRUSTED_ORIGINS = "${LD_CSRF_TRUSTED_ORIGINS}"
+
+# Database configuration (PostgreSQL support)
+LD_DB_ENGINE = "${LD_DB_ENGINE}"
+LD_DB_DATABASE = "${LD_DB_DATABASE}"
+LD_DB_USER = "${LD_DB_USER}"
+LD_DB_PASSWORD = "${LD_DB_PASSWORD}"
+LD_DB_HOST = "${LD_DB_HOST}"
+LD_DB_PORT = "${LD_DB_PORT}"
+LD_DB_OPTIONS = "${LD_DB_OPTIONS}" 

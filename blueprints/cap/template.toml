@@ -3,9 +3,8 @@ main_domain = "${domain}"
 web_url = "https://${domain}"
 
 # Database Configuration
-db_name = "cap_production"
+db_name = "planetscale"
 db_root_password = "${password:20}"
-db_port = "3306"
 
 # Security Keys
 database_encryption_key = "${base64:32}"
@@ -14,11 +13,11 @@ nextauth_secret = "${base64:32}"
 # S3/MinIO Storage Configuration
 s3_access_key = "${password:16}"
 s3_secret_key = "${password:32}"
-s3_bucket = "cap-recordings"
+s3_bucket = "capso"
 s3_region = "us-east-1"
-s3_endpoint = "http://cap-minio:9000"
-minio_api_port = "9000"
-minio_console_port = "9001"
+s3_public_endpoint = "https://${domain}/storage"
+minio_api_port = "3902"
+minio_console_port = "3903"
 
 # Optional OAuth Configuration
 google_client_id = ""
@@ -31,31 +30,91 @@ resend_api_key = ""
 deepgram_api_key = ""  # For audio transcription
 openai_api_key = ""    # For AI features
 
+# Desktop App Configuration
+vite_environment = "production"
+vite_server_url = "https://${domain}"
+cap_desktop_sentry_url = ""
+
+# Tasks Configuration
+tasks_port = "3002"
+tasks_url = "https://${domain}/tasks"
+
+# Advanced Configuration (Optional)
+next_loops_key = ""
+vercel_auth_token = ""
+vercel_project_id = ""
+vercel_team_id = ""
+cap_cloudfront_distribution_id = ""
+
+[metadata]
+name = "Cap Software"
+description = "Self-hosted CAP platform with MinIO, MySQL, and AI integrations"
+category = "application"
+version = "1.0.0"
+
 [config]
-mounts = []
+mounts = [
+  { type = "volume", source = "minio_certs", target = "/certs" }
+]
 
 [[config.domains]]
 serviceName = "cap-web"
-port = 3_000
+port = 3000
 host = "${main_domain}"
 
 [config.env]
-PORT = "${PORT}"
+# Web Application
 WEB_URL = "${web_url}"
+NEXTAUTH_URL = "${web_url}"
+NODE_ENV = "production"
+WEB_PORT = "3000"
+LETSENCRYPT_HOST = "${main_domain}"
+
+# Database Configuration
 DB_NAME = "${db_name}"
 DB_ROOT_PASSWORD = "${db_root_password}"
-DB_PORT = "${db_port}"
 DATABASE_ENCRYPTION_KEY = "${database_encryption_key}"
 NEXTAUTH_SECRET = "${nextauth_secret}"
+
+# S3/MinIO Storage Configuration
 S3_ACCESS_KEY = "${s3_access_key}"
 S3_SECRET_KEY = "${s3_secret_key}"
 S3_BUCKET = "${s3_bucket}"
 S3_REGION = "${s3_region}"
-S3_ENDPOINT = "${s3_endpoint}"
+S3_PUBLIC_ENDPOINT = "${s3_public_endpoint}"
 MINIO_API_PORT = "${minio_api_port}"
 MINIO_CONSOLE_PORT = "${minio_console_port}"
+
+# OAuth Configuration (Optional)
 GOOGLE_CLIENT_ID = "${google_client_id}"
 GOOGLE_CLIENT_SECRET = "${google_client_secret}"
+
+# Email Configuration (Optional)
 RESEND_API_KEY = "${resend_api_key}"
+
+# AI Features (Optional)
 DEEPGRAM_API_KEY = "${deepgram_api_key}"
-OPENAI_API_KEY = "${openai_api_key}" 
+OPENAI_API_KEY = "${openai_api_key}"
+
+# Desktop App Configuration
+VITE_ENVIRONMENT = "${vite_environment}"
+VITE_SERVER_URL = "${vite_server_url}"
+CAP_DESKTOP_SENTRY_URL = "${cap_desktop_sentry_url}"
+RUST_BACKTRACE = "full"
+
+# Tasks Configuration
+TASKS_PORT = "${tasks_port}"
+NEXT_PUBLIC_TASKS_URL = "${tasks_url}"
+
+# Advanced Configuration (Optional)
+NEXT_LOOPS_KEY = "${next_loops_key}"
+VERCEL_AUTH_TOKEN = "${vercel_auth_token}"
+VERCEL_PROJECT_ID = "${vercel_project_id}"
+VERCEL_TEAM_ID = "${vercel_team_id}"
+CAP_CLOUDFRONT_DISTRIBUTION_ID = "${cap_cloudfront_distribution_id}"
+
+# Public Configuration
+NEXT_PUBLIC_WEB_URL = "${web_url}"
+NEXT_PUBLIC_CAP_AWS_BUCKET = "${s3_bucket}"
+NEXT_PUBLIC_CAP_AWS_REGION = "${s3_region}"
+NEXT_PUBLIC_CAP_AWS_ENDPOINT = "${s3_public_endpoint}"

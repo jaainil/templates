@@ -3,10 +3,9 @@ version: "3.8"
 services:
   kener:
     image: rajnandan1/kener:latest
-    container_name: kener
     restart: unless-stopped
     ports:
-      - "${KENER_PORT:-3000}:3000"
+      - "3000"
     environment:
       - TZ=${TIMEZONE:-UTC}
       - KENER_SECRET_KEY=${KENER_SECRET_KEY:-}
@@ -44,7 +43,6 @@ services:
   # Optional PostgreSQL database (uncomment to use instead of SQLite)
   postgres:
     image: postgres:alpine
-    container_name: kener_postgres
     restart: unless-stopped
     environment:
       - POSTGRES_USER=${POSTGRES_USER:-user}
@@ -63,7 +61,6 @@ services:
   # Optional MySQL database (uncomment to use instead of SQLite)
   mysql:
     image: mariadb:11
-    container_name: kener_mysql
     restart: unless-stopped
     environment:
       - MYSQL_USER=${MYSQL_USER:-user}

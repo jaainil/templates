@@ -1,24 +1,37 @@
-name = "DumbBudget"
-description = "Simple personal budget tracker"
-port = 3000
-
-[environment]
-PORT = "${PORT}"
+[variables]
+main_domain = "${domain}"
 
 # Application Configuration
-SITE_TITLE = "DumbBudget"
-BASE_URL = "http://${DOMAIN}"
-INSTANCE_NAME = "My Budget"
+dumbbudget_pin = "${password:6}"
+dumbbudget_base_url = "https://${main_domain}"
+dumbbudget_currency = "USD"
+dumbbudget_site_title = "DumbBudget"
+dumbbudget_instance_name = "My Budget"
+dumbbudget_allowed_origins = "https://${main_domain}"
 
-# Financial Configuration
-CURRENCY = "USD"
+[config]
+mounts = []
 
-# Security Configuration
-DUMBBUDGET_PIN = "${password:6}"
-ALLOWED_ORIGINS = "http://${DOMAIN}"
+[[config.domains]]
+serviceName = "dumbbudget"
+port = 3000
+host = "${main_domain}"
 
-[domains]
-[[domains.main]]
-host = "${DOMAIN}"
-port = "${PORT}"
-path = "/" 
+[config.env]
+# PIN to access the site
+DUMBBUDGET_PIN = "${dumbbudget_pin}"
+
+# URL to access the site
+DUMBBUDGET_BASE_URL = "${dumbbudget_base_url}"
+
+# Supported Currency Code: https://github.com/DumbWareio/DumbBudget?tab=readme-ov-file#supported-currencies
+DUMBBUDGET_CURRENCY = "${dumbbudget_currency}"
+
+# Name to show on site
+DUMBBUDGET_SITE_TITLE = "${dumbbudget_site_title}"
+
+# Name of instance/account
+DUMBBUDGET_INSTANCE_NAME = "${dumbbudget_instance_name}"
+
+# Restrict origins - ex: https://subdomain.domain.tld,https://auth.proxy.tld,http://internalip:port' (default is '*')
+DUMBBUDGET_ALLOWED_ORIGINS = "${dumbbudget_allowed_origins}"

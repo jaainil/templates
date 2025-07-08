@@ -1,22 +1,35 @@
-name = "HyprNote"
-description = "AI-powered meeting notepad with transcription and summarization"
-port = 3592
+[variables]
+main_domain = "${domain}"
 
-[environment]
-# Cerbos Authorization Service
-CERBOS_PORT = "3592"
+# Port Configuration
+cerbos_port = "3592"
 
-# MinIO Object Storage
-MINIO_API_PORT = "9000"
-MINIO_CONSOLE_PORT = "9001"
-MINIO_ROOT_USER = "hyprnote-admin"
-MINIO_ROOT_PASSWORD = "${password:16}"
+# MinIO Configuration
+minio_api_port = "9000"
+minio_console_port = "9001"
+minio_root_user = "hyprnote-admin"
+minio_root_password = "${password:16}"
 
 # Storage Configuration
-BUCKET_NAME = "hyprnote-storage"
+bucket_name = "hyprnote-storage"
 
-[domains]
-[[domains.main]]
-host = "${DOMAIN}"
-port = "${CERBOS_PORT}"
-path = "/" 
+[config]
+mounts = []
+
+[[config.domains]]
+serviceName = "cerbos"
+port = 3592
+host = "${main_domain}"
+
+[config.env]
+# Cerbos Authorization Service
+CERBOS_PORT = "${cerbos_port}"
+
+# MinIO Object Storage
+MINIO_API_PORT = "${minio_api_port}"
+MINIO_CONSOLE_PORT = "${minio_console_port}"
+MINIO_ROOT_USER = "${minio_root_user}"
+MINIO_ROOT_PASSWORD = "${minio_root_password}"
+
+# Storage Configuration
+BUCKET_NAME = "${bucket_name}" 

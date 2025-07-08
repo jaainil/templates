@@ -1,6 +1,5 @@
 services:
   app:
-    container_name: server
     restart: unless-stopped
     build:
       context: https://github.com/Yooooomi/your_spotify.git
@@ -34,12 +33,11 @@ services:
     volumes:
       - db_data:/data/db
     ports:
-      - "27017:27017"
+      - "27017"
     environment:
       MONGO_INITDB_DATABASE: your_spotify
 
   web:
-    container_name: web
     restart: unless-stopped
     build:
       context: https://github.com/Yooooomi/your_spotify.git

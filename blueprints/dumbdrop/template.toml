@@ -1,34 +1,54 @@
-name = "DumbDrop"
-description = "Simple file upload and sharing service"
-port = 3000
-
-[environment]
-PORT = "${PORT}"
+[variables]
+main_domain = "${domain}"
 
 # Application Configuration
-DUMBDROP_TITLE = "DumbDrop"
-BASE_URL = "http://${DOMAIN}"
+dumbdrop_title = "DumbDrop"
+base_url = "https://${main_domain}"
 
 # Upload Configuration
-MAX_FILE_SIZE = "1024"
-AUTO_UPLOAD = "true"
-ALLOWED_EXTENSIONS = ".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.txt,.zip,.rar,.mp4,.mp3"
+max_file_size = "1024"
+auto_upload = "true"
+allowed_extensions = ".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.txt,.zip,.rar,.mp4,.mp3"
 
 # Security Configuration
-DUMBDROP_PIN = "${password:6}"
-ALLOWED_ORIGINS = "http://${DOMAIN}"
+dumbdrop_pin = "${password:6}"
+allowed_origins = "https://${main_domain}"
 
 # Environment Settings
-NODE_ENV = "production"
-DEBUG = "false"
+node_env = "production"
+debug = "false"
+
+# Notification Settings (Optional)
+apprise_message = "New file uploaded - {filename} ({size}), Storage used {storage}"
+apprise_size_unit = "Auto"
+
+[config]
+mounts = []
+
+[[config.domains]]
+serviceName = "dumbdrop"
+port = 3000
+host = "${main_domain}"
+
+[config.env]
+# Application Configuration
+DUMBDROP_TITLE = "${dumbdrop_title}"
+BASE_URL = "${base_url}"
+
+# Upload Configuration
+MAX_FILE_SIZE = "${max_file_size}"
+AUTO_UPLOAD = "${auto_upload}"
+ALLOWED_EXTENSIONS = "${allowed_extensions}"
+
+# Security Configuration
+DUMBDROP_PIN = "${dumbdrop_pin}"
+ALLOWED_ORIGINS = "${allowed_origins}"
+
+# Environment Settings
+NODE_ENV = "${node_env}"
+DEBUG = "${debug}"
 
 # Notification Settings (Optional)
 APPRISE_URL = ""
-APPRISE_MESSAGE = "New file uploaded - {filename} ({size}), Storage used {storage}"
-APPRISE_SIZE_UNIT = "Auto"
-
-[domains]
-[[domains.main]]
-host = "${DOMAIN}"
-port = "${PORT}"
-path = "/" 
+APPRISE_MESSAGE = "${apprise_message}"
+APPRISE_SIZE_UNIT = "${apprise_size_unit}" 

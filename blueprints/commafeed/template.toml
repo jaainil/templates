@@ -1,14 +1,23 @@
-name = "CommaFeed"
-description = "Self-hosted RSS reader"
+[variables]
+main_domain = "${domain}"
+
+[config]
+mounts = []
+
+[[config.domains]]
+serviceName = "commafeed"
 port = 8082
+host = "${main_domain}"
 
-[environment]
-PORT = "${PORT}"
-DB_USER = "commafeed"
-DB_PASSWORD = "${password:32}"
+[config.env]
+# Database Configuration
+POSTGRES_USER  = "commafeed"
+POSTGRES_PASSWOR = "${password:32}"
+POSTGRES_DB = "commafeed"
 
-[domains]
-[[domains.main]]
-host = "${DOMAIN}"
-port = "${PORT}"
-path = "/" 
+#default id and password
+#ID: admin
+#Pass: admin
+
+# Admin Configuration
+COMMAFEED_ENABLE_ADMIN_REGISTRATION = "${enable_admin_registration}"

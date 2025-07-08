@@ -1,28 +1,51 @@
-name = "DumbPad"
-description = "Simple web-based notepad"
-port = 3000
-
-[environment]
-PORT = "${PORT}"
+[variables]
+main_domain = "${domain}"
 
 # Application Configuration
-SITE_TITLE = "DumbPad"
-BASE_URL = "http://${DOMAIN}"
+dumbpad_site_title = "DumbPad"
+dumbpad_base_url = "https://${main_domain}"
 
 # Security Configuration
-DUMBPAD_PIN = "${password:6}"
-ALLOWED_ORIGINS = "http://${DOMAIN}"
+dumbpad_pin = "${password:6}"
+dumbpad_allowed_origins = "https://${main_domain}"
 
 # PIN Protection Settings
-LOCKOUT_TIME = "15"
-MAX_ATTEMPTS = "5"
+dumbpad_lock_time = "15"
+dumbpad_max_attempts = "5"
 
 # Cookie Settings
-COOKIE_MAX_AGE = "24"
-PAGE_HISTORY_COOKIE_AGE = "365"
+dumbpad_cookie_max_age = "24"
+dumbpad_page_history_cookie_age = "365"
 
-[domains]
-[[domains.main]]
-host = "${DOMAIN}"
-port = "${PORT}"
-path = "/" 
+[config]
+mounts = []
+
+[[config.domains]]
+serviceName = "dumbpad"
+port = 3000
+host = "${main_domain}"
+
+[config.env]
+# The title shown in the web interface
+DUMBPAD_SITE_TITLE = "${dumbpad_site_title}"
+
+# Optional PIN protection (leave empty to disable)
+DUMBPAD_PIN = "${dumbpad_pin}"
+
+# The base URL for the application
+DUMBPAD_BASE_URL = "${dumbpad_base_url}"
+
+# Usage: Comma-separated list of urls: http://localhost:port,http://internalip:port,https://base.proxy.tld,https://authprovider.domain.tld
+DUMBPAD_ALLOWED_ORIGINS = "${dumbpad_allowed_origins}"
+
+# Customize pin lockout time (if empty, defaults to 15 in minutes)
+DUMBPAD_LOCK_TIME = "${dumbpad_lock_time}"
+
+# Customize pin max attempts (if empty, defaults to 5)
+DUMBPAD_MAX_ATTEMPTS = "${dumbpad_max_attempts}"
+
+# Customize maximum age of cookies primarily used for pin verification (default 24) in hours
+DUMBPAD_COOKIE_MAX_AGE = "${dumbpad_cookie_max_age}"
+
+# Customize age of cookie to show the last notepad opened (default 365 | max 400) in days
+DUMBPAD_PAGE_HISTORY_COOKIE_AGE = "${dumbpad_page_history_cookie_age}" 
