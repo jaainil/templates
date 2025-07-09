@@ -8,4 +8,4 @@ services:
       - CAPTCHA_SOLVER=${CAPTCHA_SOLVER}
       - TZ=${TZ}
     ports:
-      - "${PORT}"
+      - 8191

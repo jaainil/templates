@@ -11,7 +11,7 @@ services:
         limits:
           memory: 256M
     ports:
-      - "8082"
+      - 8082
     depends_on:
       - postgresql
 

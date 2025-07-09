@@ -5,9 +5,12 @@ main_domain = "${domain}"
 YTDLP_WEBUI_VERSION = "latest"
 
 [config]
-mounts = []
+mounts = [
+  { source = "ytdlp_downloads", target = "/downloads" },
+  { source = "ytdlp_config", target = "/config" }
+]
 
 [[config.domains]]
 serviceName = "yt-dlp-webui"
 port = 3033
-host = "${main_domain}" 
+host = "${main_domain}"

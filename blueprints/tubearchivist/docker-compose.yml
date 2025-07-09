@@ -3,7 +3,7 @@ services:
     image: bbilly1/tubearchivist:latest
     restart: unless-stopped
     ports:
-      - "${TA_PORT}"
+      - 8000
     volumes:
       - media:/youtube
       - cache:/cache

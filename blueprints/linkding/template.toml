@@ -1,6 +1,3 @@
-name = "Linkding"
-description = "Self-hosted bookmark manager with clean UI, tag organization, and REST API"
-
 [variables]
 main_domain = "${domain}"
 

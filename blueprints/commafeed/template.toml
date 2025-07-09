@@ -1,23 +1,22 @@
 [variables]
 main_domain = "${domain}"
+postgres_password = "${password:32}"
+
+[config.env]
+# Database Configuration
+POSTGRES_USER = "commafeed"
+POSTGRES_PASSWORD = "${postgres_password}"
+POSTGRES_DB = "commafeed"
+
+# Optional Admin Configuration (default admin/admin)
+COMMAFEED_ENABLE_ADMIN_REGISTRATION = "false"
 
 [config]
-mounts = []
+mounts = [
+  { source = "commafeed_db", target = "/var/lib/postgresql/data" }
+]
 
 [[config.domains]]
 serviceName = "commafeed"
 port = 8082
 host = "${main_domain}"
-
-[config.env]
-# Database Configuration
-POSTGRES_USER  = "commafeed"
-POSTGRES_PASSWOR = "${password:32}"
-POSTGRES_DB = "commafeed"
-
-#default id and password
-#ID: admin
-#Pass: admin
-
-# Admin Configuration
-COMMAFEED_ENABLE_ADMIN_REGISTRATION = "${enable_admin_registration}"

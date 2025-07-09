@@ -1,5 +1,4 @@
 [variables]
-main_domain = "${domain}"
 client_domain = "${domain}"
 api_domain = "${domain}"
 spotify_public = ""
@@ -25,7 +24,9 @@ PROMETHEUS_USERNAME = ""
 PROMETHEUS_PASSWORD = ""
 
 [config]
-mounts = []
+mounts = [
+  { source = "db_data", target = "/data/db" }
+]
 
 [[config.domains]]
 serviceName = "web"
@@ -35,4 +36,4 @@ host = "${client_domain}"
 [[config.domains]]
 serviceName = "app"
 port = 8080
-host = "${api_domain}" 
+host = "${api_domain}"

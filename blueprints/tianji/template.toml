@@ -1,15 +1,18 @@
 [variables]
 main_domain = "${domain}"
 
-[config]
-mounts = []
-
-[[config.domains]]
-serviceName = "tianji"
-port = 12_345
-host = "${main_domain}"
-
 [config.env]
 JWT_SECRET = "${base64:32}"
 ALLOW_REGISTER = "false"
-ALLOW_OPENAPI = "true" 
+ALLOW_OPENAPI = "true"
+
+[config]
+mounts = [
+  { type = "bind", hostPath = "/var/run/docker.sock", target = "/var/run/docker.sock" },
+  { source = "postgres-data", target = "/var/lib/postgresql/data" }
+]
+
+[[config.domains]]
+serviceName = "tianji"
+port = 12345
+host = "${main_domain}"

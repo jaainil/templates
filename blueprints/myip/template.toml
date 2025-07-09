@@ -1,6 +1,9 @@
 [variables]
 main_domain = "${domain}"
 
+[config.env]
+# No env variables needed for this service
+
 [config]
 mounts = []
 
@@ -8,6 +11,3 @@ mounts = []
 serviceName = "myip"
 port = 18966
 host = "${main_domain}"
-
-[config.env]
-# No additional environment variables required for MyIP service 

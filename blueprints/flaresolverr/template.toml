@@ -4,18 +4,18 @@ LOG_LEVEL = "info"
 LOG_HTML = "false"
 CAPTCHA_SOLVER = "none"
 TZ = "UTC"
+main_domain = "${domain}"
+
+[config.env]
+LOG_LEVEL = "${LOG_LEVEL}"
+LOG_HTML = "${LOG_HTML}"
+CAPTCHA_SOLVER = "${CAPTCHA_SOLVER}"
+TZ = "${TZ}"
 
 [config]
-env = [
-  "PORT=${PORT}",
-  "LOG_LEVEL=${LOG_LEVEL}",
-  "LOG_HTML=${LOG_HTML}",
-  "CAPTCHA_SOLVER=${CAPTCHA_SOLVER}",
-  "TZ=${TZ}",
-]
 mounts = []
 
 [[config.domains]]
 serviceName = "flaresolverr"
 port = 8191
-host = "${domain}" 
+host = "${main_domain}"

@@ -6,6 +6,5 @@ mounts = []
 
 [[config.domains]]
 serviceName = "omni-tools"
-port = "80"
+port = 80
 host = "${main_domain}"
-

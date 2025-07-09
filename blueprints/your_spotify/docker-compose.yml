@@ -9,31 +9,31 @@ services:
     depends_on:
       - mongo
     ports:
-      - "8080"
+      - 8080
     environment:
-      LOG_LEVEL: ${LOG_LEVEL:-debug}
-      API_ENDPOINT: ${API_ENDPOINT:-http://localhost:8080}
-      CLIENT_ENDPOINT: ${CLIENT_ENDPOINT:-http://localhost:3000}
+      LOG_LEVEL: ${LOG_LEVEL}
+      API_ENDPOINT: ${API_ENDPOINT}
+      CLIENT_ENDPOINT: ${CLIENT_ENDPOINT}
       SPOTIFY_PUBLIC: ${SPOTIFY_PUBLIC}
       SPOTIFY_SECRET: ${SPOTIFY_SECRET}
-      TIMEZONE: ${TIMEZONE:-Europe/Paris}
-      MONGO_ENDPOINT: ${MONGO_ENDPOINT:-mongodb://mongo:27017/your_spotify}
-      CORS: ${CORS:-}
-      COOKIE_VALIDITY_MS: ${COOKIE_VALIDITY_MS:-1h}
-      MAX_IMPORT_CACHE_SIZE: ${MAX_IMPORT_CACHE_SIZE:-}
-      MONGO_NO_ADMIN_RIGHTS: ${MONGO_NO_ADMIN_RIGHTS:-false}
-      PORT: ${PORT:-8080}
-      FRAME_ANCESTORS: ${FRAME_ANCESTORS:-}
-      PROMETHEUS_USERNAME: ${PROMETHEUS_USERNAME:-}
-      PROMETHEUS_PASSWORD: ${PROMETHEUS_PASSWORD:-}
+      TIMEZONE: ${TIMEZONE}
+      MONGO_ENDPOINT: ${MONGO_ENDPOINT}
+      CORS: ${CORS}
+      COOKIE_VALIDITY_MS: ${COOKIE_VALIDITY_MS}
+      MAX_IMPORT_CACHE_SIZE: ${MAX_IMPORT_CACHE_SIZE}
+      MONGO_NO_ADMIN_RIGHTS: ${MONGO_NO_ADMIN_RIGHTS}
+      PORT: ${PORT}
+      FRAME_ANCESTORS: ${FRAME_ANCESTORS}
+      PROMETHEUS_USERNAME: ${PROMETHEUS_USERNAME}
+      PROMETHEUS_PASSWORD: ${PROMETHEUS_PASSWORD}
 
   mongo:
-    image: mongo:${MONGO_VERSION:-6}
+    image: mongo:${MONGO_VERSION}
     restart: unless-stopped
     volumes:
       - db_data:/data/db
     ports:
-      - "27017"
+      - 27017
     environment:
       MONGO_INITDB_DATABASE: your_spotify
 
@@ -45,10 +45,10 @@ services:
       args:
         NODE_ENV: production
     ports:
-      - "3000"
+      - 3000
     environment:
       NODE_ENV: production
-      API_ENDPOINT: ${API_ENDPOINT:-http://localhost:8080}
+      API_ENDPOINT: ${API_ENDPOINT}
 
 volumes:
   db_data:

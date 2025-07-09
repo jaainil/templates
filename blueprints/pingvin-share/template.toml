@@ -1,20 +1,18 @@
 [variables]
 main_domain = "${domain}"
 
+[config.env]
+TRUST_PROXY = "false"
+CLAMAV_HOST = "" # Set to "disabled" to turn off scanning
+
 [config]
-mounts = []
+mounts = [
+  { source = "pingvin_data", target = "/opt/app/backend/data" },
+  { source = "pingvin_images", target = "/opt/app/frontend/public/img" },
+  { source = "clamav_data", target = "/var/lib/clamav" }
+]
 
 [[config.domains]]
 serviceName = "pingvin-share"
 port = 3000
 host = "${main_domain}"
-
-[config.env]
-# Set to true if using a reverse proxy (Nginx, Traefik, etc.) in front of Pingvin Share
-TRUST_PROXY = "false"
-
-# ClamAV Configuration
-# Leave empty to use the bundled ClamAV service (recommended for malware scanning)
-# Or specify an external ClamAV hostname if you have one running elsewhere
-# Set to "disabled" to completely disable malware scanning
-CLAMAV_HOST = "" 

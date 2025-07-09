@@ -1,6 +1,7 @@
 [variables]
+main_domain = "${domain}"
 TA_PORT = "8000"
-TA_HOST = "http://${domain}"
+TA_HOST = "http://${main_domain}"
 TA_USERNAME = "tubearchivist"
 TA_PASSWORD = "${password:16}"
 ELASTIC_PASSWORD = "${password:16}"
@@ -10,22 +11,27 @@ HOST_GID = "1000"
 ES_MEMORY_MIN = "1g"
 ES_MEMORY_MAX = "1g"
 
+[config.env]
+TA_PORT = "${TA_PORT}"
+TA_HOST = "${TA_HOST}"
+TA_USERNAME = "${TA_USERNAME}"
+TA_PASSWORD = "${TA_PASSWORD}"
+ELASTIC_PASSWORD = "${ELASTIC_PASSWORD}"
+TZ = "${TZ}"
+HOST_UID = "${HOST_UID}"
+HOST_GID = "${HOST_GID}"
+ES_MEMORY_MIN = "${ES_MEMORY_MIN}"
+ES_MEMORY_MAX = "${ES_MEMORY_MAX}"
+
 [config]
-env = [
-  "TA_PORT=${TA_PORT}",
-  "TA_HOST=${TA_HOST}",
-  "TA_USERNAME=${TA_USERNAME}",
-  "TA_PASSWORD=${TA_PASSWORD}",
-  "ELASTIC_PASSWORD=${ELASTIC_PASSWORD}",
-  "TZ=${TZ}",
-  "HOST_UID=${HOST_UID}",
-  "HOST_GID=${HOST_GID}",
-  "ES_MEMORY_MIN=${ES_MEMORY_MIN}",
-  "ES_MEMORY_MAX=${ES_MEMORY_MAX}",
+mounts = [
+  { source = "media", target = "/youtube" },
+  { source = "cache", target = "/cache" },
+  { source = "redis", target = "/data" },
+  { source = "es", target = "/usr/share/elasticsearch/data" }
 ]
-mounts = []
 
 [[config.domains]]
 serviceName = "tubearchivist"
 port = 8000
-host = "${domain}" 
+host = "${main_domain}"

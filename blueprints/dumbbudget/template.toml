@@ -9,29 +9,20 @@ dumbbudget_site_title = "DumbBudget"
 dumbbudget_instance_name = "My Budget"
 dumbbudget_allowed_origins = "https://${main_domain}"
 
+[config.env]
+DUMBBUDGET_PIN = "${dumbbudget_pin}"
+DUMBBUDGET_BASE_URL = "${dumbbudget_base_url}"
+DUMBBUDGET_CURRENCY = "${dumbbudget_currency}"
+DUMBBUDGET_SITE_TITLE = "${dumbbudget_site_title}"
+DUMBBUDGET_INSTANCE_NAME = "${dumbbudget_instance_name}"
+DUMBBUDGET_ALLOWED_ORIGINS = "${dumbbudget_allowed_origins}"
+
 [config]
-mounts = []
+mounts = [
+  { source = "dumbbudget_data", target = "/app/data" }
+]
 
 [[config.domains]]
 serviceName = "dumbbudget"
 port = 3000
 host = "${main_domain}"
-
-[config.env]
-# PIN to access the site
-DUMBBUDGET_PIN = "${dumbbudget_pin}"
-
-# URL to access the site
-DUMBBUDGET_BASE_URL = "${dumbbudget_base_url}"
-
-# Supported Currency Code: https://github.com/DumbWareio/DumbBudget?tab=readme-ov-file#supported-currencies
-DUMBBUDGET_CURRENCY = "${dumbbudget_currency}"
-
-# Name to show on site
-DUMBBUDGET_SITE_TITLE = "${dumbbudget_site_title}"
-
-# Name of instance/account
-DUMBBUDGET_INSTANCE_NAME = "${dumbbudget_instance_name}"
-
-# Restrict origins - ex: https://subdomain.domain.tld,https://auth.proxy.tld,http://internalip:port' (default is '*')
-DUMBBUDGET_ALLOWED_ORIGINS = "${dumbbudget_allowed_origins}"

@@ -3,7 +3,7 @@ services:
     image: dumbwareio/dumbdrop:latest
     restart: unless-stopped
     ports:
-      - "3000"
+      - 3000
     volumes:
       - dumbdrop_uploads:/app/uploads
     environment:

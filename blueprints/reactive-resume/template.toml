@@ -1,11 +1,11 @@
 [variables]
 main_domain = "${domain}"
-postgres_password = "${password:32}"
-minio_root_password = "${password:32}"
-access_token_secret = "${password:32}"
-refresh_token_secret = "${password:32}"
+postgres_password = "${password}"
+minio_root_password = "${password}"
+access_token_secret = "${password}"
+refresh_token_secret = "${password}"
 chrome_token = "${password:16}"
-mail_from = "noreply@${domain}"
+mail_from = "noreply@${main_domain}"
 
 [config.env]
 # Application versions
@@ -14,21 +14,21 @@ POSTGRES_VERSION = "16-alpine"
 MINIO_VERSION = "latest"
 CHROME_VERSION = "latest"
 
-# Environment Variables
+# Base configuration
 PORT = "3000"
 NODE_ENV = "production"
 
 # URLs
 PUBLIC_URL = "https://${main_domain}"
-STORAGE_URL = "https://${main_domain}:9000/default"
+STORAGE_URL = "https://minio.${main_domain}/default"
 
-# Database (Postgres)
+# Database
 POSTGRES_DB = "postgres"
 POSTGRES_USER = "postgres"
 POSTGRES_PASSWORD = "${postgres_password}"
 DATABASE_URL = "postgresql://postgres:${postgres_password}@postgres:5432/postgres"
 
-# Storage (Minio)
+# Minio
 MINIO_ROOT_USER = "minioadmin"
 MINIO_ROOT_PASSWORD = "${minio_root_password}"
 STORAGE_ENDPOINT = "minio"
@@ -40,15 +40,15 @@ STORAGE_SECRET_KEY = "${minio_root_password}"
 STORAGE_USE_SSL = "false"
 STORAGE_SKIP_BUCKET_CHECK = "false"
 
-# Chrome Browser (for printing and previews)
+# Chrome
 CHROME_TOKEN = "${chrome_token}"
 CHROME_URL = "ws://chrome:3000"
 
-# Auth
+# Auth secrets
 ACCESS_TOKEN_SECRET = "${access_token_secret}"
 REFRESH_TOKEN_SECRET = "${refresh_token_secret}"
 
-# Emails
+# Mail
 MAIL_FROM = "${mail_from}"
 SMTP_URL = ""
 
@@ -56,11 +56,11 @@ SMTP_URL = ""
 DISABLE_SIGNUPS = "false"
 DISABLE_EMAIL_AUTH = "false"
 
-# Optional integrations (empty by default)
+# Optional integrations
 CROWDIN_PROJECT_ID = ""
 CROWDIN_PERSONAL_TOKEN = ""
 
-# OAuth integrations (optional)
+# OAuth
 GITHUB_CLIENT_ID = ""
 GITHUB_CLIENT_SECRET = ""
 GITHUB_CALLBACK_URL = ""
@@ -68,7 +68,7 @@ GOOGLE_CLIENT_ID = ""
 GOOGLE_CLIENT_SECRET = ""
 GOOGLE_CALLBACK_URL = ""
 
-# OpenID Connect (optional)
+# OpenID Connect
 VITE_OPENID_NAME = "OpenID"
 OPENID_AUTHORIZATION_URL = ""
 OPENID_CALLBACK_URL = ""
@@ -80,7 +80,10 @@ OPENID_TOKEN_URL = ""
 OPENID_USER_INFO_URL = ""
 
 [config]
-mounts = []
+mounts = [
+  { source = "minio_data", target = "/data" },
+  { source = "postgres_data", target = "/var/lib/postgresql/data" }
+]
 
 [[config.domains]]
 serviceName = "app"
@@ -90,4 +93,4 @@ host = "${main_domain}"
 [[config.domains]]
 serviceName = "minio"
 port = 9000
-host = "${main_domain}" 
+host = "minio.${main_domain}"

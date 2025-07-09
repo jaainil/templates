@@ -7,7 +7,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
-      - "3306"
+      - 3306
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_DATABASE=${DB_NAME}
@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
     command: ["redis-server", "--appendonly", "yes"]
     ports:
-      - "6379"
+      - 6379
     volumes:
       - redis_data:/data
 
@@ -32,7 +32,7 @@ services:
     image: antiwork/gumroad:latest
     restart: unless-stopped
     ports:
-      - "3000"
+      - 3000
     depends_on:
       - mysql
       - redis

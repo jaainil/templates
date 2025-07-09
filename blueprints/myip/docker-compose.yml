@@ -5,4 +5,4 @@ services:
     tty: true
     restart: always
     ports:
-      - "18966"
+      - 18966

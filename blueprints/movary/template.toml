@@ -1,8 +1,8 @@
 [variables]
 main_domain = "${domain}"
-tmdb_api_key = ""
-mysql_password = "${password:32}"
-mysql_root_password = "${password:32}"
+tmdb_api_key = { default = "", description = "Your TMDB API key" }
+mysql_password = { generator = "password", length = 32 }
+mysql_root_password = { generator = "password", length = 32 }
 
 [config.env]
 MOVARY_VERSION = "latest"
@@ -14,9 +14,12 @@ APP_URL = "http://${main_domain}"
 APP_ENV = "production"
 
 [config]
-mounts = []
+mounts = [
+  { source = "movary_storage", target = "/app/storage" },
+  { source = "movary_db", target = "/var/lib/mysql" }
+]
 
 [[config.domains]]
 serviceName = "movary"
 port = 8080
-host = "${main_domain}" 
+host = "${main_domain}"

@@ -1,35 +1,30 @@
 [variables]
 main_domain = "${domain}"
-
-# Port Configuration
-cerbos_port = "3592"
-
-# MinIO Configuration
-minio_api_port = "9000"
-minio_console_port = "9001"
 minio_root_user = "hyprnote-admin"
 minio_root_password = "${password:16}"
-
-# Storage Configuration
 bucket_name = "hyprnote-storage"
 
+[config.env]
+MINIO_ROOT_USER = "${minio_root_user}"
+MINIO_ROOT_PASSWORD = "${minio_root_password}"
+BUCKET_NAME = "${bucket_name}"
+
 [config]
-mounts = []
+mounts = [
+  { source = "minio_data", target = "/data" }
+]
 
 [[config.domains]]
 serviceName = "cerbos"
 port = 3592
-host = "${main_domain}"
+host = "cerbos.${main_domain}"
 
-[config.env]
-# Cerbos Authorization Service
-CERBOS_PORT = "${cerbos_port}"
+[[config.domains]]
+serviceName = "minio"
+port = 9000
+host = "api.${main_domain}"
 
-# MinIO Object Storage
-MINIO_API_PORT = "${minio_api_port}"
-MINIO_CONSOLE_PORT = "${minio_console_port}"
-MINIO_ROOT_USER = "${minio_root_user}"
-MINIO_ROOT_PASSWORD = "${minio_root_password}"
-
-# Storage Configuration
-BUCKET_NAME = "${bucket_name}" 
+[[config.domains]]
+serviceName = "minio"
+port = 9001
+host = "console.${main_domain}"

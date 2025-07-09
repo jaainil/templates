@@ -3,7 +3,7 @@ services:
     image: dumbwareio/dumbbudget:latest
     restart: unless-stopped
     ports:
-      - "3000"
+      - 3000
     volumes:
       - dumbbudget_data:/app/data
     environment:

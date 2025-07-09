@@ -7,7 +7,7 @@ services:
     volumes:
       - op-db-data:/var/lib/postgresql/data
     ports:
-      - "5432"
+      - 5432
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -20,7 +20,7 @@ services:
       - op-kv-data:/data
     command: ["redis-server", "--maxmemory-policy", "noeviction"]
     ports:
-      - "6379"
+      - 6379
 
   op-ch:
     image: clickhouse/clickhouse-server:24.12.2.29-alpine
@@ -33,9 +33,9 @@ services:
         soft: 262144
         hard: 262144
     ports:
-      - "8123" # HTTP interface
-      - "9000" # Native/TCP interface
-      - "9009" # Inter-server communication
+      - 8123
+      - 9000
+      - 9009
 
 volumes:
   op-db-data:

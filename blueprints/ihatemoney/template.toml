@@ -1,43 +1,65 @@
 [variables]
+# Domain & runtime variables
+main_domain = "${domain}"
+PORT = "8000"
+
+# Security & admin
 SECRET_KEY = "${base64:64}"
 ADMIN_PASSWORD = "${password:32}"
-MAIL_DEFAULT_SENDER = "Budget Manager <admin@${domain}>"
+
+# Email settings
+MAIL_DEFAULT_SENDER = "Budget Manager <admin@${main_domain}>"
 MAIL_SERVER = "localhost"
 MAIL_PORT = "25"
 MAIL_USERNAME = ""
 MAIL_PASSWORD = ""
+MAIL_USE_SSL = "False"
+MAIL_USE_TLS = "False"
+
+# Other settings
+ACTIVATE_DEMO_PROJECT = "False"
+ACTIVATE_ADMIN_DASHBOARD = "True"
+ALLOW_PUBLIC_PROJECT_CREATION = "True"
 BABEL_DEFAULT_TIMEZONE = "UTC"
-PORT = "8000"
+SESSION_COOKIE_SECURE = "True"
+SHOW_ADMIN_EMAIL = "True"
+ENABLE_CAPTCHA = "False"
+LEGAL_LINK = ""
 PUID = "1000"
 PGID = "1000"
-LEGAL_LINK = ""
 
-[config]
-env = [
-  "SECRET_KEY=${SECRET_KEY}",
-  "ADMIN_PASSWORD=${ADMIN_PASSWORD}",
-  "ACTIVATE_DEMO_PROJECT=False",
-  "ACTIVATE_ADMIN_DASHBOARD=True",
-  "ALLOW_PUBLIC_PROJECT_CREATION=True",
-  "BABEL_DEFAULT_TIMEZONE=${BABEL_DEFAULT_TIMEZONE}",
-  "MAIL_DEFAULT_SENDER=${MAIL_DEFAULT_SENDER}",
-  "MAIL_PASSWORD=${MAIL_PASSWORD}",
-  "MAIL_PORT=${MAIL_PORT}",
-  "MAIL_SERVER=${MAIL_SERVER}",
-  "MAIL_USE_SSL=False",
-  "MAIL_USE_TLS=False",
-  "MAIL_USERNAME=${MAIL_USERNAME}",
-  "SESSION_COOKIE_SECURE=True",
-  "SHOW_ADMIN_EMAIL=True",
-  "ENABLE_CAPTCHA=False",
-  "LEGAL_LINK=${LEGAL_LINK}",
-  "PORT=${PORT}",
-  "PUID=${PUID}",
-  "PGID=${PGID}",
-]
-mounts = []
+[config.env]
+DEBUG = "False"
+ACTIVATE_DEMO_PROJECT = "${ACTIVATE_DEMO_PROJECT}"
+ACTIVATE_ADMIN_DASHBOARD = "${ACTIVATE_ADMIN_DASHBOARD}"
+ADMIN_PASSWORD = "${ADMIN_PASSWORD}"
+ALLOW_PUBLIC_PROJECT_CREATION = "${ALLOW_PUBLIC_PROJECT_CREATION}"
+BABEL_DEFAULT_TIMEZONE = "${BABEL_DEFAULT_TIMEZONE}"
+GREENLET_TEST_CPP = "no"
+MAIL_DEFAULT_SENDER = "${MAIL_DEFAULT_SENDER}"
+MAIL_PASSWORD = "${MAIL_PASSWORD}"
+MAIL_PORT = "${MAIL_PORT}"
+MAIL_SERVER = "${MAIL_SERVER}"
+MAIL_USE_SSL = "${MAIL_USE_SSL}"
+MAIL_USE_TLS = "${MAIL_USE_TLS}"
+MAIL_USERNAME = "${MAIL_USERNAME}"
+SECRET_KEY = "${SECRET_KEY}"
+SESSION_COOKIE_SECURE = "${SESSION_COOKIE_SECURE}"
+SHOW_ADMIN_EMAIL = "${SHOW_ADMIN_EMAIL}"
+SQLALCHEMY_DATABASE_URI = "sqlite:////database/ihatemoney.db"
+SQLALCHEMY_TRACK_MODIFICATIONS = "False"
+APPLICATION_ROOT = "/"
+ENABLE_CAPTCHA = "${ENABLE_CAPTCHA}"
+LEGAL_LINK = "${LEGAL_LINK}"
+PORT = "${PORT}"
+PUID = "${PUID}"
+PGID = "${PGID}"
 
 [[config.domains]]
 serviceName = "ihatemoney"
-port = 8000
-host = "${domain}" 
+port = ${PORT}
+host = "${main_domain}"
+
+[[config.mounts]]
+filePath = "/database"
+# Leave content empty—it uses named volume `ihatemoney_data`

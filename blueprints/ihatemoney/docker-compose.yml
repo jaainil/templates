@@ -1,6 +1,7 @@
 services:
   ihatemoney:
     image: ihatemoney/ihatemoney:latest
+    restart: unless-stopped
     environment:
       - DEBUG=False
       - ACTIVATE_DEMO_PROJECT=${ACTIVATE_DEMO_PROJECT}

@@ -1,17 +1,18 @@
 [variables]
-PORT = "5173"
 PUBLIC_HTTPS_ONLY = "false"
 PUBLIC_SIGNUP_DISABLED = "false"
+main_domain = "${domain}"
+
+[config.env]
+PUBLIC_HTTPS_ONLY = "${PUBLIC_HTTPS_ONLY}"
+PUBLIC_SIGNUP_DISABLED = "${PUBLIC_SIGNUP_DISABLED}"
 
 [config]
-env = [
-  "PORT=${PORT}",
-  "PUBLIC_HTTPS_ONLY=${PUBLIC_HTTPS_ONLY}",
-  "PUBLIC_SIGNUP_DISABLED=${PUBLIC_SIGNUP_DISABLED}",
+mounts = [
+  { source = "grimoire_data", target = "/app/data/" }
 ]
-mounts = []
 
 [[config.domains]]
 serviceName = "grimoire"
 port = 5173
-host = "${domain}" 
+host = "${main_domain}"

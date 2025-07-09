@@ -21,31 +21,24 @@ currency_locale = "en-US"
 # Notification Settings
 apprise_url = ""
 
+[config.env]
+SITE_TITLE = "${site_title}"
+BASE_URL = "${base_url}"
+DUMBASSETS_PIN = "${dumbassets_pin}"
+ALLOWED_ORIGINS = "${allowed_origins}"
+NODE_ENV = "${node_env}"
+DEBUG = "${debug}"
+DEMO_MODE = "${demo_mode}"
+CURRENCY_CODE = "${currency_code}"
+CURRENCY_LOCALE = "${currency_locale}"
+APPRISE_URL = "${apprise_url}"
+
 [config]
-mounts = []
+mounts = [
+  { source = "dumbassets_data", target = "/app/data" }
+]
 
 [[config.domains]]
 serviceName = "dumbassets"
 port = 3000
 host = "${main_domain}"
-
-[config.env]
-# Application Configuration
-SITE_TITLE = "${site_title}"
-BASE_URL = "${base_url}"
-
-# Security Configuration
-DUMBASSETS_PIN = "${dumbassets_pin}"
-ALLOWED_ORIGINS = "${allowed_origins}"
-
-# Environment Settings
-NODE_ENV = "${node_env}"
-DEBUG = "${debug}"
-DEMO_MODE = "${demo_mode}"
-
-# Currency Settings
-CURRENCY_CODE = "${currency_code}"
-CURRENCY_LOCALE = "${currency_locale}"
-
-# Notification Settings (Optional)
-APPRISE_URL = "" 

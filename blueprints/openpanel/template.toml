@@ -2,16 +2,22 @@
 POSTGRES_USER = "postgres"
 POSTGRES_PASSWORD = "${password:16}"
 POSTGRES_DB = "openpanel"
+main_domain = "${domain}"
+
+[config.env]
+POSTGRES_USER = "${POSTGRES_USER}"
+POSTGRES_PASSWORD = "${POSTGRES_PASSWORD}"
+POSTGRES_DB = "${POSTGRES_DB}"
 
 [config]
-env = [
-  "POSTGRES_USER=${POSTGRES_USER}",
-  "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}",
-  "POSTGRES_DB=${POSTGRES_DB}",
+mounts = [
+  { source = "op-db-data", target = "/var/lib/postgresql/data" },
+  { source = "op-kv-data", target = "/data" },
+  { source = "op-ch-data", target = "/var/lib/clickhouse" },
+  { source = "op-ch-logs", target = "/var/log/clickhouse-server" }
 ]
-mounts = []
 
 [[config.domains]]
 serviceName = "op-ch"
 port = 8123
-host = "${domain}" 
+host = "${main_domain}"

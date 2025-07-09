@@ -4,10 +4,10 @@ services:
   nitter:
     image: zedeus/nitter:latest
     ports:
-      - "8080"
+      - 8080
     volumes:
-      - ./nitter.conf:/src/nitter.conf:Z,ro
-      - ./sessions.jsonl:/src/sessions.jsonl:Z,ro
+      - nitter_conf:/src/nitter.conf:ro
+      - nitter_sessions:/src/sessions.jsonl:ro
     depends_on:
       - nitter-redis
     restart: unless-stopped
@@ -43,3 +43,5 @@ services:
 
 volumes:
   nitter_redis_data:
+  nitter_conf:
+  nitter_sessions:

@@ -32,7 +32,7 @@ URL_PREFIX = "/"
 PUBLIC_HOST_URL = ""
 PUBLIC_HOST_AUDIO_URL = ""
 
-# HTTPS settings
+# HTTPS
 HTTPS = "false"
 CERTFILE = ""
 KEYFILE = ""
@@ -42,25 +42,28 @@ OUTPUT_TEMPLATE = "%(title)s.%(ext)s"
 OUTPUT_TEMPLATE_CHAPTER = "%(title)s - %(section_number)s %(section_title)s.%(ext)s"
 OUTPUT_TEMPLATE_PLAYLIST = "%(playlist_title)s/%(title)s.%(ext)s"
 
-# Playlist settings
+# Playlist behavior
 DEFAULT_OPTION_PLAYLIST_STRICT_MODE = "false"
 DEFAULT_OPTION_PLAYLIST_ITEM_LIMIT = "0"
 
-# yt-dlp options
+# yt-dlp
 YTDL_OPTIONS = ""
 YTDL_OPTIONS_FILE = ""
 
-# Download mode and concurrency
+# Downloading
 DOWNLOAD_MODE = "limited"
 MAX_CONCURRENT_DOWNLOADS = "3"
 
-# Robots.txt
+# robots.txt
 ROBOTS_TXT = ""
 
 [config]
-mounts = []
+mounts = [
+  { source = "metube_downloads", target = "/downloads" },
+  { source = "metube_state", target = "/downloads/.metube" }
+]
 
 [[config.domains]]
 serviceName = "metube"
 port = 8081
-host = "${main_domain}" 
+host = "${main_domain}"
