@@ -1,22 +1,27 @@
 [variables]
 main_domain = "${domain}"
 postgres_password = "${password:32}"
-
-[config.env]
-# Database Configuration
-POSTGRES_USER = "commafeed"
-POSTGRES_PASSWORD = "${postgres_password}"
-POSTGRES_DB = "commafeed"
-
-# Optional Admin Configuration (default admin/admin)
-COMMAFEED_ENABLE_ADMIN_REGISTRATION = "false"
+quarkus_datasource_username = "commafeed"
+quarkus_datasource_password = "${password:32}"
 
 [config]
-mounts = [
-  { source = "commafeed_db", target = "/var/lib/postgresql/data" }
-]
-
 [[config.domains]]
 serviceName = "commafeed"
 port = 8082
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+# commafeed environment variables
+QUARKUS_DATASOURCE_JDBC_URL = "jdbc:postgresql://postgresql:5432/commafeed"
+QUARKUS_DATASOURCE_USERNAME = "${quarkus_datasource_username}"
+QUARKUS_DATASOURCE_PASSWORD = "${quarkus_datasource_password}"
+
+# postgresql environment variables
+POSTGRES_USER = "commafeed"
+POSTGRES_PASSWORD = "${postgres_password}"
+POSTGRES_DB = "commafeed"
+
+[[config.mounts]]
+filePath = "/var/lib/postgresql/data"
+content = ""

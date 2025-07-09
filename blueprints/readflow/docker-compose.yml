@@ -1,21 +1,14 @@
+version: "3.8"
 services:
   db:
     image: postgres:14
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    restart: always
     volumes:
       - db-data:/var/lib/postgresql/data
 
   imgproxy:
-    image: darthsim/imgproxy
-    restart: unless-stopped
-    environment:
-      IMGPROXY_KEY: ${READFLOW_HASH_SECRET_KEY}
-      IMGPROXY_SALT: ${READFLOW_HASH_SECRET_SALT}
-      IMGPROXY_ENABLE_WEBP_DETECTION: "true"
+    image: darthsim/imgproxy:latest
+    restart: always
     logging:
       driver: "json-file"
       options:
@@ -23,27 +16,20 @@ services:
 
   gotenberg:
     image: gotenberg/gotenberg:7
-    restart: unless-stopped
+    restart: always
 
   readflow:
-    image: ncarlier/readflow:${READFLOW_VERSION}
-    restart: unless-stopped
-    depends_on:
-      - db
+    image: ncarlier/readflow:edge
+    restart: always
     ports:
       - 8080
-    environment:
-      READFLOW_DATABASE_URI: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db/${POSTGRES_DB}?sslmode=disable
-      READFLOW_METRICS_LISTEN_ADDR: ":9090"
-      READFLOW_IMAGE_PROXY_URL: http://imgproxy:8080
-      READFLOW_PDF_SERVICE_PROVIDER: http://gotenberg:3000/forms/chromium/convert/html
-      READFLOW_AUTHN_METHOD: basic
-      READFLOW_AUTHN_BASIC_HTPASSWD_FILE: file:///var/local/demo.htpasswd
-      READFLOW_HASH_SECRET_KEY: ${READFLOW_HASH_SECRET_KEY}
-      READFLOW_HASH_SECRET_SALT: ${READFLOW_HASH_SECRET_SALT}
+    depends_on:
+      - db
+      - imgproxy
+      - gotenberg
     volumes:
-      - readflow_data:/var/local
+      - readflow-htpasswd:/var/local/demo.htpasswd
 
 volumes:
   db-data:
-  readflow_data:
+  readflow-htpasswd:

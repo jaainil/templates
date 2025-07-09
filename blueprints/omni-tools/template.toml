@@ -2,9 +2,18 @@
 main_domain = "${domain}"
 
 [config]
-mounts = []
-
 [[config.domains]]
 serviceName = "omni-tools"
-port = 80
+port = 8080
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+# No environment variables required by default
+# Add variables here if needed (e.g., API keys, configuration settings)
+# Example:
+# API_KEY = "${password:32}"  # Replace with actual API key if required
+TZ = "UTC"  # Default timezone, adjust as needed
+
+[[config.mounts]]
+# No mounts required for omni-tools

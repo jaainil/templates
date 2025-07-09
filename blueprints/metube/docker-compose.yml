@@ -1,54 +1,16 @@
+version: "3.8"
 services:
   metube:
-    image: ghcr.io/alexta69/metube:${METUBE_VERSION:-latest}
+    image: ghcr.io/alexta69/metube:latest
     restart: unless-stopped
     ports:
       - 8081
     volumes:
-      - metube_downloads:/downloads
-      - metube_state:/downloads/.metube
-    environment:
-      UID: ${UID}
-      GID: ${GID}
-      UMASK: ${UMASK}
-
-      DEFAULT_THEME: ${DEFAULT_THEME}
-
-      DOWNLOAD_DIR: ${DOWNLOAD_DIR}
-      AUDIO_DOWNLOAD_DIR: ${AUDIO_DOWNLOAD_DIR}
-      DOWNLOAD_DIRS_INDEXABLE: ${DOWNLOAD_DIRS_INDEXABLE}
-
-      CUSTOM_DIRS: ${CUSTOM_DIRS}
-      CREATE_CUSTOM_DIRS: ${CREATE_CUSTOM_DIRS}
-      CUSTOM_DIRS_EXCLUDE_REGEX: ${CUSTOM_DIRS_EXCLUDE_REGEX}
-
-      STATE_DIR: ${STATE_DIR}
-      TEMP_DIR: ${TEMP_DIR}
-      DELETE_FILE_ON_TRASHCAN: ${DELETE_FILE_ON_TRASHCAN}
-
-      URL_PREFIX: ${URL_PREFIX}
-      PUBLIC_HOST_URL: ${PUBLIC_HOST_URL}
-      PUBLIC_HOST_AUDIO_URL: ${PUBLIC_HOST_AUDIO_URL}
-
-      HTTPS: ${HTTPS}
-      CERTFILE: ${CERTFILE}
-      KEYFILE: ${KEYFILE}
-
-      OUTPUT_TEMPLATE: ${OUTPUT_TEMPLATE}
-      OUTPUT_TEMPLATE_CHAPTER: ${OUTPUT_TEMPLATE_CHAPTER}
-      OUTPUT_TEMPLATE_PLAYLIST: ${OUTPUT_TEMPLATE_PLAYLIST}
-
-      DEFAULT_OPTION_PLAYLIST_STRICT_MODE: ${DEFAULT_OPTION_PLAYLIST_STRICT_MODE}
-      DEFAULT_OPTION_PLAYLIST_ITEM_LIMIT: ${DEFAULT_OPTION_PLAYLIST_ITEM_LIMIT}
-
-      YTDL_OPTIONS: ${YTDL_OPTIONS}
-      YTDL_OPTIONS_FILE: ${YTDL_OPTIONS_FILE}
-
-      DOWNLOAD_MODE: ${DOWNLOAD_MODE}
-      MAX_CONCURRENT_DOWNLOADS: ${MAX_CONCURRENT_DOWNLOADS}
-
-      ROBOTS_TXT: ${ROBOTS_TXT}
+      - metube-downloads:/downloads
+      # - metube-ssl-crt:/ssl/crt.pem  # Uncomment for HTTPS
+      # - metube-ssl-key:/ssl/key.pem  # Uncomment for HTTPS
 
 volumes:
-  metube_downloads:
-  metube_state:
+  metube-downloads:
+  # metube-ssl-crt:  # Uncomment for HTTPS
+  # metube-ssl-key:  # Uncomment for HTTPS

@@ -1,14 +1,14 @@
+version: "3.8"
 services:
   neko:
-    image: "ghcr.io/m1k1o/neko/firefox:latest"
-    restart: "unless-stopped"
-    shm_size: "2gb"
+    image: ghcr.io/m1k1o/neko/firefox:latest
+    restart: unless-stopped
+    shm_size: 2gb
     ports:
-      - "8080"
-      - "52000-52100/udp"
-    environment:
-      - NEKO_DESKTOP_SCREEN=${NEKO_DESKTOP_SCREEN}
-      - NEKO_MEMBER_MULTIUSER_USER_PASSWORD=${NEKO_MEMBER_MULTIUSER_USER_PASSWORD}
-      - NEKO_MEMBER_MULTIUSER_ADMIN_PASSWORD=${NEKO_MEMBER_MULTIUSER_ADMIN_PASSWORD}
-      - NEKO_WEBRTC_EPR=${NEKO_WEBRTC_EPR}
-      - NEKO_WEBRTC_ICELITE=${NEKO_WEBRTC_ICELITE}
+      - 8080
+      - 52000-52100:52000-52100/udp
+    volumes:
+      - neko-config:/etc/neko/neko.yaml:ro
+
+volumes:
+  neko-config:

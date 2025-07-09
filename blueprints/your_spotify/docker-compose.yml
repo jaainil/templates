@@ -1,54 +1,21 @@
+version: "3.8"
 services:
-  app:
-    restart: unless-stopped
-    build:
-      context: https://github.com/Yooooomi/your_spotify.git
-      dockerfile: Dockerfile.server.production
-      args:
-        NODE_ENV: production
-    depends_on:
-      - mongo
+  server:
+    image: yooooomi/your_spotify_server
+    restart: always
     ports:
       - 8080
-    environment:
-      LOG_LEVEL: ${LOG_LEVEL}
-      API_ENDPOINT: ${API_ENDPOINT}
-      CLIENT_ENDPOINT: ${CLIENT_ENDPOINT}
-      SPOTIFY_PUBLIC: ${SPOTIFY_PUBLIC}
-      SPOTIFY_SECRET: ${SPOTIFY_SECRET}
-      TIMEZONE: ${TIMEZONE}
-      MONGO_ENDPOINT: ${MONGO_ENDPOINT}
-      CORS: ${CORS}
-      COOKIE_VALIDITY_MS: ${COOKIE_VALIDITY_MS}
-      MAX_IMPORT_CACHE_SIZE: ${MAX_IMPORT_CACHE_SIZE}
-      MONGO_NO_ADMIN_RIGHTS: ${MONGO_NO_ADMIN_RIGHTS}
-      PORT: ${PORT}
-      FRAME_ANCESTORS: ${FRAME_ANCESTORS}
-      PROMETHEUS_USERNAME: ${PROMETHEUS_USERNAME}
-      PROMETHEUS_PASSWORD: ${PROMETHEUS_PASSWORD}
-
+    depends_on:
+      - mongo
   mongo:
-    image: mongo:${MONGO_VERSION}
-    restart: unless-stopped
+    image: mongo:6
+    restart: always
     volumes:
-      - db_data:/data/db
-    ports:
-      - 27017
-    environment:
-      MONGO_INITDB_DATABASE: your_spotify
-
+      - your_spotify_db:/data/db
   web:
-    restart: unless-stopped
-    build:
-      context: https://github.com/Yooooomi/your_spotify.git
-      dockerfile: Dockerfile.client.production
-      args:
-        NODE_ENV: production
+    image: yooooomi/your_spotify_client
+    restart: always
     ports:
       - 3000
-    environment:
-      NODE_ENV: production
-      API_ENDPOINT: ${API_ENDPOINT}
-
 volumes:
-  db_data:
+  your_spotify_db:

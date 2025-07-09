@@ -1,15 +1,14 @@
+version: "3.8"
 services:
   pinchflat:
     image: ghcr.io/kieraneglin/pinchflat:latest
     restart: unless-stopped
     ports:
       - 8945
-    environment:
-      - TZ=${TZ}
     volumes:
-      - config_data:/config
-      - downloads_data:/downloads
+      - pinchflat-config:/config
+      - pinchflat-downloads:/downloads
 
 volumes:
-  config_data:
-  downloads_data:
+  pinchflat-config:
+  pinchflat-downloads:

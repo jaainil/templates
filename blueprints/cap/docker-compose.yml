@@ -1,74 +1,36 @@
-version: "3.8"
-
+version: "3.9"
 services:
   cap-web:
     image: ghcr.io/capsoftware/cap-web:latest
     restart: unless-stopped
     ports:
-      - "3000"
-    environment:
-      - DATABASE_URL=mysql://root:${DB_ROOT_PASSWORD}@ps-mysql:3306/${DB_NAME}?ssl={"rejectUnauthorized":false}
-      - WEB_URL=${WEB_URL}
-      - NEXTAUTH_URL=${WEB_URL}
-      - DATABASE_ENCRYPTION_KEY=${DATABASE_ENCRYPTION_KEY}
-      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
-      - CAP_AWS_ACCESS_KEY=${S3_ACCESS_KEY}
-      - CAP_AWS_SECRET_KEY=${S3_SECRET_KEY}
-      - CAP_AWS_BUCKET=${S3_BUCKET}
-      - CAP_AWS_REGION=${S3_REGION}
-      - S3_PUBLIC_ENDPOINT=${S3_PUBLIC_ENDPOINT}
-      - S3_INTERNAL_ENDPOINT=http://minio:3902
-      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
-      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
-      - RESEND_API_KEY=${RESEND_API_KEY}
-      - DEEPGRAM_API_KEY=${DEEPGRAM_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - 3000
     depends_on:
       - ps-mysql
       - minio
-    labels:
-      - "traefik.http.routers.capweb.entrypoints=websecure"
-      - "traefik.http.routers.capweb.tls.certresolver=dokploy"
-      - "dokploy.project.type=application"
 
   ps-mysql:
-    image: mysql:8.3
+    image: mysql:8.0
     restart: unless-stopped
     ports:
-      - "3306"
-    environment:
-      - MYSQL_DATABASE=${DB_NAME}
-      - MYSQL_ROOT_HOST=%
-      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - 3306
     command:
-      - "--max_connections=1000"
-      - "--default-authentication-plugin=mysql_native_password"
+      - --max_connections=1000
+      - --default-authentication-plugin=mysql_native_password
     volumes:
-      - ps_mysql_data:/var/lib/mysql
+      - ps-mysql:/var/lib/mysql
 
   minio:
-    image: minio/minio:latest
+    image: bitnami/minio:latest
     restart: unless-stopped
     ports:
-      - "3902"
-      - "3903"
-    environment:
-      - MINIO_API_PORT_NUMBER=${MINIO_API_PORT}
-      - MINIO_CONSOLE_PORT_NUMBER=${MINIO_CONSOLE_PORT}
-      - MINIO_ROOT_USER=${S3_ACCESS_KEY}
-      - MINIO_ROOT_PASSWORD=${S3_SECRET_KEY}
-      - MINIO_DEFAULT_BUCKETS=${S3_BUCKET}
-    command:
-      - "server"
-      - "/bitnami/minio/data"
+      - 3902
+      - 3903
     volumes:
-      - minio_data:/bitnami/minio/data
-      - minio_certs:/certs
+      - minio-data:/bitnami/minio/data
+      - minio-certs:/certs
 
 volumes:
-  ps_mysql_data:
-    driver: local
-  minio_data:
-    driver: local
-  minio_certs:
-    driver: local
+  ps-mysql:
+  minio-data:
+  minio-certs:

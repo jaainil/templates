@@ -1,18 +1,21 @@
 [variables]
-PORT = "8945"
-TZ = "UTC"
 main_domain = "${domain}"
 
-[config.env]
-TZ = "${TZ}"
-
 [config]
-mounts = [
-  { source = "config_data", target = "/config" },
-  { source = "downloads_data", target = "/downloads" }
-]
-
 [[config.domains]]
 serviceName = "pinchflat"
 port = 8945
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+# Core settings
+TZ = "America/New_York"  # Adjust to your local timezone
+
+[[config.mounts]]
+filePath = "/config"
+content = ""
+
+[[config.mounts]]
+filePath = "/downloads"
+content = ""

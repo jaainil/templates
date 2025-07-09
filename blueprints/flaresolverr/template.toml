@@ -1,21 +1,22 @@
 [variables]
-PORT = "8191"
-LOG_LEVEL = "info"
-LOG_HTML = "false"
-CAPTCHA_SOLVER = "none"
-TZ = "UTC"
 main_domain = "${domain}"
-
-[config.env]
-LOG_LEVEL = "${LOG_LEVEL}"
-LOG_HTML = "${LOG_HTML}"
-CAPTCHA_SOLVER = "${CAPTCHA_SOLVER}"
-TZ = "${TZ}"
+log_level = "info"
+log_html = "false"
+captcha_solver = "none"
+timezone = "Europe/London"
 
 [config]
-mounts = []
-
 [[config.domains]]
 serviceName = "flaresolverr"
 port = 8191
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+"LOG_LEVEL" = "${log_level}"
+"LOG_HTML" = "${log_html}"
+"CAPTCHA_SOLVER" = "${captcha_solver}"
+"TZ" = "${timezone}"
+
+[[config.mounts]]
+# No mounts required for this service

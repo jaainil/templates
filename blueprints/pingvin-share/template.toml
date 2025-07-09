@@ -1,18 +1,30 @@
 [variables]
 main_domain = "${domain}"
 
-[config.env]
-TRUST_PROXY = "false"
-CLAMAV_HOST = "" # Set to "disabled" to turn off scanning
-
 [config]
-mounts = [
-  { source = "pingvin_data", target = "/opt/app/backend/data" },
-  { source = "pingvin_images", target = "/opt/app/frontend/public/img" },
-  { source = "clamav_data", target = "/var/lib/clamav" }
-]
-
 [[config.domains]]
 serviceName = "pingvin-share"
 port = 3000
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+TRUST_PROXY = "false"  # Set to "true" if using a reverse proxy
+TZ = "UTC"  # Default timezone, adjust as needed
+
+[[config.mounts]]
+filePath = "/opt/app/backend/data"
+content = ""
+
+[[config.mounts]]
+filePath = "/opt/app/frontend/public/img"
+content = ""
+
+# [[config.mounts]]
+# filePath = "/opt/app/config.yaml"
+# content = """
+# max_file_size: 100
+# chunk_size: 10
+# auto_clean_expired: true
+# auto_clean_interval: 3600
+# """

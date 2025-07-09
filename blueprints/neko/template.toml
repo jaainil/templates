@@ -1,33 +1,54 @@
 [variables]
 main_domain = "${domain}"
-
-# Desktop Configuration
-neko_desktop_screen = "1920x1080@30"
-
-# Authentication Configuration
-neko_member_multiuser_user_password = "${password:16}"
-neko_member_multiuser_admin_password = "${password:16}"
-
-# WebRTC Configuration
-neko_webrtc_epr = "52000-52100"
-neko_webrtc_icelite = "1"
+user_password = "${password:32}"  # Replace with desired user password or keep for random
+admin_password = "${password:32}"  # Replace with desired admin password or keep for random
 
 [config]
-mounts = []
-
 [[config.domains]]
 serviceName = "neko"
 port = 8080
 host = "${main_domain}"
+path = "${NEKO_SERVER_PATH_PREFIX:-/}"
 
 [config.env]
-# Desktop Configuration
-NEKO_DESKTOP_SCREEN = "${neko_desktop_screen}"
+NEKO_DESKTOP_SCREEN = "1920x1080@30"
+NEKO_MEMBER_MULTIUSER_USER_PASSWORD = "${user_password}"
+NEKO_MEMBER_MULTIUSER_ADMIN_PASSWORD = "${admin_password}"
+NEKO_WEBRTC_EPR = "52000-52100"
+NEKO_WEBRTC_ICELITE = "1"
+NEKO_SERVER_BIND = "0.0.0.0:8080"
+NEKO_SERVER_METRICS = "true"
+NEKO_SERVER_PATH_PREFIX = "/"  # Adjust for reverse proxy subpath if needed
+NEKO_LOG_LEVEL = "info"
+NEKO_SESSION_IMPLICIT_HOSTING = "true"
+NEKO_SESSION_HEARTBEAT_INTERVAL = "120"
 
-# Authentication Configuration
-NEKO_MEMBER_MULTIUSER_USER_PASSWORD = "${neko_member_multiuser_user_password}"
-NEKO_MEMBER_MULTIUSER_ADMIN_PASSWORD = "${neko_member_multiuser_admin_password}"
+[[config.mounts]]
+filePath = "/etc/neko/neko.yaml"
+content = """
+server:
+  bind: 0.0.0.0:8080
+  metrics: true
+  path_prefix: /
+desktop:
+  screen: 1920x1080@30
+  unminimize: true
+  upload_drop: true
+member:
+  provider: multiuser
+  multiuser:
+    user_password: ${user_password}
+    admin_password: ${admin_password}
+webrtc:
+  epr: 52000-52100
+  icelite: 1
+log:
+  level: info
+session:
+  implicit_hosting: true
+  heartbeat_interval: 120
+"""
 
-# WebRTC Configuration
-NEKO_WEBRTC_EPR = "${neko_webrtc_epr}"
-NEKO_WEBRTC_ICELITE = "${neko_webrtc_icelite}" 
+[[config.mounts]]
+filePath = "/tmp"
+content = ""  # Writable directory for temporary files

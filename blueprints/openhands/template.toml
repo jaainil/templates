@@ -1,18 +1,23 @@
 [variables]
-SANDBOX_RUNTIME_CONTAINER_IMAGE = "docker.all-hands.dev/all-hands-ai/runtime:0.46-nikolaik"
-WORKSPACE_MOUNT_PATH = "/opt/workspace_base"
-
-[config.env]
-SANDBOX_RUNTIME_CONTAINER_IMAGE = "${SANDBOX_RUNTIME_CONTAINER_IMAGE}"
-WORKSPACE_MOUNT_PATH = "${WORKSPACE_MOUNT_PATH}"
+main_domain = "${domain}"
 
 [config]
-mounts = [
-  { source = "openhands_data", target = "/.openhands" },
-  { type = "bind", hostPath = "/var/run/docker.sock", target = "/var/run/docker.sock" }
-]
-
 [[config.domains]]
 serviceName = "openhands"
 port = 3000
-host = "${domain}"
+host = "${main_domain}"
+path = "/"
+
+[config.env]
+SANDBOX_RUNTIME_CONTAINER_IMAGE = "docker.all-hands.dev/all-hands-ai/runtime:0.48-nikolaik"
+# SANDBOX_USER_ID = "1234"  # Uncomment if specific non-root user is needed, adjust permissions
+WORKSPACE_MOUNT_PATH = "/opt/workspace_base"
+TZ = "UTC"  # Default timezone, adjust as needed
+
+[[config.mounts]]
+filePath = "/root/.openhands"
+content = ""
+
+[[config.mounts]]
+filePath = "/opt/workspace_base"
+content = ""

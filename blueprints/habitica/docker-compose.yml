@@ -1,43 +1,25 @@
+version: "3.8"
 services:
-  habitica-client:
-    image: awinterstein/habitica-client:latest
-    restart: unless-stopped
-    depends_on:
-      - habitica-server
-    ports:
-      - "${CLIENT_PORT}"
-
-  habitica-server:
-    image: awinterstein/habitica-server:latest
-    restart: unless-stopped
-    depends_on:
-      - habitica-mongo
+  client:
+    build: .
     environment:
-      - NODE_DB_URI=mongodb://habitica-mongo:27017/habitica
-      - BASE_URL=${BASE_URL}
-      - INVITE_ONLY=${INVITE_ONLY}
-      - EMAIL_SERVER_URL=${EMAIL_SERVER_URL}
-      - EMAIL_SERVER_PORT=${EMAIL_SERVER_PORT}
-      - EMAIL_SERVER_AUTH_USER=${EMAIL_SERVER_AUTH_USER}
-      - EMAIL_SERVER_AUTH_PASSWORD=${EMAIL_SERVER_AUTH_PASSWORD}
+      - BASE_URL=http://server:3000
     ports:
-      - "${SERVER_PORT}"
-
-  habitica-mongo:
-    image: mongo:5.0
-    restart: unless-stopped
-    command: ["--replSet", "rs", "--bind_ip_all", "--port", "27017"]
-    healthcheck:
-      test: echo "try { rs.status() } catch (err) { rs.initiate() }" | mongosh --port 27017 --quiet
-      interval: 10s
-      timeout: 30s
-      start_period: 0s
-      start_interval: 1s
-      retries: 30
-    volumes:
-      - habitica-mongo-data:/data/db
+      - 8080
+    command: ["npm", "run", "client:dev"]
+    depends_on:
+      - server
+  server:
+    build: .
     ports:
-      - "${MONGO_PORT}"
-
+      - 3000
+    environment:
+      - NODE_DB_URI=mongodb://mongo/habitrpg
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:3.6
+    ports:
+      - 27017
 volumes:
-  habitica-mongo-data:
+  mongo-data: {}

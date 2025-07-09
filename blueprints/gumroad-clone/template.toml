@@ -1,48 +1,193 @@
 [variables]
 main_domain = "${domain}"
-db_name = "gumroad_production"
-db_user = "gumroad"
-db_password = "${password:16}"
-db_root_password = "${password:20}"
-secret_key_base = "${base64:64}"
-devise_secret_key = "${base64:64}"
-
-# Optional: Payment
-stripe_api_key = ""
-stripe_public_key = ""
-paypal_client_id = ""
-paypal_client_secret = ""
-
-# Optional: S3
-aws_access_key_id = ""
-aws_secret_access_key = ""
-aws_default_region = ""
-s3_bucket = ""
-
-[config.env]
-DB_NAME = "${db_name}"
-DB_USER = "${db_user}"
-DB_PASSWORD = "${db_password}"
-DB_ROOT_PASSWORD = "${db_root_password}"
-SECRET_KEY_BASE = "${secret_key_base}"
-DEVISE_SECRET_KEY = "${devise_secret_key}"
-STRIPE_API_KEY = "${stripe_api_key}"
-STRIPE_PUBLIC_KEY = "${stripe_public_key}"
-PAYPAL_CLIENT_ID = "${paypal_client_id}"
-PAYPAL_CLIENT_SECRET = "${paypal_client_secret}"
-AWS_ACCESS_KEY_ID = "${aws_access_key_id}"
-AWS_SECRET_ACCESS_KEY = "${aws_secret_access_key}"
-AWS_DEFAULT_REGION = "${aws_default_region}"
-S3_BUCKET = "${s3_bucket}"
+mysql_root_password = "${password:32}"  # Replace with actual MySQL root password
+aws_access_key_id = "${password:32}"  # Replace with actual AWS access key ID
+aws_secret_access_key = "${password:32}"  # Replace with actual AWS secret access key
+stripe_api_key = "${password:32}"  # Replace with actual Stripe API key
+paypal_client_id = "${password:32}"  # Replace with actual PayPal client ID
+paypal_client_secret = "${password:32}"  # Replace with actual PayPal client secret
+# Add other sensitive variables as needed
+google_client_id = "${password:32}"  # Replace with actual Google client ID
+google_client_secret = "${password:32}"  # Replace with actual Google client secret
+sendgrid_gr_creators_api_key = "${password:32}"  # Replace with actual SendGrid API key
+mcp_credential_encryption_key = "${base64:32}"  # Replace with actual MCP encryption key
 
 [config]
-mounts = [
-  { source = "mysql_data", target = "/var/lib/mysql" },
-  { source = "redis_data", target = "/data" },
-  { source = "app_storage", target = "/app/storage" }
-]
+[[config.domains]]
+serviceName = "nginx"
+port = 80
+host = "${main_domain}"
+path = "/"
 
 [[config.domains]]
-serviceName = "gumroad-app"
-port = 3000
+serviceName = "nginx"
+port = 8081
 host = "${main_domain}"
+path = "/"
+
+[[config.domains]]
+serviceName = "nginx"
+port = 443
+host = "${main_domain}"
+path = "/"
+
+[config.env]
+# db environment variables
+MYSQL_ROOT_PASSWORD = "${mysql_root_password}"
+DATABASE_NAME = ""
+DATABASE_HOST = "db"
+DATABASE_PORT = "3306"
+DATABASE_USERNAME = ""
+DATABASE_PASSWORD = ""
+TEST_DATABASE_NAME = ""
+DB_POOL_SIZE = ""
+SKIP_NATIVE_MYSQL_RECONNECT = ""
+USE_DB_WORKER_REPLICAS = ""
+DATABASE_REPLICA2_NAME = ""
+DATABASE_REPLICA2_USERNAME = ""
+DATABASE_REPLICA2_PASSWORD = ""
+DATABASE_REPLICA2_HOST = ""
+DATABASE_WORKER_REPLICA1_NAME = ""
+DATABASE_WORKER_REPLICA1_USERNAME = ""
+DATABASE_WORKER_REPLICA1_PASSWORD = ""
+DATABASE_WORKER_REPLICA1_HOST = ""
+DATABASE_WORKER_REPLICA2_NAME = ""
+DATABASE_WORKER_REPLICA2_USERNAME = ""
+DATABASE_WORKER_REPLICA2_PASSWORD = ""
+DATABASE_WORKER_REPLICA2_HOST = ""
+
+# redis environment variables
+REDIS_HOST = "redis"
+REDIS_URL = ""
+SIDEKIQ_REDIS_HOST = ""
+RPUSH_REDIS_HOST = ""
+RACK_ATTACK_REDIS_HOST = ""
+
+# mongo environment variables
+MONGO_DATABASE_URL = ""
+MONGO_DATABASE_NAME = ""
+MONGO_DATABASE_USERNAME = ""
+MONGO_DATABASE_PASSWORD = ""
+MONGO_REPLICA_SET = ""
+MONGO_SECONDARY_DATABASE_URL = ""
+
+# elasticsearch environment variables
+ELASTICSEARCH_HOST = "elasticsearch"
+ES_JAVA_OPTS = "-Xms512m -Xmx512m"
+discovery_type = "single-node"
+
+# aws/s3 environment variables
+AWS_ACCESS_KEY_ID = "${aws_access_key_id}"
+AWS_SECRET_ACCESS_KEY = "${aws_secret_access_key}"
+AWS_DEFAULT_REGION = ""
+INVOICES_S3_BUCKET = ""
+REPORTING_S3_BUCKET_DEV = ""
+REPORTING_S3_BUCKET_PROD = ""
+S3_BASE_URL_TEMPLATE = ""
+S3_SITEMAP_UPLOADER_ACCESS_KEY = ""
+S3_SITEMAP_UPLOADER_SECRET_ACCESS_KEY = ""
+
+# stripe environment variables
+STRIPE_API_KEY = "${stripe_api_key}"
+STRIPE_CONNECT_CLIENT_ID = ""
+STRIPE_PLATFORM_ACCOUNT_ID = ""
+STRIPE_PUBLIC_KEY_PROD = ""
+STRIPE_PUBLIC_KEY_TEST = ""
+STRIPE__ENDPOINT_SECRET = ""
+STRIPE_CONNECT__ENDPOINT_SECRET = ""
+
+# paypal environment variables
+PAYPAL_CLIENT_ID = "${paypal_client_id}"
+PAYPAL_CLIENT_SECRET = "${paypal_client_secret}"
+PAYPAL_USERNAME = ""
+PAYPAL_PASSWORD = ""
+PAYPAL_SIGNATURE = ""
+PAYPAL_MERCHANT_EMAIL = ""
+PAYPAL_BN_CODE = ""
+PAYPAL_PARTNER_CLIENT_ID = ""
+PAYPAL_PARTNER_CLIENT_SECRET = ""
+PAYPAL_PARTNER_MERCHANT_EMAIL = ""
+PAYPAL_PARTNER_MERCHANT_ID = ""
+
+# google environment variables
+GOOGLE_CLIENT_ID = "${google_client_id}"
+GOOGLE_CLIENT_SECRET = "${google_client_secret}"
+ENTERPRISE_RECAPTCHA_API_KEY = ""
+GOOGLE_CLOUD_PROJECT_ID = ""
+
+# sendgrid environment variables
+SENDGRID_GR_CREATORS_API_KEY = "${sendgrid_gr_creators_api_key}"
+SENDGRID_GR_CUSTOMERS_API_KEY = ""
+SENDGRID_GR_CUSTOMERS_LEVEL_2_API_KEY = ""
+SENDGRID_GUMROAD_FOLLOWER_CONFIRMATION_API_KEY = ""
+SENDGRID_GUMROAD_TRANSACTIONS_API_KEY = ""
+SENDGRID_SMTP_ADDRESS = ""
+
+# mcp encryption
+MCP_CREDENTIAL_ENCRYPTION_KEY = "${mcp_credential_encryption_key}"
+
+# other environment variables (minimal set for brevity, add as needed)
+CLOUDFRONT_KEYPAIR_ID = ""
+CLOUDFRONT_PRIVATE_KEY = ""
+RECAPTCHA_LOGIN_SITE_KEY = ""
+FACEBOOK_APP_ID = ""
+TWITTER_APP_ID = ""
+IOS_CONSUMER_APP_APPLE_LOGIN_IDENTIFIER = ""
+RESEND_CREATORS_API_KEY = ""
+ZOOM_CLIENT_ID = ""
+CIRCLE_API_KEY = ""
+IFFY_API_KEY = ""
+EASYPOST_API_KEY = ""
+TAXJAR_API_KEY = ""
+BUGSNAG_API_KEY = ""
+OPEN_EXCHANGE_RATES_APP_ID = ""
+DISCORD_BOT_TOKEN = ""
+OPENAI_ACCESS_TOKEN = ""
+DROPBOX_API_KEY = ""
+GRMC_API_KEY = ""
+VAT_REGISTRATION_NUMBER = ""
+ADDRESS_STREET = ""
+GUMROAD_ADMIN_ID = ""
+TZ = "UTC"  # Default timezone, adjust as needed
+
+[[config.mounts]]
+filePath = "/etc/nginx/conf.d/default.conf"
+content = """
+server {
+    listen 80;
+    listen 8081;
+    listen 443 ssl;
+    server_name ${main_domain};
+
+    ssl_certificate /etc/ssl/certs/fullchain.pem;
+    ssl_certificate_key /etc/ssl/certs/privkey.pem;
+
+    location / {
+        proxy_pass http://localhost:3000;  # Adjust to your app's port
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+"""
+
+[[config.mounts]]
+filePath = "/etc/ssl/certs/fullchain.pem"
+content = ""  # Replace with actual certificate content or mount externally
+
+[[config.mounts]]
+filePath = "/etc/ssl/certs/privkey.pem"
+content = ""  # Replace with actual private key content or mount externally
+
+[[config.mounts]]
+filePath = "/var/lib/mysql"
+content = ""
+
+[[config.mounts]]
+filePath = "/data"
+content = ""
+
+[[config.mounts]]
+filePath = "/data/db"
+content = ""

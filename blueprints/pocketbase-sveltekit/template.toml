@@ -1,35 +1,26 @@
 [variables]
 main_domain = "${domain}"
-PORT = "8090"
-
-admin_email = "${email}"
-admin_password = "${password:16}"
-app_name = "PocketBase App"
-app_url = "https://${main_domain}"
-origin = "https://${main_domain}"
-encryption_key = "${base64:32}"
-hash_algorithm = "SHA256"
-hash_key = "${base64:32}"
-
-[config.env]
-PORT = "${PORT}"
-ORIGIN = "${origin}"
-ADMIN_EMAIL = "${admin_email}"
-ADMIN_PASSWORD = "${admin_password}"
-APP_NAME = "${app_name}"
-APP_URL = "${app_url}"
-ENCRYPTION_KEY = "${encryption_key}"
-HASH_ALGORITHM = "${hash_algorithm}"
-HASH_KEY = "${hash_key}"
+encryption_key = "${password:32}"  # 32-character encryption key for settings encryption
 
 [config]
-mounts = [
-  { source = "pocketbase_data", target = "/pb_data" },
-  { source = "pocketbase_public", target = "/pb_public" },
-  { source = "pocketbase_hooks", target = "/pb_hooks" }
-]
-
 [[config.domains]]
 serviceName = "pocketbase"
 port = 8090
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+ENCRYPTION = "${encryption_key}"  # 32-character encryption key
+TZ = "UTC"  # Default timezone, adjust as needed
+
+[[config.mounts]]
+filePath = "/pb_data"
+content = ""
+
+[[config.mounts]]
+filePath = "/pb_public"
+content = ""
+
+[[config.mounts]]
+filePath = "/pb_hooks"
+content = ""

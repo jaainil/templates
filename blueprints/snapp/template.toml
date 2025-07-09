@@ -1,95 +1,48 @@
 [variables]
 main_domain = "${domain}"
-database_provider = "sqlite"
-
-admin_username = "admin"
-admin_email = "admin@example.org"
 admin_password = "${password:32}"
 token_secret = "${password:32}"
-
+mariadb_password = "${password:32}"
 postgres_password = "${password:32}"
-mysql_password = "${password:32}"
-mysql_root_password = "${password:32}"
-
-[config.env]
-# App version
-SNAPP_VERSION = "0.9-rc-020"
-
-# Database config
-DATABASE_PROVIDER = "${database_provider}"
-DATABASE_URL = "file:./db.sqlite"
-
-POSTGRES_VERSION = "17.4-alpine"
-POSTGRES_DB = "snapp"
-POSTGRES_USER = "snapp"
-POSTGRES_PASSWORD = "${postgres_password}"
-
-MARIADB_VERSION = "latest"
-MYSQL_DATABASE = "snapp"
-MYSQL_USER = "snapp"
-MYSQL_PASSWORD = "${mysql_password}"
-MYSQL_ROOT_PASSWORD = "${mysql_root_password}"
-
-# Admin
-ADMIN_USERNAME = "${admin_username}"
-ADMIN_EMAIL = "${admin_email}"
-ADMIN_PASSWORD = "${admin_password}"
-
-# Application
-APPNAME = "Snapp"
-ORIGIN = "https://${main_domain}"
-PUBLIC_URL = "https://${main_domain}"
-PORT = "3000"
-HOST = "0.0.0.0"
-TOKEN_SECRET = "${token_secret}"
-
-# Features
-ENABLE_SIGNUP = "false"
-ENABLED_MFA = "false"
-DISABLED_EMAIL_AND_PASSWORD = "false"
-PUBLIC_EXTRA_GROUPS_EDITABLE = "true"
-URLS_VIA_GROUPS_ONLY = "false"
-DISABLE_HOME = "false"
-
-# Logging
-LOG_LEVEL = "info"
-
-# Analytics & SMTP
-PUBLIC_UMAMI_URL = ""
-PUBLIC_UMAMI_WEBSITE_ID = ""
-VTAPI_KEY = ""
-SMTP_HOST = ""
-SMTP_PORT = ""
-SMTP_USER = ""
-SMTP_PASS = ""
-SMTP_FROM = ""
-SMTP_SSL = ""
-
-# OAuth/OIDC
-AUTH_PROVIDERS = ""
-AUTH_GOOGLE_CLIENT_ID = ""
-AUTH_GOOGLE_CLIENT_SECRET = ""
-AUTH_GOOGLE_ISSUER = ""
-
-AUTH_KEYCLOAK_CLIENT_ID = ""
-AUTH_KEYCLOAK_CLIENT_SECRET = ""
-AUTH_KEYCLOAK_CLIENT_SCOPE = ""
-AUTH_KEYCLOAK_ISSUER = ""
-
-AUTH_AUTHELIA_CLIENT_ID = ""
-AUTH_AUTHELIA_CLIENT_SECRET = ""
-AUTH_AUTHELIA_ISSUER = ""
-
-PUBLIC_ADMIN_CONTACT = ""
 
 [config]
-mounts = [
-  { source = "snapp_data", target = "/app" },
-  { source = "postgres_data", target = "/var/lib/postgresql/data" },
-  { source = "mariadb_data", target = "/var/lib/mysql" }
-]
-
 [[config.domains]]
 serviceName = "snapp"
 port = 3000
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+# snapp environment variables
+DATABASE_PROVIDER = "sqlite"
+DATABASE_URL = "file:/app/db.sqlite"
+DISABLED_EMAIL_AND_PASSWORD = "false"
+LOG_LEVEL = "debug"
+ORIGIN = "http://${main_domain}:3000"
+PORT = "3000"
+ADMIN_USERNAME = "admin"
+ADMIN_EMAIL = "info@${main_domain}"
+ADMIN_PASSWORD = "${admin_password}"
+TOKEN_SECRET = "${token_secret}"
+ENABLE_SIGNUP = "false"
+ENABLED_MFA = "false"
+PUBLIC_URL = "http://${main_domain}:3000"
+APPNAME = "Snapp"
+PUBLIC_EXTRA_GROUPS_EDITABLE = "true"
+URLS_VIA_GROUPS_ONLY = "false"
+HOST = "0.0.0.0"
+
+# mariadb environment variables (uncomment if using MariaDB)
+# MYSQL_ROOT_PASSWORD = "${mariadb_password}"
+# MYSQL_DATABASE = "snapp"
+# MYSQL_USER = "root"
+# MYSQL_PASSWORD = "${mariadb_password}"
+
+# postgres environment variables (uncomment if using PostgreSQL)
+# POSTGRES_PASSWORD = "${postgres_password}"
+# POSTGRES_USER = "root"
+# POSTGRES_DB = "snapp"
+
+[[config.mounts]]
+filePath = "/app"
+content = ""

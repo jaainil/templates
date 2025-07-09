@@ -1,10 +1,13 @@
+version: "3.8"
 services:
   opengist:
     image: ghcr.io/thomiceli/opengist:1.10
     restart: unless-stopped
     ports:
-      - "6157:6157" # HTTP port
-      - "2222" # SSH port, can be removed if you don't use SSH
+      - 6157
+      - 2222 # Comment out if SSH is not needed
     volumes:
-      - "$HOME/.opengist:/opengist"
-    environment:
+      - opengist-data:/opengist
+
+volumes:
+  opengist-data:

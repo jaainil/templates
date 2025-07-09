@@ -1,30 +1,27 @@
 [variables]
 main_domain = "${domain}"
-minio_root_user = "hyprnote-admin"
-minio_root_password = "${password:16}"
-bucket_name = "hyprnote-storage"
-
-[config.env]
-MINIO_ROOT_USER = "${minio_root_user}"
-MINIO_ROOT_PASSWORD = "${minio_root_password}"
-BUCKET_NAME = "${bucket_name}"
+minio_root_user = "${username}" # Generate a random username
+minio_root_password = "${password:32}" # Generate a secure password
 
 [config]
-mounts = [
-  { source = "minio_data", target = "/data" }
-]
-
 [[config.domains]]
-serviceName = "cerbos"
+serviceName = "cerbos" # Matches the service name in docker-compose.yml
 port = 3592
-host = "cerbos.${main_domain}"
+host = "cerbos-${main_domain}"
+path = "/"
 
 [[config.domains]]
-serviceName = "minio"
+serviceName = "minio" # Matches the service name in docker-compose.yml
 port = 9000
-host = "api.${main_domain}"
+host = "minio-${main_domain}"
+path = "/"
 
 [[config.domains]]
-serviceName = "minio"
+serviceName = "minio" # For MinIO console
 port = 9001
-host = "console.${main_domain}"
+host = "minio-console-${main_domain}"
+path = "/"
+
+[config.env]
+MINIO_ROOT_USER = "${minio_root_user}" # MinIO admin username, sensitive value
+MINIO_ROOT_PASSWORD = "${minio_root_password}" # MinIO admin password, sensitive value

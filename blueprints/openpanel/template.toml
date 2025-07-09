@@ -1,23 +1,100 @@
 [variables]
-POSTGRES_USER = "postgres"
-POSTGRES_PASSWORD = "${password:16}"
-POSTGRES_DB = "openpanel"
 main_domain = "${domain}"
-
-[config.env]
-POSTGRES_USER = "${POSTGRES_USER}"
-POSTGRES_PASSWORD = "${POSTGRES_PASSWORD}"
-POSTGRES_DB = "${POSTGRES_DB}"
+postgres_password = "${password:32}"  # Replace with actual PostgreSQL password
 
 [config]
-mounts = [
-  { source = "op-db-data", target = "/var/lib/postgresql/data" },
-  { source = "op-kv-data", target = "/data" },
-  { source = "op-ch-data", target = "/var/lib/clickhouse" },
-  { source = "op-ch-logs", target = "/var/log/clickhouse-server" }
-]
-
 [[config.domains]]
 serviceName = "op-ch"
 port = 8123
 host = "${main_domain}"
+path = "/openpanel"
+
+[[config.domains]]
+serviceName = "op-db"
+port = 5432
+host = "${main_domain}"
+path = "/"
+
+[[config.domains]]
+serviceName = "op-kv"
+port = 6379
+host = "${main_domain}"
+path = "/"
+
+[config.env]
+# op-db environment variables
+POSTGRES_USER = "postgres"
+POSTGRES_PASSWORD = "${postgres_password}"
+
+# storage environment variables
+REDIS_URL = "redis://op-kv:6379"
+DATABASE_URL = "postgresql://postgres:${postgres_password}@op-db:5432/postgres?schema=public"
+DATABASE_URL_DIRECT = "${DATABASE_URL}"
+CLICKHOUSE_URL = "http://op-ch:8123/openpanel"
+
+# rest environment variables
+BATCH_SIZE = "5000"
+BATCH_INTERVAL = "10000"
+CONCURRENCY = "10"
+NEXT_PUBLIC_DASHBOARD_URL = "http://${main_domain}:3000"
+NEXT_PUBLIC_API_URL = "http://${main_domain}:3333"
+WORKER_PORT = "9999"
+API_PORT = "3333"
+TZ = "UTC"  # Default timezone, adjust as needed
+
+[[config.mounts]]
+filePath = "/var/lib/postgresql/data"
+content = ""
+
+[[config.mounts]]
+filePath = "/data"
+content = ""
+
+[[config.mounts]]
+filePath = "/var/lib/clickhouse"
+content = ""
+
+[[config.mounts]]
+filePath = "/var/log/clickhouse-server"
+content = ""
+
+[[config.mounts]]
+filePath = "/etc/clickhouse-server/config.d/op-config.xml"
+content = """
+<clickhouse>
+  <logger>
+    <level>trace</level>
+    <log>/var/log/clickhouse-server/clickhouse-server.log</log>
+    <errorlog>/var/log/clickhouse-server/clickhouse-server.err.log</errorlog>
+  </logger>
+  <http_port>8123</http_port>
+  <tcp_port>9000</tcp_port>
+  <interserver_http_port>9009</interserver_http_port>
+  <max_connections>4096</max_connections>
+  <max_concurrent_queries>100</max_concurrent_queries>
+</clickhouse>
+"""
+
+[[config.mounts]]
+filePath = "/etc/clickhouse-server/users.d/op-user-config.xml"
+content = """
+<clickhouse>
+  <users>
+    <default>
+      <password></password>
+      <networks>
+        <ip>::/0</ip>
+      </networks>
+      <profile>default</profile>
+      <quota>default</quota>
+    </default>
+  </users>
+</clickhouse>
+"""
+
+[[config.mounts]]
+filePath = "/docker-entrypoint-initdb.d/init-db.sh"
+content = """
+#!/bin/bash
+clickhouse-client --query "CREATE DATABASE IF NOT EXISTS openpanel"
+"""

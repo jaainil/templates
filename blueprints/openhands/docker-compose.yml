@@ -1,16 +1,13 @@
+version: "3.8"
 services:
   openhands:
     image: ghcr.io/all-hands-ai/openhands:latest
     restart: unless-stopped
-    environment:
-      - SANDBOX_RUNTIME_CONTAINER_IMAGE=${SANDBOX_RUNTIME_CONTAINER_IMAGE}
-      - WORKSPACE_MOUNT_PATH=${WORKSPACE_MOUNT_PATH}
     ports:
       - 3000
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
+      - openhands-config:/root/.openhands
+      - openhands-workspace:/opt/workspace_base
       - /var/run/docker.sock:/var/run/docker.sock
-      - openhands_data:/.openhands
-    stdin_open: true
-    tty: true

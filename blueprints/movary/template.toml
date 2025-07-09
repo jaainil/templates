@@ -1,25 +1,35 @@
 [variables]
 main_domain = "${domain}"
-tmdb_api_key = { default = "", description = "Your TMDB API key" }
-mysql_password = { generator = "password", length = 32 }
-mysql_root_password = { generator = "password", length = 32 }
-
-[config.env]
-MOVARY_VERSION = "latest"
-MYSQL_VERSION = "8.0"
-TMDB_API_KEY = "${tmdb_api_key}"
-MYSQL_PASSWORD = "${mysql_password}"
-MYSQL_ROOT_PASSWORD = "${mysql_root_password}"
-APP_URL = "http://${main_domain}"
-APP_ENV = "production"
+tmdb_api_key = "${password:32}"
+mysql_root_password = "${password:32}"
+mysql_password = "${password:32}"
 
 [config]
-mounts = [
-  { source = "movary_storage", target = "/app/storage" },
-  { source = "movary_db", target = "/var/lib/mysql" }
-]
-
 [[config.domains]]
-serviceName = "movary"
-port = 8080
+serviceName = "app"
+port = 80
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+# app environment variables
+TMDB_API_KEY = "${tmdb_api_key}"
+TMDB_ENABLE_IMAGE_CACHING = "0"
+DATABASE_MODE = "mysql"
+DATABASE_MYSQL_HOST = "mysql"
+DATABASE_MYSQL_NAME = "movary"
+DATABASE_MYSQL_USER = "movary"
+DATABASE_MYSQL_PASSWORD = "${mysql_password}"
+DATABASE_MYSQL_PORT = "3306"
+USER_ID = "3000"
+
+# mysql environment variables
+MYSQL_ROOT_PASSWORD = "${mysql_root_password}"
+MYSQL_USER = "movary"
+MYSQL_PASSWORD = "${mysql_password}"
+MYSQL_DATABASE = "movary"
+MYSQL_PORT = "3306"
+
+[[config.mounts]]
+filePath = "/var/lib/mysql"
+content = ""

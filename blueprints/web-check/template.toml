@@ -1,35 +1,48 @@
 [variables]
 main_domain = "${domain}"
-
-[config.env]
-# Backend API keys
-GOOGLE_CLOUD_API_KEY = ""
-TORRENT_IP_API_KEY = ""
-SECURITY_TRAILS_API_KEY = ""
-BUILT_WITH_API_KEY = ""
-URL_SCAN_API_KEY = ""
-TRANCO_USERNAME = ""
-TRANCO_API_KEY = ""
-CLOUDMERSIVE_API_KEY = ""
-
-# Frontend API keys
-REACT_APP_SHODAN_API_KEY = ""
-REACT_APP_WHO_API_KEY = ""
-
-# Configuration
-CHROME_PATH = "/usr/bin/chromium"
-PORT = "3000"
-DISABLE_GUI = "false"
-API_TIMEOUT_LIMIT = "10000"
-API_CORS_ORIGIN = "*"
-API_ENABLE_RATE_LIMIT = "true"
-REACT_APP_API_ENDPOINT = "/api"
-ENABLE_ANALYTICS = "false"
+google_cloud_api_key = "${password:32}"  # Replace with actual Google Cloud API key
+torrent_ip_api_key = "${password:32}"  # Replace with actual Torrent IP API key
+security_trails_api_key = "${password:32}"  # Replace with actual Security Trails API key
+built_with_api_key = "${password:32}"  # Replace with actual BuiltWith API key
+url_scan_api_key = "${password:32}"  # Replace with actual URLScan API key
+tranco_username = "${password:32}"  # Replace with actual Tranco username
+tranco_api_key = "${password:32}"  # Replace with actual Tranco API key
+cloudmersive_api_key = "${password:32}"  # Replace with actual Cloudmersive API key
+shodan_api_key = "${password:32}"  # Replace with actual Shodan API key
+who_api_key = "${password:32}"  # Replace with actual WHO API key
 
 [config]
-mounts = []
-
 [[config.domains]]
 serviceName = "web-check"
 port = 3000
 host = "${main_domain}"
+path = "${REACT_APP_API_ENDPOINT:-/api}"
+
+[config.env]
+# Backend API keys
+GOOGLE_CLOUD_API_KEY = "${google_cloud_api_key}"
+TORRENT_IP_API_KEY = "${torrent_ip_api_key}"
+SECURITY_TRAILS_API_KEY = "${security_trails_api_key}"
+BUILT_WITH_API_KEY = "${built_with_api_key}"
+URL_SCAN_API_KEY = "${url_scan_api_key}"
+TRANCO_USERNAME = "${tranco_username}"
+TRANCO_API_KEY = "${tranco_api_key}"
+CLOUDMERSIVE_API_KEY = "${cloudmersive_api_key}"
+
+# Frontend API keys
+REACT_APP_SHODAN_API_KEY = "${shodan_api_key}"
+REACT_APP_WHO_API_KEY = "${who_api_key}"
+
+# Configuration settings
+# CHROME_PATH = "/usr/bin/chromium"  # Uncomment if custom Chromium path is needed
+PORT = "3000"
+DISABLE_GUI = "false"
+API_TIMEOUT_LIMIT = "10000"
+API_CORS_ORIGIN = "*"  # Adjust for specific origins in production
+API_ENABLE_RATE_LIMIT = "true"
+REACT_APP_API_ENDPOINT = "/api"
+ENABLE_ANALYTICS = "false"
+TZ = "UTC"  # Default timezone, adjust as needed
+
+[[config.mounts]]
+# No mounts required for web-check

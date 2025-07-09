@@ -1,37 +1,26 @@
 [variables]
 main_domain = "${domain}"
-jwt_secret = "${password:64}"
-
-[config.env]
-# Port
-CONVERTX_PORT = "3000"
-
-# Authentication
-ACCOUNT_REGISTRATION = "true"
-JWT_SECRET = "${jwt_secret}"
-HTTP_ALLOWED = "false"
-ALLOW_UNAUTHENTICATED = "false"
-
-# Cleanup
-AUTO_DELETE_EVERY_N_HOURS = "24"
-
-# FFmpeg
-FFMPEG_ARGS = ""
-
-# Web UI
-WEBROOT = ""
-HIDE_HISTORY = "false"
-
-# Locale
-LANGUAGE = "en"
-TIMEZONE = "UTC"
+jwt_secret = "${uuid}"  # Matches original default of randomUUID()
 
 [config]
-mounts = [
-  { source = "convertx_data", target = "/app/data" }
-]
-
 [[config.domains]]
 serviceName = "convertx"
 port = 3000
 host = "${main_domain}"
+path = "${WEBROOT:-/}"
+
+[config.env]
+# Core settings
+JWT_SECRET = "${jwt_secret}"
+HTTP_ALLOWED = "false"  # Set to "true" locally if not using HTTPS; use HTTPS in production
+ACCOUNT_REGISTRATION = "true"  # Set to "false" for single-account setups
+ALLOW_UNAUTHENTICATED = "false"  # Set to "true" locally if open access is needed; secure in production
+AUTO_DELETE_EVERY_N_HOURS = "1"  # Checks every 1 hour for file deletion, set to "0" to disable
+TZ = "UTC"  # Default timezone, adjust as needed (e.g., "Europe/Stockholm")
+# WEBROOT = "/convertx"  # Uncomment for custom webroot path
+# HIDE_HISTORY = "true"  # Uncomment to hide history tab
+# FFMPEG_ARGS = "-hwaccel vulkan"  # Uncomment for custom ffmpeg arguments
+
+[[config.mounts]]
+filePath = "/app/data"
+content = ""

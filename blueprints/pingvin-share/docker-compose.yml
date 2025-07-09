@@ -1,31 +1,11 @@
+version: "3.8"
 services:
   pingvin-share:
-    image: stonith404/pingvin-share
+    image: ghcr.io/stonith404/pingvin-share:latest
     restart: unless-stopped
     ports:
       - 3000
-    environment:
-      - TRUST_PROXY=${TRUST_PROXY}
-      - CLAMAV_HOST=${CLAMAV_HOST}
     volumes:
-      - pingvin_data:/opt/app/backend/data
-      - pingvin_images:/opt/app/frontend/public/img
-    depends_on:
-      - clamav
-
-  clamav:
-    image: clamav/clamav
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "/usr/local/bin/clamd", "--ping"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 120s
-    volumes:
-      - clamav_data:/var/lib/clamav
-
-volumes:
-  pingvin_data:
-  pingvin_images:
-  clamav_data:
+      - pingvin-data:/opt/app/backend/data
+      - pingvin-images:/opt/app/frontend/public/img
+      # - pingvin-config:/opt/app/config.yaml:ro  # Uncomment for custom config.yaml

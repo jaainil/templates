@@ -1,8 +1,7 @@
+version: "3.8"
 services:
   myip:
     image: jason5ng32/myip:latest
-    stdin_open: true
-    tty: true
     restart: always
     ports:
       - 18966

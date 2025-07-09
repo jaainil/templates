@@ -1,69 +1,86 @@
 [variables]
 main_domain = "${domain}"
-
-[config.env]
-# AI API Keys
-XAI_API_KEY = ""
-OPENAI_API_KEY = ""
-ANTHROPIC_API_KEY = ""
-GROQ_API_KEY = ""
-GOOGLE_GENERATIVE_AI_API_KEY = ""
-
-# Development & Sandbox
-DAYTONA_API_KEY = ""
-
-# Database & Storage
-DATABASE_URL = ""
-REDIS_URL = ""
-BLOB_READ_WRITE_TOKEN = ""
-
-# Authentication
-BETTER_AUTH_SECRET = ""
-GITHUB_CLIENT_ID = ""
-GITHUB_CLIENT_SECRET = ""
-GOOGLE_CLIENT_ID = ""
-GOOGLE_CLIENT_SECRET = ""
-TWITTER_CLIENT_ID = ""
-TWITTER_CLIENT_SECRET = ""
-
-# Search & Web APIs
-TAVILY_API_KEY = ""
-EXA_API_KEY = ""
-FIRECRAWL_API_KEY = ""
-
-# Media & Entertainment
-TMDB_API_KEY = ""
-YT_ENDPOINT = ""
-ELEVENLABS_API_KEY = ""
-
-# Maps & Location
-GOOGLE_MAPS_API_KEY = ""
-MAPBOX_ACCESS_TOKEN = ""
-TRIPADVISOR_API_KEY = ""
-
-# Weather & Aviation
-OPENWEATHER_API_KEY = ""
-AVIATION_STACK_API_KEY = ""
-
-# Memory & MCP
-MEM0_API_KEY = ""
-MEM0_ORG_ID = ""
-MEM0_PROJECT_ID = ""
-SMITHERY_API_KEY = ""
-
-# Cron & Security
-CRON_SECRET = ""
-
-# Client-side Environment Variables
-NEXT_PUBLIC_MAPBOX_TOKEN = ""
-NEXT_PUBLIC_POSTHOG_KEY = ""
-NEXT_PUBLIC_POSTHOG_HOST = "https://your-posthog-host.com"
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY = ""
+xai_api_key = "${password:32}" # Generate secure XAI API key
+openai_api_key = "${password:32}" # Generate secure OpenAI API key
+anthropic_api_key = "${password:32}" # Generate secure Anthropic API key
+groq_api_key = "${password:32}" # Generate secure Groq API key
+google_generative_ai_api_key = "${password:32}" # Generate secure Google Generative AI API key
+daytona_api_key = "${password:32}" # Generate secure Daytona API key
+database_url = "${password:32}" # Generate secure database URL
+redis_url = "${password:32}" # Generate secure Redis URL
+blob_read_write_token = "${password:32}" # Generate secure blob token
+better_auth_secret = "${password:32}" # Generate secure auth secret
+github_client_id = "${password:32}" # Generate secure GitHub client ID
+github_client_secret = "${password:32}" # Generate secure GitHub client secret
+google_client_id = "${password:32}" # Generate secure Google client ID
+google_client_secret = "${password:32}" # Generate secure Google client secret
+twitter_client_id = "${password:32}" # Generate secure Twitter client ID
+twitter_client_secret = "${password:32}" # Generate secure Twitter client secret
+tavily_api_key = "${password:32}" # Generate secure Tavily API key
+exa_api_key = "${password:32}" # Generate secure Exa API key
+firecrawl_api_key = "${password:32}" # Generate secure Firecrawl API key
+tmdb_api_key = "${password:32}" # Generate secure TMDB API key
+yt_endpoint = "${password:32}" # Generate secure YouTube endpoint
+elevenlabs_api_key = "${password:32}" # Generate secure ElevenLabs API key
+google_maps_api_key = "${password:32}" # Generate secure Google Maps API key
+mapbox_access_token = "${password:32}" # Generate secure Mapbox access token
+tripadvisor_api_key = "${password:32}" # Generate secure Tripadvisor API key
+openweather_api_key = "${password:32}" # Generate secure OpenWeather API key
+aviation_stack_api_key = "${password:32}" # Generate secure Aviation Stack API key
+mem0_api_key = "${password:32}" # Generate secure Mem0 API key
+mem0_org_id = "${password:32}" # Generate secure Mem0 organization ID
+mem0_project_id = "${password:32}" # Generate secure Mem0 project ID
+smithery_api_key = "${password:32}" # Generate secure Smithery API key
+cron_secret = "${password:32}" # Generate secure cron secret
+next_public_mapbox_token = "${password:32}" # Generate secure public Mapbox token
+next_public_posthog_key = "${password:32}" # Generate secure public PostHog key
+next_public_posthog_host = "https://your-posthog-host.com"
+next_public_google_maps_api_key = "${password:32}" # Generate secure public Google Maps API key
 
 [config]
-mounts = []
-
 [[config.domains]]
-serviceName = "scira"
+serviceName = "scira-app" # Matches the service name in docker-compose.yml
 port = 3000
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+NODE_ENV = "production"
+PORT = "3000"
+HOSTNAME = "${main_domain}"
+XAI_API_KEY = "${xai_api_key}" # XAI API key, sensitive value
+OPENAI_API_KEY = "${openai_api_key}" # OpenAI API key, sensitive value
+ANTHROPIC_API_KEY = "${anthropic_api_key}" # Anthropic API key, sensitive value
+GROQ_API_KEY = "${groq_api_key}" # Groq API key, sensitive value
+GOOGLE_GENERATIVE_AI_API_KEY = "${google_generative_ai_api_key}" # Google Generative AI API key, sensitive value
+DAYTONA_API_KEY = "${daytona_api_key}" # Daytona API key, sensitive value
+DATABASE_URL = "${database_url}" # Database URL, sensitive value
+REDIS_URL = "${redis_url}" # Redis URL, sensitive value
+BLOB_READ_WRITE_TOKEN = "${blob_read_write_token}" # Blob read/write token, sensitive value
+BETTER_AUTH_SECRET = "${better_auth_secret}" # Authentication secret, sensitive value
+GITHUB_CLIENT_ID = "${github_client_id}" # GitHub client ID, sensitive value
+GITHUB_CLIENT_SECRET = "${github_client_secret}" # GitHub client secret, sensitive value
+GOOGLE_CLIENT_ID = "${google_client_id}" # Google client ID, sensitive value
+GOOGLE_CLIENT_SECRET = "${google_client_secret}" # Google client secret, sensitive value
+TWITTER_CLIENT_ID = "${twitter_client_id}" # Twitter client ID, sensitive value
+TWITTER_CLIENT_SECRET = "${twitter_client_secret}" # Twitter client secret, sensitive value
+TAVILY_API_KEY = "${tavily_api_key}" # Tavily API key, sensitive value
+EXA_API_KEY = "${exa_api_key}" # Exa API key, sensitive value
+FIRECRAWL_API_KEY = "${firecrawl_api_key}" # Firecrawl API key, sensitive value
+TMDB_API_KEY = "${tmdb_api_key}" # TMDB API key, sensitive value
+YT_ENDPOINT = "${yt_endpoint}" # YouTube endpoint, sensitive value
+ELEVENLABS_API_KEY = "${elevenlabs_api_key}" # ElevenLabs API key, sensitive value
+GOOGLE_MAPS_API_KEY = "${google_maps_api_key}" # Google Maps API key, sensitive value
+MAPBOX_ACCESS_TOKEN = "${mapbox_access_token}" # Mapbox access token, sensitive value
+TRIPADVISOR_API_KEY = "${tripadvisor_api_key}" # Tripadvisor API key, sensitive value
+OPENWEATHER_API_KEY = "${openweather_api_key}" # OpenWeather API key, sensitive value
+AVIATION_STACK_API_KEY = "${aviation_stack_api_key}" # Aviation Stack API key, sensitive value
+MEM0_API_KEY = "${mem0_api_key}" # Mem0 API key, sensitive value
+MEM0_ORG_ID = "${mem0_org_id}" # Mem0 organization ID, sensitive value
+MEM0_PROJECT_ID = "${mem0_project_id}" # Mem0 project ID, sensitive value
+SMITHERY_API_KEY = "${smithery_api_key}" # Smithery API key, sensitive value
+CRON_SECRET = "${cron_secret}" # Cron secret, sensitive value
+NEXT_PUBLIC_MAPBOX_TOKEN = "${next_public_mapbox_token}" # Public Mapbox token, sensitive value
+NEXT_PUBLIC_POSTHOG_KEY = "${next_public_posthog_key}" # Public PostHog key, sensitive value
+NEXT_PUBLIC_POSTHOG_HOST = "${next_public_posthog_host}" # Public PostHog host
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY = "${next_public_google_maps_api_key}" # Public Google Maps API key, sensitive value

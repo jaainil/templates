@@ -1,7 +1,26 @@
 [variables]
 main_domain = "${domain}"
 
+[config]
 [[config.domains]]
 serviceName = "opengist"
-port = "6157"
+port = 6157
 host = "${main_domain}"
+path = "/"
+
+# Optional: Uncomment to expose SSH port externally
+# [[config.domains]]
+# serviceName = "opengist"
+# port = 2222
+# host = "${main_domain}"
+# path = "/"
+
+[config.env]
+# Optional environment variables (uncomment to use)
+# OG_EXTERNAL_URL = "http://${main_domain}:6157"  # External URL for Opengist
+# OG_DATA_PATH = "/opengist"                    # Data directory, already set by volume
+# OG_GIT_SSH_PORT = "2222"                     # SSH port, matches exposed port
+
+[[config.mounts]]
+filePath = "/opengist"
+content = ""

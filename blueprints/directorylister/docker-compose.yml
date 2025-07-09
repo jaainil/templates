@@ -1,48 +1,43 @@
+version: "3.8"
 services:
   app:
-    image: phlak/directory-lister:latest
-    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: phlak/directory-lister:dev
     depends_on:
       - memcached
       - redis
     ports:
       - 80
-    extra_hosts:
-      - host.docker.internal:${DOCKER_HOST_IP}
-    user: ${HOST_USER_ID}:${HOST_GROUP_ID}
     volumes:
-      - app_data:/var/www/html
-      - config_data:/var/www/html/config
-    environment:
-      - DOCKER_HOST_IP=${DOCKER_HOST_IP}
-      - HOST_USER_ID=${HOST_USER_ID}
-      - HOST_GROUP_ID=${HOST_GROUP_ID}
+      - app-data:/var/www/html
+      - php-config:/usr/local/etc/php/php.ini
+      - apache-config:/etc/apache2/sites-available/000-default.conf
+    restart: always
 
   memcached:
     image: memcached:1.6
-    restart: unless-stopped
     ports:
       - 11211
+    restart: always
 
   redis:
     image: redis:6.0
-    restart: unless-stopped
     ports:
       - 6379
-    volumes:
-      - redis_data:/data
+    restart: always
 
   npm:
-    image: phlak/directory-lister:latest
-    restart: unless-stopped
+    image: phlak/directory-lister:dev
     volumes:
-      - app_data:/var/www/html
+      - app-data:/var/www/html
     ports:
       - 5173
-    user: ${HOST_USER_ID}:${HOST_GROUP_ID}
     command: npm run dev
+    restart: always
 
 volumes:
-  app_data:
-  config_data:
-  redis_data:
+  app-data: {}
+  php-config: {}
+  apache-config: {}

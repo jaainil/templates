@@ -1,26 +1,11 @@
+version: "3.8"
 services:
-  dumbdrop:
-    image: dumbwareio/dumbdrop:latest
+  dumbpad:
+    image: dumbwareio/dumbpad:latest
     restart: unless-stopped
     ports:
       - 3000
     volumes:
-      - dumbdrop_uploads:/app/uploads
-    environment:
-      UPLOAD_DIR: /app/uploads
-      DUMBDROP_TITLE: ${DUMBDROP_TITLE}
-      MAX_FILE_SIZE: ${MAX_FILE_SIZE}
-      DUMBDROP_PIN: ${DUMBDROP_PIN}
-      AUTO_UPLOAD: ${AUTO_UPLOAD}
-      BASE_URL: ${BASE_URL}
-      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
-      PORT: ${PORT}
-      NODE_ENV: ${NODE_ENV}
-      DEBUG: ${DEBUG}
-      APPRISE_URL: ${APPRISE_URL}
-      APPRISE_MESSAGE: ${APPRISE_MESSAGE}
-      APPRISE_SIZE_UNIT: ${APPRISE_SIZE_UNIT}
-      ALLOWED_EXTENSIONS: ${ALLOWED_EXTENSIONS}
-
+      - dumbpad_data:/app/data
 volumes:
-  dumbdrop_uploads:
+  dumbpad_data: {}

@@ -1,18 +1,20 @@
+version: "3.8"
 services:
   yt-dlp-webui:
-    image: marcobaobao/yt-dlp-webui:${YTDLP_WEBUI_VERSION:-latest}
+    image: marcobaobao/yt-dlp-webui:latest
     restart: unless-stopped
     ports:
       - 3033
     volumes:
-      - ytdlp_downloads:/downloads
-      - ytdlp_config:/config
+      - downloads:/downloads
+      - config:/config
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3033"]
-      interval: 90s
-      timeout: 10s
+      test: curl -f http://localhost:3033 || exit 1
+      interval: 30s
+      timeout: 5s
       retries: 3
+      start_period: 10s
 
 volumes:
-  ytdlp_downloads:
-  ytdlp_config:
+  downloads:
+  config:

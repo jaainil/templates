@@ -1,44 +1,26 @@
 [variables]
 main_domain = "${domain}"
-
-# Application Configuration
-site_title = "DumbAssets"
-base_url = "https://${main_domain}"
-
-# Security Configuration
-dumbassets_pin = "${password:4}"
-allowed_origins = "https://${main_domain}"
-
-# Environment Settings
-node_env = "production"
-debug = "false"
-demo_mode = "false"
-
-# Currency Settings
-currency_code = "USD"
-currency_locale = "en-US"
-
-# Notification Settings
-apprise_url = ""
-
-[config.env]
-SITE_TITLE = "${site_title}"
-BASE_URL = "${base_url}"
-DUMBASSETS_PIN = "${dumbassets_pin}"
-ALLOWED_ORIGINS = "${allowed_origins}"
-NODE_ENV = "${node_env}"
-DEBUG = "${debug}"
-DEMO_MODE = "${demo_mode}"
-CURRENCY_CODE = "${currency_code}"
-CURRENCY_LOCALE = "${currency_locale}"
-APPRISE_URL = "${apprise_url}"
+dumbassets_pin = "${password:32}" # Generate a secure PIN
 
 [config]
-mounts = [
-  { source = "dumbassets_data", target = "/app/data" }
-]
-
 [[config.domains]]
-serviceName = "dumbassets"
+serviceName = "dumbassets" # Matches the service name in docker-compose.yml
 port = 3000
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+NODE_ENV = "production"
+DEBUG = "true"
+SITE_TITLE = "DumbAssets"
+BASE_URL = "http://${main_domain}"
+DUMBASSETS_PIN = "${dumbassets_pin}"
+ALLOWED_ORIGINS = "*"
+DEMO_MODE = "false"
+APPRISE_URL = "" # Apprise URL, may contain API key for notification service
+CURRENCY_CODE = "USD"
+CURRENCY_LOCALE = "en-US"
+
+[[config.mounts]]
+source = "dumbassets_data"
+target = "/app/data"

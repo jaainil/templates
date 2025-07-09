@@ -1,38 +1,59 @@
 [variables]
 main_domain = "${domain}"
+postgres_password = "${password:32}"
+authentik_secret_key = "${password:32}"
+postgres_user = "authentik"
+postgres_db = "authentik"
 
 [config]
-mounts = []
-
 [[config.domains]]
 serviceName = "server"
 port = 9000
 host = "${main_domain}"
+path = "/"
+
+[[config.domains]]
+serviceName = "server"
+port = 9443
+host = "${main_domain}"
+path = "/"
 
 [config.env]
-# Database Configuration
-PG_PASS = "${password:32}"
-PG_USER = "authentik"
-PG_DB = "authentik"
+# postgresql environment variables
+POSTGRES_PASSWORD = "${postgres_password}"
+POSTGRES_USER = "${postgres_user}"
+POSTGRES_DB = "${postgres_db}"
 
-# Authentik Core Configuration
-AUTHENTIK_SECRET_KEY = "authentik"
+# redis environment variables (none needed due to command-line configuration)
+
+# server environment variables
+AUTHENTIK_SECRET_KEY = "${authentik_secret_key}"
+AUTHENTIK_REDIS__HOST = "redis"
+AUTHENTIK_POSTGRESQL__HOST = "postgresql"
+AUTHENTIK_POSTGRESQL__USER = "${postgres_user}"
+AUTHENTIK_POSTGRESQL__NAME = "${postgres_db}"
+AUTHENTIK_POSTGRESQL__PASSWORD = "${postgres_password}"
 AUTHENTIK_IMAGE = "ghcr.io/goauthentik/server"
-AUTHENTIK_TAG = "2025.6.2"
+AUTHENTIK_TAG = "2025.6.3"
 
-# Port Configuration
-COMPOSE_PORT_HTTP = "9000"
-COMPOSE_PORT_HTTPS = "9443"
+# worker environment variables
+AUTHENTIK_WORKER_SECRET_KEY = "${authentik_secret_key}"
+AUTHENTIK_WORKER_REDIS__HOST = "redis"
+AUTHENTIK_WORKER_POSTGRESQL__HOST = "postgresql"
+AUTHENTIK_WORKER_POSTGRESQL__USER = "${postgres_user}"
+AUTHENTIK_WORKER_POSTGRESQL__NAME = "${postgres_db}"
+AUTHENTIK_WORKER_POSTGRESQL__PASSWORD = "${postgres_password}"
+AUTHENTIK_WORKER_IMAGE = "ghcr.io/goauthentik/server"
+AUTHENTIK_WORKER_TAG = "2025.6.3"
 
-# Email Configuration (SMTP)
-AUTHENTIK_EMAIL__HOST = "localhost"
-AUTHENTIK_EMAIL__PORT = "25"
-AUTHENTIK_EMAIL__USERNAME = "authentik"
-AUTHENTIK_EMAIL__PASSWORD = "authentik"
-AUTHENTIK_EMAIL__USE_TLS = "false"
-AUTHENTIK_EMAIL__USE_SSL = "false"
-AUTHENTIK_EMAIL__TIMEOUT = "10"
-AUTHENTIK_EMAIL__FROM = "authentik@${main_domain}"
+[[config.mounts]]
+filePath = "/media"
+content = ""
 
-# Error Reporting
-AUTHENTIK_ERROR_REPORTING__ENABLED = "true" 
+[[config.mounts]]
+filePath = "/custom-templates"
+content = ""
+
+[[config.mounts]]
+filePath = "/certs"
+content = ""

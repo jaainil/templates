@@ -1,50 +1,20 @@
 [variables]
 main_domain = "${domain}"
-
-# App Settings
-dumbdrop_title = "DumbDrop"
-base_url = "https://${main_domain}"
-
-# Uploads
-max_file_size = "1024"
-auto_upload = "true"
-allowed_extensions = ".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.txt,.zip,.rar,.mp4,.mp3"
-
-# Security
-dumbdrop_pin = "${password:6}"
-allowed_origins = "https://${main_domain}"
-
-# Environment
-node_env = "production"
-debug = "false"
-port = "3000"
-
-# Optional: Notifications
-apprise_url = ""
-apprise_message = "New file uploaded - {filename} ({size}), Storage used {storage}"
-apprise_size_unit = "Auto"
-
-[config.env]
-PORT = "${port}"
-DUMBDROP_TITLE = "${dumbdrop_title}"
-BASE_URL = "${base_url}"
-MAX_FILE_SIZE = "${max_file_size}"
-AUTO_UPLOAD = "${auto_upload}"
-ALLOWED_EXTENSIONS = "${allowed_extensions}"
-DUMBDROP_PIN = "${dumbdrop_pin}"
-ALLOWED_ORIGINS = "${allowed_origins}"
-NODE_ENV = "${node_env}"
-DEBUG = "${debug}"
-APPRISE_URL = "${apprise_url}"
-APPRISE_MESSAGE = "${apprise_message}"
-APPRISE_SIZE_UNIT = "${apprise_size_unit}"
+dumbpad_pin = "${password:4}" # Generate a 4-10 digit PIN, empty to disable
 
 [config]
-mounts = [
-  { source = "dumbdrop_uploads", target = "/app/uploads" }
-]
-
 [[config.domains]]
-serviceName = "dumbdrop"
+serviceName = "dumbpad" # Matches the service name in docker-compose.yml
 port = 3000
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+SITE_TITLE = "DumbPad"
+DUMBPAD_PIN = "${dumbpad_pin}" # PIN to access the site, sensitive value, empty to disable
+BASE_URL = "http://${main_domain}"
+NODE_ENV = "production"
+
+[[config.mounts]]
+source = "dumbpad_data"
+target = "/app/data"

@@ -1,28 +1,45 @@
 [variables]
-DOCKER_HOST_IP = "172.17.0.1"
-HOST_USER_ID = "1000"
-HOST_GROUP_ID = "1000"
 main_domain = "${domain}"
-
-[config.env]
-DOCKER_HOST_IP = "${DOCKER_HOST_IP}"
-HOST_USER_ID = "${HOST_USER_ID}"
-HOST_GROUP_ID = "${HOST_GROUP_ID}"
+npm_domain = "${domain}"
 
 [config]
-mounts = [
-  { source = "app_data", target = "/var/www/html" },
-  { source = "config_data", target = "/var/www/html/config" },
-  { source = "redis_data", target = "/data" }
-]
 
 [[config.domains]]
 serviceName = "app"
 port = 80
 host = "${main_domain}"
+path = "/"
 
 [[config.domains]]
 serviceName = "npm"
 port = 5173
-host = "${main_domain}"
-path = "/dev"
+host = "${npm_domain}"
+path = "/"
+
+[config.env]
+APP_DEBUG = "false"
+APP_LANGUAGE = "en"
+DISPLAY_READMES = "true"
+READMES_FIRST = "false"
+ZIP_DOWNLOADS = "true"
+SORT_ORDER = "type"
+REVERSE_SORT = "false"
+
+[[config.mounts]]
+filePath = "/usr/local/etc/php/php.ini"
+content = """
+; PHP configuration for Directory Lister (php.dev.ini)
+; Add your PHP settings here
+"""
+
+[[config.mounts]]
+filePath = "/etc/apache2/sites-available/000-default.conf"
+content = """
+# Apache configuration for Directory Lister
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+"""

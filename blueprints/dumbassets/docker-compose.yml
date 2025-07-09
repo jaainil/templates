@@ -1,22 +1,11 @@
+version: "3.8"
 services:
   dumbassets:
-    image: dumbwareio/dumbassets:latest
+    image: dumbwareio/dumbassets:latest # Replace with build: . for local builds
     restart: unless-stopped
     ports:
       - 3000
     volumes:
       - dumbassets_data:/app/data
-    environment:
-      NODE_ENV: ${NODE_ENV}
-      DEBUG: ${DEBUG}
-      SITE_TITLE: ${SITE_TITLE}
-      BASE_URL: ${BASE_URL}
-      DUMBASSETS_PIN: ${DUMBASSETS_PIN}
-      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
-      DEMO_MODE: ${DEMO_MODE}
-      APPRISE_URL: ${APPRISE_URL}
-      CURRENCY_CODE: ${CURRENCY_CODE}
-      CURRENCY_LOCALE: ${CURRENCY_LOCALE}
-
 volumes:
-  dumbassets_data:
+  dumbassets_data: {}

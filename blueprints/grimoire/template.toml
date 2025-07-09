@@ -1,18 +1,19 @@
 [variables]
-PUBLIC_HTTPS_ONLY = "false"
-PUBLIC_SIGNUP_DISABLED = "false"
 main_domain = "${domain}"
 
-[config.env]
-PUBLIC_HTTPS_ONLY = "${PUBLIC_HTTPS_ONLY}"
-PUBLIC_SIGNUP_DISABLED = "${PUBLIC_SIGNUP_DISABLED}"
-
 [config]
-mounts = [
-  { source = "grimoire_data", target = "/app/data/" }
-]
-
 [[config.domains]]
-serviceName = "grimoire"
+serviceName = "grimoire" # Matches the service name in docker-compose.yml
 port = 5173
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+PORT = "5173"
+PUBLIC_ORIGIN = "http://${main_domain}"
+PUBLIC_HTTPS_ONLY = "false"
+PUBLIC_SIGNUP_DISABLED = "false"
+
+[[config.mounts]]
+source = "grimoire_data"
+target = "/app/data/"

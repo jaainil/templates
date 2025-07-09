@@ -1,52 +1,61 @@
 [variables]
 main_domain = "${domain}"
-nitter_hostname = "${main_domain}"
-nitter_title = "Nitter"
-nitter_hmac_key = "${base64:32}"
-
-[config.env]
-# Nitter App Settings
-NITTER_HOSTNAME = "${nitter_hostname}"
-NITTER_TITLE = "${nitter_title}"
-NITTER_ADDRESS = "0.0.0.0"
-NITTER_PORT = "8080"
-NITTER_HTTPS = "false"
-NITTER_HTTP_MAX_CONNECTIONS = "100"
-NITTER_STATIC_DIR = "./public"
-
-# Cache Settings
-NITTER_LIST_MINUTES = "240"
-NITTER_RSS_MINUTES = "10"
-NITTER_REDIS_HOST = "nitter-redis"
-NITTER_REDIS_PORT = "6379"
-NITTER_REDIS_CONNECTIONS = "20"
-NITTER_REDIS_MAX_CONNECTIONS = "30"
-
-# Security
-NITTER_HMAC_KEY = "${nitter_hmac_key}"
-NITTER_BASE64_MEDIA = "false"
-NITTER_ENABLE_RSS = "true"
-NITTER_ENABLE_DEBUG = "false"
-NITTER_PROXY = ""
-NITTER_PROXY_AUTH = ""
-
-# Preferences
-NITTER_THEME = "Nitter"
-NITTER_REPLACE_TWITTER = "${nitter_hostname}"
-NITTER_REPLACE_YOUTUBE = "piped.video"
-NITTER_REPLACE_REDDIT = "teddit.net"
-NITTER_PROXY_VIDEOS = "true"
-NITTER_HLS_PLAYBACK = "false"
-NITTER_INFINITE_SCROLL = "false"
+hmac_key = "${password:32}"
 
 [config]
-mounts = [
-  { source = "nitter_redis_data", target = "/data" },
-  { source = "nitter_conf", target = "/src/nitter.conf" },
-  { source = "nitter_sessions", target = "/src/sessions.jsonl" }
-]
-
 [[config.domains]]
 serviceName = "nitter"
 port = 8080
 host = "${main_domain}"
+path = "/"
+
+[config.env]
+# No environment variables required for nitter or nitter-redis
+# All configuration is handled via nitter.conf (defined in mounts)
+
+[[config.mounts]]
+filePath = "/src/nitter.conf"
+content = """
+[Server]
+hostname = "${main_domain}"  # for generating links
+title = "Nitter"
+address = "0.0.0.0"
+port = 8080
+https = false  # disable to enable cookies when not using https
+httpMaxConnections = 100
+staticDir = "./public"
+
+[Cache]
+listMinutes = 240
+rssMinutes = 10
+redisHost = "nitter-redis"
+redisPort = 6379
+redisPassword = ""
+redisConnections = 20
+redisMaxConnections = 30
+
+[Config]
+hmacKey = "${hmac_key}"
+base64Media = false
+enableRSS = true
+enableDebug = false
+proxy = ""
+proxyAuth = ""
+
+[Preferences]
+theme = "Nitter"
+replaceTwitter = "${main_domain}"
+replaceYouTube = "piped.video"
+replaceReddit = "teddit.net"
+proxyVideos = true
+hlsPlayback = false
+infiniteScroll = false
+"""
+
+[[config.mounts]]
+filePath = "/src/sessions.jsonl"
+content = ""  # Populate with output from get_sessions.py or leave empty for manual setup
+
+[[config.mounts]]
+filePath = "/data"
+content = ""
