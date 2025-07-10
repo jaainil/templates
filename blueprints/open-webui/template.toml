@@ -1,14 +1,22 @@
 [variables]
 main_domain = "${domain}"
+webui_secret_key = "${password:32}"
 
 [config]
-mounts = []
-
 [[config.domains]]
 serviceName = "open-webui"
-port = 8_080
+port = 8080
 host = "${main_domain}"
+env = [
+  "OLLAMA_BASE_URL=http://ollama:11434",  # Default internal URL; change to external Ollama API if not using local ollama service
+  # "WEB_LOADER_ENGINE=playwright",  # Uncomment if enabling playwright service for web loading
+  # "PLAYWRIGHT_WS_URL=ws://playwright:3000",  # Uncomment if enabling playwright service
+  # "ENABLE_IMAGE_GENERATION=true",  # Uncomment if enabling stable-diffusion-webui for image generation
+  # "AUTOMATIC1111_BASE_URL=http://stable-diffusion-webui:7860",  # Uncomment if enabling stable-diffusion-webui
+  # "IMAGE_SIZE=64x64",  # Uncomment and adjust if enabling image generation
+  # "IMAGE_STEPS=3",  # Uncomment and adjust if enabling image generation
+  # WEBUI_SECRET_KEY used for API authentication
+  "WEBUI_SECRET_KEY=${webui_secret_key}",
+]
 
-[config.env]
-OLLAMA_DOCKER_TAG = "0.1.47"
-WEBUI_DOCKER_TAG = "0.3.7"
+[[config.mounts]]  # No additional file mounts needed; volumes are handled in docker-compose.yml

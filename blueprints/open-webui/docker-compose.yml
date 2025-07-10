@@ -1,24 +1,64 @@
 version: "3.8"
 services:
-  ollama:
-    volumes:
-      - ollama:/root/.ollama
-
-    pull_policy: always
-    tty: true
-    restart: unless-stopped
-    image: ollama/ollama:${OLLAMA_DOCKER_TAG-latest}
+  # ollama:
+  #   image: ollama/ollama:${OLLAMA_DOCKER_TAG-latest}
+  #   restart: unless-stopped
+  #   pull_policy: always
+  #   tty: true
+  #   volumes:
+  #     - ollama:/root/.ollama
+  #   # For host bind mount (uncomment and comment the named volume above if preferred)
+  #   # - ${OLLAMA_DATA_DIR-./ollama-data}:/root/.ollama
+  #   # For NVIDIA GPU support (uncomment if applicable)
+  #   # deploy:
+  #   #   resources:
+  #   #     reservations:
+  #   #       devices:
+  #   #         - driver: ${OLLAMA_GPU_DRIVER-nvidia}
+  #   #           count: ${OLLAMA_GPU_COUNT-1}
+  #   #           capabilities: [gpu]
+  #   # For AMD ROCm support (uncomment the image, devices, and environment if applicable; comment the standard image)
+  #   # image: ollama/ollama:${OLLAMA_DOCKER_TAG-rocm}
+  #   # devices:
+  #   #   - /dev/kfd:/dev/kfd
+  #   #   - /dev/dri:/dev/dri
+  #   # environment:
+  #   #   - HSA_OVERRIDE_GFX_VERSION=${HSA_OVERRIDE_GFX_VERSION-11.0.0}
+  #   # To expose Ollama API on a random host port (uncomment if needed)
+  #   - 11434
 
   open-webui:
     image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
+    restart: unless-stopped
     volumes:
       - open-webui:/app/backend/data
-    depends_on:
-      - ollama
-    environment:
-      - "OLLAMA_BASE_URL=http://ollama:11434"
-      - "WEBUI_SECRET_KEY="
-    restart: unless-stopped
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    # depends_on:  # Uncomment if using local ollama
+    #   - ollama
+
+  # playwright:  # Uncomment this service if using Playwright for web loading
+  #   image: mcr.microsoft.com/playwright:v1.49.1-noble
+  #   command: npx -y playwright@1.49.1 run-server --port 3000 --host 0.0.0.0
+  #   restart: unless-stopped
+
+  # stable-diffusion-webui:  # Uncomment this service for image generation integration (testing only, not for production)
+  #   platform: linux/amd64
+  #   image: ghcr.io/neggles/sd-webui-docker:latest
+  #   restart: unless-stopped
+  #   environment:
+  #     CLI_ARGS: "--api --use-cpu all --precision full --no-half --skip-torch-cuda-test --ckpt /empty.pt --do-not-download-clip --disable-nan-check --disable-opt-split-attention"
+  #     PYTHONUNBUFFERED: "1"
+  #     TERM: "vt100"
+  #     SD_WEBUI_VARIANT: "default"
+  #   entrypoint: /bin/bash
+  #   command:
+  #     - -c
+  #     - |
+  #       export HOME=/root-home
+  #       rm -rf $${HOME}/.cache
+  #       /docker/entrypoint.sh python -u webui.py --listen --port 7860 --skip-version-check $${CLI_ARGS}
+  #   # Note: For testing, provide your own model file if needed; the example volume assumes a host file sd-empty.pt
 
 volumes:
   ollama: {}
