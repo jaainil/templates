@@ -2646,6 +2646,25 @@
     "tags": ["image-hosting", "file-sharing", "self-hosted", "media", "gallery"]
   },
   {
+    "id": "searxng",
+    "name": "SearXNG",
+    "version": "latest",
+    "description": "SearXNG is a privacy-respecting, hackable metasearch engine that aggregates results from various search engines without tracking users.",
+    "logo": "searxng.png",
+    "links": {
+      "github": "https://github.com/searxng/searxng",
+      "website": "https://searxng.github.io/",
+      "docs": "https://docs.searxng.github.io/"
+    },
+    "tags": [
+      "search-engine",
+      "metasearch",
+      "privacy",
+      "self-hosted",
+      "aggregator"
+    ]
+  },
+  {
     "id": "zitadel",
     "name": "Zitadel",
     "version": "latest",
@@ -2666,6 +2685,23 @@
       "openid-connect",
       "saml",
       "multi-tenant"
+    ]
+  },
+  {
+    "id": "filestash",
+    "name": "Filestash",
+    "version": "latest",
+    "description": "Filestash is the enterprise-grade file manager connecting your storage with your identity provider and authorisations.",
+    "logo": "filestash.svg",
+    "links": {
+      "github": "https://github.com/mickael-kerjean/filestash",
+      "website": "https://www.filestash.app/",
+      "docs": "https://www.filestash.app/docs/"
+    },
+    "tags": [
+      "file-manager",
+      "document-editor",
+      "self-hosted"
     ]
   }
 ]
