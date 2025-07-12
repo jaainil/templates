@@ -660,6 +660,19 @@
     "tags": ["self-hosted", "storage"]
   },
   {
+    "id": "gitlab-ce",
+    "name": "GitLab Community Edition",
+    "version": "latest",
+    "description": "GitLab Community Edition is a complete DevOps platform that enables professionals to perform all the tasks in a project—from project planning and source code management to monitoring and security. It's the open source alternative to GitLab Enterprise Edition.",
+    "logo": "gitlab-ce.svg",
+    "links": {
+      "github": "https://github.com/gitlabhq/gitlabhq",
+      "website": "https://gitlab.com/",
+      "docs": "https://docs.gitlab.com/ee/install/docker.html"
+    },
+    "tags": ["git", "devops", "ci-cd", "self-hosted", "code-review"]
+  },
+  {
     "id": "gitea-mirror",
     "name": "Gitea Mirror",
     "version": "v2.11.2",
@@ -2672,6 +2685,23 @@
       "openid-connect",
       "saml",
       "multi-tenant"
+    ]
+  },
+  {
+    "id": "filestash",
+    "name": "Filestash",
+    "version": "latest",
+    "description": "Filestash is the enterprise-grade file manager connecting your storage with your identity provider and authorisations.",
+    "logo": "filestash.svg",
+    "links": {
+      "github": "https://github.com/mickael-kerjean/filestash",
+      "website": "https://www.filestash.app/",
+      "docs": "https://www.filestash.app/docs/"
+    },
+    "tags": [
+      "file-manager",
+      "document-editor",
+      "self-hosted"
     ]
   }
 ]
