@@ -2648,11 +2648,7 @@
       "website": "https://www.filestash.app/",
       "docs": "https://www.filestash.app/docs/"
     },
-    "tags": [
-      "file-manager",
-      "document-editor",
-      "self-hosted"
-    ]
+    "tags": ["file-manager", "document-editor", "self-hosted"]
   },
   {
     "id": "mazanoke",
