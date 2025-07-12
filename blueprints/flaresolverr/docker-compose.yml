@@ -1,7 +1,0 @@
-version: "2.1"
-services:
-  flaresolverr:
-    image: ghcr.io/flaresolverr/flaresolverr:latest
-    restart: unless-stopped
-    ports:
-      - 8191

@@ -1,7 +1,0 @@
-version: "3.8"
-services:
-  scira-app:
-    image: scira-app:latest # Replace with build: . for local builds
-    restart: unless-stopped
-    ports:
-      - 3000
