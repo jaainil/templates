@@ -829,19 +829,6 @@
     "tags": ["open-source"]
   },
   {
-    "id": "linkwarden",
-    "name": "Linkwarden",
-    "version": "2.9.3",
-    "description": "Self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.",
-    "logo": "linkwarden.png",
-    "links": {
-      "github": "https://github.com/linkwarden/linkwarden",
-      "website": "https://linkwarden.app/",
-      "docs": "https://docs.linkwarden.app/"
-    },
-    "tags": ["bookmarks", "link-sharing"]
-  },
-  {
     "id": "hi-events",
     "name": "Hi.events",
     "version": "0.8.0-beta.1",
@@ -1048,19 +1035,6 @@
       "docs": "https://docs.blender.org/"
     },
     "tags": ["3d", "rendering", "animation"]
-  },
-  {
-    "id": "heyform",
-    "name": "HeyForm",
-    "version": "latest",
-    "description": "Allows anyone to create engaging conversational forms for surveys, questionnaires, quizzes, and polls. No coding skills required.",
-    "logo": "heyform.svg",
-    "links": {
-      "github": "https://github.com/heyform/heyform",
-      "website": "https://heyform.net",
-      "docs": "https://docs.heyform.net"
-    },
-    "tags": ["form", "builder", "questionnaire", "quiz", "survey"]
   },
   {
     "id": "chatwoot",
@@ -2071,6 +2045,29 @@
     "tags": ["Document Generation", "Automation", "Reporting", "Productivity"]
   },
   {
+    "id": "casdoor",
+    "name": "Casdoor",
+    "version": "latest",
+    "description": "An open-source UI-first Identity and Access Management (IAM) / Single-Sign-On (SSO) platform with web UI supporting OAuth 2.0, OIDC, SAML, CAS, LDAP, SCIM, WebAuthn, TOTP, MFA, and more.",
+    "logo": "casdoor.png",
+    "links": {
+      "github": "https://github.com/casdoor/casdoor",
+      "website": "https://casdoor.org/",
+      "docs": "https://casdoor.org/docs/overview"
+    },
+    "tags": [
+      "authentication",
+      "authorization",
+      "oauth2",
+      "oidc",
+      "sso",
+      "saml",
+      "identity-management",
+      "access-management",
+      "security"
+    ]
+  },
+  {
     "id": "changedetection",
     "name": "Change Detection",
     "version": "0.49",
@@ -2515,6 +2512,29 @@
     "tags": ["file-sharing", "self-hosted", "open-source"]
   },
   {
+    "id": "papra",
+    "name": "Papra",
+    "version": "latest",
+    "description": "A minimalistic, open-source document management and archiving platform. Store, organize, and retrieve your documents effortlessly with features like full-text search, organizations, tags, email ingestion, and automated document processing.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/papra-hq/papra",
+      "website": "https://papra.app/",
+      "docs": "https://docs.papra.app/"
+    },
+    "tags": [
+      "document-management",
+      "archive",
+      "documents",
+      "organization",
+      "search",
+      "self-hosted",
+      "open-source",
+      "productivity",
+      "file-storage"
+    ]
+  },
+  {
     "id": "karakeep",
     "name": "KaraKeep",
     "version": "0.25.0",
@@ -2556,34 +2576,6 @@
     ]
   },
   {
-    "id": "movary",
-    "name": "Movary",
-    "version": "0.66.2",
-    "description": "Self-hosted web app to track, rate and explore your movie watch history. Offers detailed statistics, third-party integrations for platforms like Trakt, Letterboxd, Netflix, and automated play tracking for Plex, Jellyfin, Emby or Kodi.",
-    "logo": "movary.png",
-    "links": {
-      "github": "https://github.com/leepeuker/movary",
-      "website": "https://movary.org/",
-      "docs": "https://movary.org/docs/",
-      "demo": "https://demo.movary.org/"
-    },
-    "tags": [
-      "movies",
-      "movie-tracker",
-      "self-hosted",
-      "plex",
-      "jellyfin",
-      "emby",
-      "kodi",
-      "trakt",
-      "letterboxd",
-      "netflix",
-      "tmdb",
-      "statistics",
-      "rating"
-    ]
-  },
-    {
     "id": "go-whatsapp-web-multidevice",
     "name": "WhatsApp API Multi Device Version",
     "version": "latest",
@@ -2594,12 +2586,7 @@
       "website": "https://github.com/aldinokemal/go-whatsapp-web-multidevice",
       "docs": "https://github.com/aldinokemal/go-whatsapp-web-multidevice"
     },
-    "tags": [
-      "whatsapp",
-      "self-hosted",
-      "open-source",
-      "api"
-    ]
+    "tags": ["whatsapp", "self-hosted", "open-source", "api"]
   },
   {
     "id": "rabbitmq",
@@ -2612,10 +2599,87 @@
       "website": "https://www.rabbitmq.com/",
       "docs": "https://www.rabbitmq.com/documentation.html"
     },
+    "tags": ["message-broker", "queue", "rabbitmq"]
+  },
+  {
+    "id": "zitadel",
+    "name": "Zitadel",
+    "version": "latest",
+    "description": "Open-source identity and access management platform with multi-tenancy, OpenID Connect, SAML, and OAuth 2.0 support.",
+    "logo": "zitadel.png",
+    "links": {
+      "github": "https://github.com/zitadel/zitadel",
+      "website": "https://zitadel.com/",
+      "docs": "https://zitadel.com/docs/"
+    },
     "tags": [
-      "message-broker",
-      "queue",
-      "rabbitmq"
+      "identity",
+      "authentication",
+      "authorization",
+      "iam",
+      "security",
+      "oauth",
+      "openid-connect",
+      "saml",
+      "multi-tenant"
+    ]
+  },
+  {
+    "id": "cyberchef",
+    "name": "CyberChef",
+    "version": "latest",
+    "description": "CyberChef is a web application for encryption, encoding, compression, and data analysis, developed by GCHQ.",
+    "logo": "cyberchef.svg",
+    "links": {
+      "github": "https://github.com/gchq/CyberChef",
+      "website": "https://gchq.github.io/CyberChef/",
+      "docs": "https://github.com/gchq/CyberChef/wiki"
+    },
+    "tags": ["security", "encryption", "data-analysis"]
+  },
+  {
+    "id": "filestash",
+    "name": "Filestash",
+    "version": "latest",
+    "description": "Filestash is the enterprise-grade file manager connecting your storage with your identity provider and authorisations.",
+    "logo": "filestash.svg",
+    "links": {
+      "github": "https://github.com/mickael-kerjean/filestash",
+      "website": "https://www.filestash.app/",
+      "docs": "https://www.filestash.app/docs/"
+    },
+    "tags": ["file-manager", "document-editor", "self-hosted"]
+  },
+  {
+    "id": "mazanoke",
+    "name": "MAZANOKE",
+    "version": "latest",
+    "description": "MAZANOKE is a modern, self-hosted image hosting and sharing platform. Upload, organize, and share your images with a clean and intuitive interface.",
+    "logo": "mazanoke.svg",
+    "links": {
+      "github": "https://github.com/civilblur/mazanoke",
+      "website": "https://github.com/civilblur/mazanoke",
+      "docs": "https://github.com/civilblur/mazanoke"
+    },
+    "tags": ["image-hosting", "file-sharing", "self-hosted", "media", "gallery"]
+  },
+  {
+    "id": "searxng",
+    "name": "SearXNG",
+    "version": "latest",
+    "description": "SearXNG is a privacy-respecting, hackable metasearch engine that aggregates results from various search engines without tracking users.",
+    "logo": "searxng.png",
+    "links": {
+      "github": "https://github.com/searxng/searxng",
+      "website": "https://searxng.github.io/",
+      "docs": "https://docs.searxng.github.io/"
+    },
+    "tags": [
+      "search-engine",
+      "metasearch",
+      "privacy",
+      "self-hosted",
+      "aggregator"
     ]
   }
 ]
