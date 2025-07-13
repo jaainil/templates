@@ -2529,7 +2529,7 @@
     "name": "Kener",
     "version": "latest",
     "description": "Kener is an open-source status page system for monitoring and alerting. It provides a modern interface for tracking service uptime and sending notifications.",
-    "logo": "kener.png",
+    "logo": "image.png",
     "links": {
       "github": "https://github.com/rajnandan1/kener",
       "website": "https://kener.ing/",
