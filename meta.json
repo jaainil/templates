@@ -24,8 +24,8 @@
     },
     "logo": "capso.png",
     "tags": ["web", "s3", "mysql", "development", "self-hosted"]
-},
-{
+  },
+  {
     "id": "authentik",
     "name": "Authentik",
     "version": "2025.6.3",
@@ -2827,19 +2827,6 @@
     ]
   },
   {
-    "id": "gitlab-ce",
-    "name": "GitLab CE",
-    "version": "latest",
-    "description": "GitLab Community Edition is a free and open source platform for managing Git repositories, CI/CD pipelines, and project management.",
-    "logo": "gitlab-ce.svg",
-    "links": {
-      "github": "https://gitlab.com/gitlab-org/gitlab-ce",
-      "website": "https://gitlab.com/",
-      "docs": "https://docs.gitlab.com/ee/"
-    },
-    "tags": ["git", "ci-cd", "version-control", "project-management"]
-  },
-  {
     "id": "memos",
     "name": "Memos",
     "version": "latest",
@@ -2850,10 +2837,19 @@
       "website": "https://www.usememos.com/",
       "docs": "https://www.usememos.com/docs"
     },
-    "tags": [
-      "productivity",
-      "notes",
-      "bookmarks"
-    ]
+    "tags": ["productivity", "notes", "bookmarks"]
+  },
+  {
+    "id": "linkstack",
+    "name": "LinkStack",
+    "version": "latest",
+    "description": "LinkStack is an open-source link-in-bio platform for sharing multiple links using a customizable landing page.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/linkstackorg/linkstack",
+      "website": "https://linkstack.org/",
+      "docs": "https://docs.linkstack.org/"
+    },
+    "tags": ["bio", "personal", "cms", "php"]
   }
 ]
