@@ -2654,16 +2654,16 @@
   {
     "id": "movary",
     "name": "Movary",
-    "version": "0.66.2",
-    "description": "Self-hosted web app to track, rate and explore your movie watch history. Offers detailed statistics, third-party integrations for platforms like Trakt, Letterboxd, Netflix, and automated play tracking for Plex, Jellyfin, Emby or Kodi.",
+    "version": "latest",
+    "description": "Movary is a self-hosted platform for tracking and managing your watched movies using TMDB.",
     "logo": "movary.png",
     "links": {
       "github": "https://github.com/leepeuker/movary",
       "website": "https://movary.org/",
-      "docs": "https://movary.org/docs/",
-      "demo": "https://demo.movary.org/"
+      "docs": "https://docs.movary.org/"
     },
     "tags": [
+      "media",
       "movies",
       "movie-tracker",
       "self-hosted",

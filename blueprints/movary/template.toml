@@ -1,22 +1,32 @@
+# Defines variables that can be customized during deployment.
 [variables]
 main_domain = "${domain}"
 tmdb_api_key = ""
 mysql_password = "${password:32}"
 mysql_root_password = "${password:32}"
 
-[config.env]
-MOVARY_VERSION = "latest"
-MYSQL_VERSION = "8.0"
-TMDB_API_KEY = "${tmdb_api_key}"
-MYSQL_PASSWORD = "${mysql_password}"
-MYSQL_ROOT_PASSWORD = "${mysql_root_password}"
-APP_URL = "http://${main_domain}"
-APP_ENV = "production"
-
 [config]
-mounts = []
-
+# Configures the public-facing domain for the movary service.
 [[config.domains]]
 serviceName = "movary"
 port = 8080
-host = "${main_domain}" 
+host = "${main_domain}"
+
+# Defines environment variables for all services in the compose file.
+# Variables are prefixed with the service name (e.g., movary_VARIABLE_NAME).
+[config.env]
+movary_DATABASE_MODE = "mysql"
+movary_DATABASE_MYSQL_HOST = "mysql"
+movary_DATABASE_MYSQL_NAME = "movary"
+movary_DATABASE_MYSQL_USER = "movary_user"
+movary_DATABASE_MYSQL_PASSWORD = "${mysql_password}"
+movary_TMDB_API_KEY = "${tmdb_api_key}" # API KEY: Get yours at https://www.themoviedb.org/settings/api
+
+mysql_MYSQL_DATABASE = "movary"
+mysql_MYSQL_USER = "movary_user"
+mysql_MYSQL_PASSWORD = "${mysql_password}"
+mysql_MYSQL_ROOT_PASSWORD = "${mysql_root_password}"
+
+# This template uses named volumes defined directly in the docker-compose.yml file.
+# Therefore, no specific file or volume mounts need to be configured here.
+[[config.mounts]]
