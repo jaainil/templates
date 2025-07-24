@@ -1,0 +1,43 @@
+[variables]
+main_domain = "${domain}"
+
+[config]
+[[config.domains]]
+serviceName = "metube"
+port = 8081
+host = "${main_domain}"
+
+[config.env]
+UID = "1000" # User ID for MeTube
+GID = "1000" # Group ID for MeTube
+UMASK = "022" # Umask value for MeTube
+DEFAULT_THEME = "auto" # Default UI theme (light, dark, or auto)
+DOWNLOAD_DIR = "/downloads" # Path for video downloads
+AUDIO_DOWNLOAD_DIR = "/downloads" # Path for audio-only downloads
+DOWNLOAD_DIRS_INDEXABLE = "false" # Whether download dirs are indexable
+CUSTOM_DIRS = "true" # Enable custom download directories
+CREATE_CUSTOM_DIRS = "true" # Enable automatic directory creation
+CUSTOM_DIRS_EXCLUDE_REGEX = "(^|/)[.@].*$" # Regex to exclude certain directories
+STATE_DIR = "/downloads/.metube" # Path for queue persistence files
+TEMP_DIR = "/downloads" # Path for intermediary download files
+DELETE_FILE_ON_TRASHCAN = "false" # Delete files when trashed from UI
+URL_PREFIX = "/" # Base path for web server
+PUBLIC_HOST_URL = "" # Base URL for download links (optional)
+HTTPS = "false" # Use HTTPS (requires CERTFILE and KEYFILE)
+CERTFILE = "" # HTTPS certificate file path (optional)
+KEYFILE = "" # HTTPS key file path (optional)
+PUBLIC_HOST_AUDIO_URL = "" # Base URL for audio download links (optional)
+OUTPUT_TEMPLATE = "%(title)s.%(ext)s" # Filename template for videos
+OUTPUT_TEMPLATE_CHAPTER = "%(title)s - %(section_number)s %(section_title)s.%(ext)s" # Filename template for chapters
+OUTPUT_TEMPLATE_PLAYLIST = "%(playlist_title)s/%(title)s.%(ext)s" # Filename template for playlists
+DEFAULT_OPTION_PLAYLIST_STRICT_MODE = "false" # Strict playlist mode
+DEFAULT_OPTION_PLAYLIST_ITEM_LIMIT = "0" # Max playlist items (0 = no limit)
+YTDL_OPTIONS = "{}" # Additional yt-dlp options in JSON format
+YTDL_OPTIONS_FILE = "" # Path to JSON file for YTDL_OPTIONS (optional)
+ROBOTS_TXT = "" # Path to robots.txt file (optional)
+DOWNLOAD_MODE = "limited" # Download mode (sequential, concurrent, limited)
+MAX_CONCURRENT_DOWNLOADS = "3" # Max simultaneous downloads (for limited mode)
+LOGLEVEL = "INFO" # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL, NONE)
+ENABLE_ACCESSLOG = "false" # Enable access log
+
+[[config.mounts]]
