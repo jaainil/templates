@@ -1,0 +1,14 @@
+[variables]
+main_domain = "${domain}"
+
+[config]
+[[config.domains]]
+serviceName = "yt-dlp-webui"
+port = 3033
+host = "${main_domain}"
+
+[config.env]
+# No environment variables are needed for this application.
+
+[[config.mounts]]
+# The volumes for downloads and config are defined in the docker-compose.yml.
