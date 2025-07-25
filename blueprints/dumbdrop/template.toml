@@ -1,0 +1,30 @@
+# template.toml
+[variables]
+main_domain = "https://${domain}"
+
+[config]
+[[config.domains]]
+serviceName = "dumbdrop"
+port = 3000
+host = "${domain}"
+
+[config.env]
+UPLOAD_DIR = "/app/uploads"
+DUMBDROP_TITLE = "DumbDrop"
+MAX_FILE_SIZE = "1024"
+DUMBDROP_PIN = "${password:6}"
+AUTO_UPLOAD = "true"
+BASE_URL = "${main_domain}"
+# Comma-separated list of allowed origins for CORS.
+ALLOWED_ORIGINS = ""
+# Apprise URL for notifications (optional).
+# API key for notifications
+APPRISE_URL = ""
+APPRISE_MESSAGE = "New file uploaded {filename} ({size}), Storage used {storage}"
+APPRISE_SIZE_UNIT = "Auto"
+# Comma-separated list of allowed file extensions (e.g., .jpg,.png). Leave empty for all.
+ALLOWED_EXTENSIONS = ""
+
+# The volume 'dumbdrop-uploads' is defined in the docker-compose.yml file.
+# This section is for file mounts with specific content if needed.
+[[config.mounts]]
