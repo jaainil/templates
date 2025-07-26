@@ -13,6 +13,4 @@ PUBLIC_ORIGIN = "https://${main_domain}"
 PUBLIC_HTTPS_ONLY = "true"
 PUBLIC_SIGNUP_DISABLED = "false"
 
-# The named volume 'grimoire_data' is defined and mounted in the docker-compose.yml file.
-# This section is primarily used for creating file mounts with specific content.
 [[config.mounts]]

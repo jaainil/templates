@@ -1,10 +1,10 @@
 [variables]
 main_domain = "${domain}"
-basic_auth_password = "${password:32}" # Generates a random 32-character password for BASIC_AUTH_PASSWORD
+basic_auth_password = "${password:32}" 
 
 [config]
 [[config.domains]]
-serviceName = "pinchflat" # Matches the service name in docker-compose.yml
+serviceName = "pinchflat" 
 port = 8945
 host = "${main_domain}"
 
@@ -13,7 +13,7 @@ TZ = "America/New_York"
 LOG_LEVEL = "debug"
 UMASK = "022"
 BASIC_AUTH_USERNAME = ""
-BASIC_AUTH_PASSWORD = "${basic_auth_password}" # Secure password for basic authentication
+BASIC_AUTH_PASSWORD = "${basic_auth_password}" 
 EXPOSE_FEED_ENDPOINTS = "false"
 ENABLE_IPV6 = "false"
 JOURNAL_MODE = "wal"

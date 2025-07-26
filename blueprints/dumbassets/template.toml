@@ -16,7 +16,6 @@ BASE_URL = "https://${main_domain}"
 DUMBASSETS_PIN = "${default_pin}"
 ALLOWED_ORIGINS = "*"
 DEMO_MODE = "false"
-# Optional: URL for Apprise notifications
 APPRISE_URL = ""
 CURRENCY_CODE = "USD"
 CURRENCY_LOCALE = "en-US"

@@ -1,10 +1,10 @@
 [variables]
 main_domain = "${domain}"
-token_secret = "${password:32}" # Generates a random 32-character password for TOKEN_SECRET
+token_secret = "${password:32}"
 
 [config]
 [[config.domains]]
-serviceName = "snapp" # Matches the service name in docker-compose.yml
+serviceName = "snapp" 
 port = 3000
 host = "${main_domain}"
 
@@ -17,7 +17,7 @@ ORIGIN = "http://${main_domain}"
 PORT = "3000"
 ADMIN_USERNAME = "admin"
 ADMIN_EMAIL = "info@example.org"
-ADMIN_PASSWORD = "${password:16}" # Generates a random 16-character password for admin
+ADMIN_PASSWORD = "${password:16}"
 TOKEN_SECRET = "${token_secret}" # API Key for authentication token
 ENABLE_SIGNUP = "true"
 ENABLED_MFA = "false"

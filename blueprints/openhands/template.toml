@@ -1,17 +1,13 @@
-# Defines user-configurable variables for the template
 [variables]
 main_domain = "${domain}"
-# API Key for the LLM model (e.g., OpenAI)
 openhands_api_key = "${password:64}"
 
 [config]
-# Configures the domain mapping for the OpenHands service.
 [[config.domains]]
 serviceName = "openhands"
 port = 3000
 host = "${main_domain}"
 
-# Defines environment variables for the OpenHands container.
 [config.env]
 SANDBOX_RUNTIME_CONTAINER_IMAGE="docker.all-hands.dev/all-hands-ai/runtime:0.50-nikolaik"
 

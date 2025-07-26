@@ -1,6 +1,6 @@
 [variables]
 main_domain = "${domain}"
-jwt_secret = "${jwt:32}" # Generate a random JWT secret
+jwt_secret = "${jwt:32}"
 account_registration = "false"
 http_allowed = "true"
 allow_unauthenticated = "false"
@@ -12,12 +12,12 @@ language = "en"
 
 [config]
 [[config.domains]]
-serviceName = "convertx" # Matches the service name in docker-compose.yml
+serviceName = "convertx" 
 port = 3000
 host = "${main_domain}"
 
 [config.env]
-JWT_SECRET = "${jwt_secret}" # Used to sign JSON Web Tokens
+JWT_SECRET = "${jwt_secret}"
 ACCOUNT_REGISTRATION = "${account_registration}"
 HTTP_ALLOWED = "${http_allowed}"
 ALLOW_UNAUTHENTICATED = "${allow_unauthenticated}"

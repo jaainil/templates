@@ -1,4 +1,3 @@
-# docker-compose.yml
 services:
   dumbdrop:
     image: dumbwareio/dumbdrop:latest

@@ -20,4 +20,3 @@ NEKO_WEBRTC_EPR = "52000-52100"
 NEKO_WEBRTC_ICELITE = "1"
 
 [[config.mounts]]
-# No volumes needed for this template

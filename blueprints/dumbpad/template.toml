@@ -12,7 +12,7 @@ NODE_ENV = "production"
 SITE_TITLE = "DumbPad"
 BASE_URL = "https://${main_domain}"
 # Set a PIN (4-10 digits) for access protection. Leave empty to disable.
-DUMBPAD_PIN = "" # API Key
+DUMBPAD_PIN = ""
 LOCKOUT_TIME = "15"
 MAX_ATTEMPTS = "5"
 COOKIE_MAX_AGE = "24"

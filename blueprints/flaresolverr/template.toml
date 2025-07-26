@@ -8,11 +8,9 @@ port = 8191
 host = "${main_domain}"
 
 [config.env]
-# Default environment variables for FlareSolverr.
 LOG_LEVEL = "info"
 LOG_HTML = "false"
 CAPTCHA_SOLVER = "none"
 TZ = "Europe/London"
 
 [[config.mounts]]
-# No volumes are required for this application.
