@@ -3132,5 +3132,23 @@
       "self-hosted",
       "simple"
     ]
+  },
+  {
+    "id": "tianji",
+    "name": "Tianji",
+    "version": "latest",
+    "description": "Tianji is a lightweight web analytic service and uptime monitoring tool.",
+    "logo": "logo.svg",
+    "links": {
+      "github": "https://github.com/msgbyte/tianji",
+      "website": "https://github.com/msgbyte/tianji",
+      "docs": "https://github.com/msgbyte/tianji"
+    },
+    "tags": [
+      "analytics",
+      "monitoring",
+      "web",
+      "uptime"
+    ]
   }
 ]
