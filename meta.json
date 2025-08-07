@@ -3139,7 +3139,6 @@
     "tags": ["analytics"]
   },
   {
-   
     "id": "wg-easy",
     "name": "WG-Easy",
     "version": "15",
@@ -3190,5 +3189,18 @@
       "docs": "https://docs.scrypted.app/"
     },
     "tags": ["home-automation", "nvr", "smart-home", "surveillance"]
+  },
+  {
+    "id": "statping-ng",
+    "name": "Statping-NG",
+    "version": "latest",
+    "description": "Statping-NG is an easy-to-use status page for monitoring websites and applications with beautiful metrics, analytics, and health checks.",
+    "logo": "statping-ng.png",
+    "links": {
+      "github": "https://github.com/adamboutcher/statping-ng",
+      "website": "https://statping-ng.github.io/",
+      "docs": "https://statping-ng.github.io/install.html"
+    },
+    "tags": ["monitoring", "status-page"]
   }
 ]
