@@ -13,6 +13,48 @@
     "tags": ["database", "postgres", "automation", "self-hosted", "dbaas"]
   },
   {
+    "id": "authelia",
+    "name": "Authelia",
+    "version": "latest",
+    "description": "The Single Sign-On Multi-Factor portal for web apps. An open-source authentication and authorization server providing 2FA and SSO via web portal.",
+    "logo": "authelia.png",
+    "links": {
+      "github": "https://github.com/authelia/authelia",
+      "website": "https://www.authelia.com/",
+      "docs": "https://www.authelia.com/overview/prologue/introduction/"
+    },
+    "tags": [
+      "authentication",
+      "authorization",
+      "2fa",
+      "sso",
+      "security",
+      "reverse-proxy",
+      "ldap"
+    ]
+  },
+  {
+    "id": "authelia",
+    "name": "Authelia",
+    "version": "latest",
+    "description": "The Single Sign-On Multi-Factor portal for web apps. An open-source authentication and authorization server providing 2FA and SSO via web portal.",
+    "logo": "authelia.png",
+    "links": {
+      "github": "https://github.com/authelia/authelia",
+      "website": "https://www.authelia.com/",
+      "docs": "https://www.authelia.com/overview/prologue/introduction/"
+    },
+    "tags": [
+      "authentication",
+      "authorization",
+      "2fa",
+      "sso",
+      "security",
+      "reverse-proxy",
+      "ldap"
+    ]
+  },
+  {
     "id": "capso",
     "name": "Cap.so",
     "version": "latest",
@@ -280,7 +322,7 @@
   {
     "id": "ghost",
     "name": "Ghost",
-    "version": "5.0.0",
+    "version": "6.0.0",
     "description": "Ghost is a free and open source, professional publishing platform built on a modern Node.js technology stack.",
     "logo": "ghost.jpeg",
     "links": {
@@ -883,8 +925,8 @@
     "logo": "linkding.svg",
     "links": {
       "github": "https://github.com/sissbruecker/linkding",
-      "website": "https://sissbruecker.github.io/linkding/",
-      "docs": "https://github.com/sissbruecker/linkding/blob/master/docs/Options.md"
+      "website": "https://linkding.link/",
+      "docs": "https://github.com/sissbruecker/linkding/tree/master/docs"
     },
     "tags": ["bookmark-manager", "self-hosted"]
   },
@@ -1424,13 +1466,13 @@
   {
     "id": "checkmate",
     "name": "Checkmate",
-    "version": "2.0.1",
+    "version": "latest",
     "description": "Checkmate is an open-source, self-hosted tool designed to track and monitor server hardware, uptime, response times, and incidents in real-time with beautiful visualizations.",
     "logo": "checkmate.png",
     "links": {
       "github": "https://github.com/bluewave-labs/checkmate",
-      "website": "https://bluewavelabs.ca",
-      "docs": "https://bluewavelabs.gitbook.io/checkmate"
+      "website": "https://checkmate.so/",
+      "docs": "https://docs.checkmate.so"
     },
     "tags": ["self-hosted", "monitoring", "uptime"]
   },
@@ -2719,6 +2761,32 @@
     "tags": ["message-broker", "queue", "rabbitmq"]
   },
   {
+    "id": "livekit",
+    "name": "Livekit",
+    "version": "v1.9.0",
+    "description": "LiveKit is an open source platform for developers building realtime media applications.",
+    "logo": "livekit.svg",
+    "links": {
+      "github": "https://github.com/livekit/livekit",
+      "website": "https://livekit.io/",
+      "docs": "https://docs.livekit.io/"
+    },
+    "tags": ["Video", "Audio", "Real-time", "Streaming", "Webrtc"]
+  },
+  {
+    "id": "livekit",
+    "name": "Livekit",
+    "version": "v1.9.0",
+    "description": "LiveKit is an open source platform for developers building realtime media applications.",
+    "logo": "livekit.svg",
+    "links": {
+      "github": "https://github.com/livekit/livekit",
+      "website": "https://livekit.io/",
+      "docs": "https://docs.livekit.io/"
+    },
+    "tags": ["Video", "Audio", "Real-time", "Streaming", "Webrtc"]
+  },
+  {
     "id": "ezbookkeeping",
     "name": "EZBookkeeping",
     "version": "latest",
@@ -3139,7 +3207,6 @@
     "tags": ["analytics"]
   },
   {
-   
     "id": "wg-easy",
     "name": "WG-Easy",
     "version": "15",
@@ -3190,5 +3257,166 @@
       "docs": "https://docs.scrypted.app/"
     },
     "tags": ["home-automation", "nvr", "smart-home", "surveillance"]
+  },
+  {
+    "id": "wallos",
+    "name": "Wallos",
+    "version": "latest",
+    "description": "Wallos is a self-hosted subscription tracking application that helps you manage and monitor your subscriptions, providing insights into your spending habits.",
+    "logo": "wallos.png",
+    "links": {
+      "github": "https://github.com/ellite/wallos",
+      "website": "https://wallosapp.com",
+      "docs": "https://github.com/ellite/wallos?tab=readme-ov-file#getting-started"
+    },
+    "tags": [
+      "finance",
+      "subscription",
+      "budgeting",
+      "expense-tracking",
+      "spending"
+    ]
+  },
+  {
+    "id": "n8n-with-postgres",
+    "name": "n8n with Postgres",
+    "version": "latest",
+    "description": "n8n is an open source low-code platform for automating workflows and integrations with PostgreSQL database for better performance and scalability.",
+    "logo": "n8n.png",
+    "links": {
+      "github": "https://github.com/n8n-io/n8n",
+      "website": "https://n8n.io/",
+      "docs": "https://docs.n8n.io/"
+    },
+    "tags": ["automation", "workflow", "low-code", "postgres"]
+  },
+  {
+    "id": "statping-ng",
+    "name": "Statping-NG",
+    "version": "latest",
+    "description": "Statping-NG is an easy-to-use status page for monitoring websites and applications with beautiful metrics, analytics, and health checks.",
+    "logo": "statping-ng.png",
+    "links": {
+      "github": "https://github.com/adamboutcher/statping-ng",
+      "website": "https://statping-ng.github.io/",
+      "docs": "https://statping-ng.github.io/install.html"
+    },
+    "tags": ["monitoring", "status-page"]
+  },
+  {
+    "id": "poke",
+    "name": "Poke",
+    "version": "latest",
+    "description": "Poke is an open-source, self-hosted alternative to YouTube. A privacy-focused video platform that allows you to watch and share videos without tracking.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://codeberg.org/ashley/poke",
+      "website": "https://poketube.fun/",
+      "docs": "https://codeberg.org/ashley/poke"
+    },
+    "tags": [
+      "video",
+      "youtube-alternative",
+      "self-hosted",
+      "privacy",
+      "streaming"
+    ]
+  },
+  {
+    "id": "wg-easy",
+    "name": "WG-Easy",
+    "version": "15",
+    "description": "WG-Easy is a simple and user-friendly WireGuard VPN server with a web interface for easy management.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/wg-easy/wg-easy",
+      "website": "https://wg-easy.github.io/",
+      "docs": "https://github.com/wg-easy/wg-easy/wiki"
+    },
+    "tags": ["vpn", "wireguard", "networking"]
+  },
+  {
+    "id": "open_notebook",
+    "name": "Open Notebook",
+    "version": "latest",
+    "description": "Open Notebook with SurrealDB for data storage and AI-powered features.",
+    "logo": "open_notebook.svg",
+    "links": {
+      "github": "https://github.com/lfnovo/open_notebook",
+      "website": "https://www.open-notebook.ai/",
+      "docs": "https://www.open-notebook.ai/get-started.html"
+    },
+    "tags": ["notebook", "ai", "database", "surrealdb"]
+  },
+  {
+    "id": "booklore",
+    "name": "Booklore",
+    "version": "latest",
+    "description": "Booklore is an application for managing and serving book-related data, backed by a MariaDB database.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/booklore-app/BookLore",
+      "website": "https://github.com/booklore-app/BookLore",
+      "docs": "https://github.com/booklore-app/BookLore/tree/develop/docs"
+    },
+    "tags": ["books", "library", "database", "mariadb"]
+  },
+  {
+    "id": "scrypted",
+    "name": "Scrypted",
+    "version": "latest",
+    "description": "Scrypted is a home automation platform that integrates with various smart home devices and provides NVR capabilities for video surveillance.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/koush/scrypted",
+      "website": "https://www.scrypted.app/",
+      "docs": "https://docs.scrypted.app/"
+    },
+    "tags": ["home-automation", "nvr", "smart-home", "surveillance"]
+  },
+  {
+    "id": "wallos",
+    "name": "Wallos",
+    "version": "latest",
+    "description": "Wallos is a self-hosted subscription tracking application that helps you manage and monitor your subscriptions, providing insights into your spending habits.",
+    "logo": "wallos.png",
+    "links": {
+      "github": "https://github.com/ellite/wallos",
+      "website": "https://wallosapp.com",
+      "docs": "https://github.com/ellite/wallos?tab=readme-ov-file#getting-started"
+    },
+    "tags": [
+      "finance",
+      "subscription",
+      "budgeting",
+      "expense-tracking",
+      "spending"
+    ]
+  },
+  {
+    "id": "n8n-with-postgres",
+    "name": "n8n with Postgres",
+    "version": "latest",
+    "description": "n8n is an open source low-code platform for automating workflows and integrations with PostgreSQL database for better performance and scalability.",
+    "logo": "n8n.png",
+    "links": {
+      "github": "https://github.com/n8n-io/n8n",
+      "website": "https://n8n.io/",
+      "docs": "https://docs.n8n.io/"
+    },
+    "tags": ["automation", "workflow", "low-code", "postgres"]
+  },
+  {
+    "id": "statping-ng",
+    "name": "Statping-NG",
+    "version": "latest",
+    "description": "Statping-NG is an easy-to-use status page for monitoring websites and applications with beautiful metrics, analytics, and health checks.",
+    "logo": "statping-ng.png",
+    "links": {
+      "github": "https://github.com/adamboutcher/statping-ng",
+      "website": "https://statping-ng.github.io/",
+      "docs": "https://statping-ng.github.io/install.html"
+    },
+    "tags": ["monitoring", "status-page"]
   }
 ]
