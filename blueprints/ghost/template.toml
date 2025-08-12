@@ -1,11 +1,51 @@
 [variables]
 main_domain = "${domain}"
+db_root_password = "${password:32}"
+db_password = "${password:32}"
 
-[config]
-env = ["GHOST_HOST=${main_domain}"]
-mounts = []
-
+[config] 
 [[config.domains]]
 serviceName = "ghost"
-port = 2_368
+port = 2368
 host = "${main_domain}"
+
+[config.env]
+# Required
+DOMAIN = "${main_domain}"
+DATABASE_ROOT_PASSWORD = "${db_root_password}"
+DATABASE_PASSWORD = "${db_password}"
+
+# Optional overrides
+# ADMIN_DOMAIN =
+# DATABASE_USER = "ghost"
+# GHOST_VERSION = "6-alpine"
+
+# ActivityPub (optional, enable service & set ACTIVITYPUB_TARGET in Ghost if you proxy it)
+# ACTIVITYPUB_TARGET = "https://ap.ghost.org"
+
+# Tinybird analytics (optional)
+# TINYBIRD_API_URL = "https://api.tinybird.co"
+# TINYBIRD_TRACKER_TOKEN =
+# TINYBIRD_ADMIN_TOKEN =
+# TINYBIRD_WORKSPACE_ID =
+
+# Ghost mail config (optional; for logins/password reset)
+# mail__transport = "SMTP"
+# mail__options__host = "smtp.example.com"
+# mail__options__port = 465
+# mail__options__secure = true
+# mail__options__auth__user = "postmaster@example.com"
+# mail__options__auth__pass = "1234567890"
+
+# Internal tuning (rarely needed)
+# GHOST_PORT = 2368
+
+[[config.mounts]]
+serviceName = "ghost"
+volumeName = "ghost_content"
+mountPath = "/var/lib/ghost/content"
+
+[[config.mounts]]
+serviceName = "db"
+volumeName = "mysql_data"
+mountPath = "/var/lib/mysql"

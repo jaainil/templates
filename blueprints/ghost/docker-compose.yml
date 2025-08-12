@@ -1,28 +1,75 @@
 version: "3.8"
+
 services:
   ghost:
-    image: ghost:6-alpine
+    # Pin if you need a specific version
+    image: ghost:${GHOST_VERSION:-6-alpine}
     restart: always
     environment:
+      NODE_ENV: production
+      # Dokploy will route the domain; Ghost still needs a public URL
+      url: https://${DOMAIN}
+      # Uncomment if you use a separate admin domain
+      # admin__url: https://${ADMIN_DOMAIN}
       database__client: mysql
       database__connection__host: db
-      database__connection__user: root
-      database__connection__password: example
+      database__connection__user: ${DATABASE_USER:-ghost}
+      database__connection__password: ${DATABASE_PASSWORD}
       database__connection__database: ghost
-      url: http://${GHOST_HOST}
 
+      # Tinybird / analytics (optional)
+      tinybird__tracker__endpoint: https://${DOMAIN}/.ghost/analytics/api/v1/page_hit
+      tinybird__adminToken: ${TINYBIRD_ADMIN_TOKEN:-}
+      tinybird__workspaceId: ${TINYBIRD_WORKSPACE_ID:-}
+      tinybird__tracker__datasource: analytics_events
+      tinybird__stats__endpoint: ${TINYBIRD_API_URL:-https://api.tinybird.co}
     volumes:
-      - ghost:/var/lib/ghost/content
+      - ghost_content:/var/lib/ghost/content
+    depends_on:
+      db:
+        condition: service_healthy
 
   db:
-    image: mysql:8.0
+    image: mysql:8.0.42@sha256:4445b2668d41143cb50e471ee207f8822006249b6859b24f7e12479684def5d9
     restart: always
-
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+      MYSQL_USER: ${DATABASE_USER:-ghost}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_DATABASE: ghost
+      # for ActivityPub (optional separate DB)
+      MYSQL_MULTIPLE_DATABASES: activitypub
     volumes:
-      - db:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: mysqladmin ping -p$$MYSQL_ROOT_PASSWORD -h 127.0.0.1
+      interval: 1s
+      start_period: 30s
+      start_interval: 10s
+      retries: 120
+
+  # Optional services (disabled unless you add profiles + env)
+  # activitypub:
+  #   image: ghcr.io/tryghost/activitypub:1.1.0
+  #   restart: always
+  #   environment:
+  #     NODE_ENV: production
+  #     PORT: 8080
+  #     MYSQL_HOST: db
+  #     MYSQL_USER: ${DATABASE_USER:-ghost}
+  #     MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+  #     MYSQL_DATABASE: activitypub
+  #     ALLOW_PRIVATE_ADDRESS: true
+  #     USE_MQ: false
+  #     LOCAL_STORAGE_PATH: /opt/activitypub/content/images/activitypub
+  #     LOCAL_STORAGE_HOSTING_URL: https://${DOMAIN}/content/images/activitypub
+  #   volumes:
+  #     - ghost_content:/opt/activitypub/content
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+  #   profiles: ["activitypub"]
 
 volumes:
-  ghost:
-  db:
+  ghost_content:
+  mysql_data:
