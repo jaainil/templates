@@ -43,7 +43,7 @@ jobs:
       - name: Check for duplicates and sort order
         run: |
           echo "🔍 Checking for duplicates and sort order..."
-          node build-scripts/process-meta.js --verbose --no-backup --output /tmp/meta-test.json
+          node build-scripts/process-meta.js --verbose --output /tmp/meta-test.json
 
       - name: Compare with original
         run: |
