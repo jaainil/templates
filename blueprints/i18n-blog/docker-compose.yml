@@ -3,24 +3,15 @@ services:
   i18n-blog:
     image: ictrun/kuno:latest
     restart: unless-stopped
-    expose:
-      - 80
+    ports:
+      - "80"
     volumes:
-      - ../files/blog-data:/app/data
-      - ../files/blog-uploads:/app/backend/uploads
-    environment:
-      - DB_PATH=${DB_PATH}
-      - GIN_MODE=${GIN_MODE}
-      - NODE_ENV=${NODE_ENV}
-      - RECOVERY_MODE=${RECOVERY_MODE}
-      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL} # API key for frontend communication
+      - kuno-data:/app/data
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:80/api/categories"]
       interval: 30s
       timeout: 10s
       retries: 3
+
 volumes:
-  blog-data:
-    driver: local
-  blog-uploads:
-    driver: local
+  kuno-data: {}

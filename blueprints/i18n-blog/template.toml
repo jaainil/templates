@@ -1,24 +1,25 @@
 [variables]
 main_domain = "${domain}"
-api_url = "${domain}/api" # Base URL for API communication
+# Secret key for signing JWT tokens. A random 32-character key is generated for security.
+jwt_secret = "${password:32}"
 
 [config]
 [[config.domains]]
-serviceName = "i18n-blog" # Matches the service name in docker-compose.yml
+serviceName = "i18n-blog"
 port = 80
 host = "${main_domain}"
 
 [config.env]
+NEXT_PUBLIC_API_URL = "https://${main_domain}/api"
 DB_PATH = "/app/data/blog.db"
+UPLOAD_DIR = "/app/data/uploads"
 GIN_MODE = "release"
 NODE_ENV = "production"
 RECOVERY_MODE = "false"
-NEXT_PUBLIC_API_URL = "${api_url}" # API URL for frontend communication
+JWT_SECRET = "${jwt_secret}"
 
 [[config.mounts]]
-source = "../files/blog-data"
+serviceName = "i18n-blog"
+type = "volume"
+source = "kuno-data"
 target = "/app/data"
-
-[[config.mounts]]
-source = "../files/blog-uploads"
-target = "/app/backend/uploads"
