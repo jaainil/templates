@@ -65,7 +65,13 @@
       "docs": "https://cap.so/docs/"
     },
     "logo": "capso.png",
-    "tags": ["web", "s3", "mysql", "development", "self-hosted"]
+    "tags": [
+      "web",
+      "s3",
+      "mysql",
+      "development",
+      "self-hosted"
+    ]
   },
   {
     "id": "authentik",
@@ -317,7 +323,12 @@
       "website": "https://gitlab.com/",
       "docs": "https://docs.gitlab.com/ee/"
     },
-    "tags": ["git", "ci-cd", "version-control", "project-management"]
+    "tags": [
+      "git",
+      "ci-cd",
+      "version-control",
+      "project-management"
+    ]
   },
   {
     "id": "ghost",
@@ -967,7 +978,12 @@
       "website": "https://habitica.com/",
       "docs": "https://habitica.fandom.com/wiki/Setting_up_Habitica_Locally"
     },
-    "tags": ["productivity", "gamification", "habits", "self-hosted"]
+    "tags": [
+      "productivity",
+      "gamification",
+      "habits",
+      "self-hosted"
+    ]
   },
   {
     "id": "hoarder",
@@ -2784,7 +2800,13 @@
       "website": "https://livekit.io/",
       "docs": "https://docs.livekit.io/"
     },
-    "tags": ["Video", "Audio", "Real-time", "Streaming", "Webrtc"]
+    "tags": [
+      "Video",
+      "Audio",
+      "Real-time",
+      "Streaming",
+      "Webrtc"
+    ]
   },
   {
     "id": "ezbookkeeping",
@@ -2853,7 +2875,11 @@
       "website": "https://www.filestash.app/",
       "docs": "https://www.filestash.app/docs/"
     },
-    "tags": ["file-manager", "document-editor", "self-hosted"]
+    "tags": [
+      "file-manager",
+      "document-editor",
+      "self-hosted"
+    ]
   },
   {
     "id": "mazanoke",
@@ -2918,7 +2944,11 @@
       "website": "https://www.usememos.com/",
       "docs": "https://www.usememos.com/docs"
     },
-    "tags": ["productivity", "notes", "bookmarks"]
+    "tags": [
+      "productivity",
+      "notes",
+      "bookmarks"
+    ]
   },
   {
     "id": "linkstack",
@@ -2931,7 +2961,12 @@
       "website": "https://linkstack.org/",
       "docs": "https://docs.linkstack.org/"
     },
-    "tags": ["bio", "personal", "cms", "php"]
+    "tags": [
+      "bio",
+      "personal",
+      "cms",
+      "php"
+    ]
   },
   {
     "id": "opengist",
@@ -3333,7 +3368,11 @@
       "website": "https://wg-easy.github.io/",
       "docs": "https://github.com/wg-easy/wg-easy/wiki"
     },
-    "tags": ["vpn", "wireguard", "networking"]
+    "tags": [
+      "vpn",
+      "wireguard",
+      "networking"
+    ]
   },
   {
     "id": "open_notebook",
@@ -3346,7 +3385,12 @@
       "website": "https://www.open-notebook.ai/",
       "docs": "https://www.open-notebook.ai/get-started.html"
     },
-    "tags": ["notebook", "ai", "database", "surrealdb"]
+    "tags": [
+      "notebook",
+      "ai",
+      "database",
+      "surrealdb"
+    ]
   },
   {
     "id": "booklore",
@@ -3359,7 +3403,12 @@
       "website": "https://github.com/booklore-app/BookLore",
       "docs": "https://github.com/booklore-app/BookLore/tree/develop/docs"
     },
-    "tags": ["books", "library", "database", "mariadb"]
+    "tags": [
+      "books",
+      "library",
+      "database",
+      "mariadb"
+    ]
   },
   {
     "id": "scrypted",
@@ -3385,24 +3434,18 @@
       "website": "https://wallosapp.com",
       "docs": "https://github.com/ellite/wallos?tab=readme-ov-file#getting-started"
     },
-    "tags": [
-      "finance",
-      "subscription",
-      "budgeting",
-      "expense-tracking",
-      "spending"
-    ]
+    "tags": ["finance", "subscription", "budgeting", "expense-tracking", "spending"]
   },
   {
-    "id": "n8n-with-postgres",
-    "name": "n8n with Postgres",
-    "version": "latest",
-    "description": "n8n is an open source low-code platform for automating workflows and integrations with PostgreSQL database for better performance and scalability.",
-    "logo": "n8n.png",
-    "links": {
-      "github": "https://github.com/n8n-io/n8n",
-      "website": "https://n8n.io/",
-      "docs": "https://docs.n8n.io/"
+  "id": "n8n-with-postgres",
+  "name": "n8n with Postgres",
+  "version": "latest", 
+  "description": "n8n is an open source low-code platform for automating workflows and integrations with PostgreSQL database for better performance and scalability.",
+  "logo": "n8n.png",
+  "links": {
+    "github": "https://github.com/n8n-io/n8n",
+    "website": "https://n8n.io/",
+    "docs": "https://docs.n8n.io/"
     },
     "tags": ["automation", "workflow", "low-code", "postgres"]
   },
@@ -3420,3 +3463,4 @@
     "tags": ["monitoring", "status-page"]
   }
 ]
+
