@@ -1,0 +1,24 @@
+[variables]
+main_domain = "${domain}"
+api_url = "${domain}/api" # Base URL for API communication
+
+[config]
+[[config.domains]]
+serviceName = "i18n-blog" # Matches the service name in docker-compose.yml
+port = 80
+host = "${main_domain}"
+
+[config.env]
+DB_PATH = "/app/data/blog.db"
+GIN_MODE = "release"
+NODE_ENV = "production"
+RECOVERY_MODE = "false"
+NEXT_PUBLIC_API_URL = "${api_url}" # API URL for frontend communication
+
+[[config.mounts]]
+source = "../files/blog-data"
+target = "/app/data"
+
+[[config.mounts]]
+source = "../files/blog-uploads"
+target = "/app/backend/uploads"
