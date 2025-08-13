@@ -114,7 +114,7 @@ class MetaProcessor {
 
       // Write output
       const outputFile = this.options.outputFile || this.options.inputFile;
-      const newContent = JSON.stringify(results.unique, null, 2) + "\n";
+      const newContent = this.formatJSON(results.unique) + "\n";
       fs.writeFileSync(outputFile, newContent, "utf8");
 
       // Report results
@@ -206,6 +206,26 @@ class MetaProcessor {
       unique,
       schemaViolations,
     };
+  }
+
+  formatJSON(data) {
+    // Custom JSON formatter that keeps small arrays compact
+    return JSON.stringify(
+      data,
+      (key, value) => {
+        if (Array.isArray(value)) {
+          // Keep arrays compact if they're small and contain only strings
+          if (
+            value.length <= 5 &&
+            value.every((item) => typeof item === "string" && item.length < 50)
+          ) {
+            return value;
+          }
+        }
+        return value;
+      },
+      2
+    );
   }
 }
 

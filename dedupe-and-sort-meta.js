@@ -86,8 +86,30 @@ function dedupeAndSortMeta(filePath = "meta.json", options = {}) {
       console.log(`💾 Backup created: ${backupPath}`);
     }
 
+    // Custom JSON formatter that keeps small arrays compact
+    function formatJSON(data) {
+      return JSON.stringify(
+        data,
+        (key, value) => {
+          if (Array.isArray(value)) {
+            // Keep arrays compact if they're small and contain only strings
+            if (
+              value.length <= 5 &&
+              value.every(
+                (item) => typeof item === "string" && item.length < 50
+              )
+            ) {
+              return value;
+            }
+          }
+          return value;
+        },
+        2
+      );
+    }
+
     // Write the cleaned and sorted data
-    const newContent = JSON.stringify(unique, null, 2);
+    const newContent = formatJSON(unique) + "\n";
     fs.writeFileSync(filePath, newContent, "utf8");
 
     // Report results

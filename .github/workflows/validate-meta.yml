@@ -44,9 +44,9 @@ jobs:
           if ! diff -q meta.json /tmp/meta-test.json > /dev/null; then
             echo "⚠️ meta.json needs processing (duplicates found or not sorted)"
             echo "Original entries:"
-            wc -l < meta.json
+            node -e "console.log(JSON.parse(require('fs').readFileSync('meta.json', 'utf8')).length)"
             echo "Processed entries:"
-            wc -l < /tmp/meta-test.json
+            node -e "console.log(JSON.parse(require('fs').readFileSync('/tmp/meta-test.json', 'utf8')).length)"
             echo ""
             echo "To fix this, run: npm run process-meta"
             exit 1
