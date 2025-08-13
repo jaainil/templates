@@ -13,7 +13,7 @@ class MetaProcessor {
     this.options = {
       inputFile: options.inputFile || "meta.json",
       outputFile: options.outputFile || null, // If null, overwrites input
-      createBackup: options.createBackup !== false, // Default true
+      createBackup: options.createBackup || false, // Default false
       verbose: options.verbose || false,
       validateSchema: options.validateSchema !== false, // Default true
       exitOnError: options.exitOnError !== false, // Default true
@@ -244,7 +244,7 @@ Usage: node process-meta.js [options]
 Options:
   -i, --input <file>         Input file path (default: meta.json)
   -o, --output <file>        Output file path (default: same as input)
-  --no-backup               Don't create backup file
+  --backup                  Create backup file (disabled by default)
   -v, --verbose             Verbose output
   --no-schema-validation    Skip schema validation
   -h, --help                Show this help message
