@@ -72,11 +72,11 @@ function dedupeAndSortMeta(filePath = "meta.json", options = {}) {
       }
     });
 
-    // Sort alphabetically by ID
+    // Sort alphabetically by ID (ASCII order)
     unique.sort((a, b) => {
       const idA = a.id.toLowerCase();
       const idB = b.id.toLowerCase();
-      return idA.localeCompare(idB);
+      return idA < idB ? -1 : idA > idB ? 1 : 0;
     });
 
     // Create backup if requested

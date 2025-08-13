@@ -191,11 +191,11 @@ class MetaProcessor {
       }
     });
 
-    // Sort alphabetically by ID
+    // Sort alphabetically by ID (ASCII order)
     unique.sort((a, b) => {
       const idA = a.id.toLowerCase();
       const idB = b.id.toLowerCase();
-      return idA.localeCompare(idB);
+      return idA < idB ? -1 : idA > idB ? 1 : 0;
     });
 
     return {
@@ -225,6 +225,9 @@ if (require.main === module) {
       case "--output":
       case "-o":
         options.outputFile = args[++i];
+        break;
+      case "--backup":
+        options.createBackup = true;
         break;
       case "--no-backup":
         options.createBackup = false;
