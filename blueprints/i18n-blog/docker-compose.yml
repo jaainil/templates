@@ -4,7 +4,7 @@ services:
     image: ictrun/kuno:latest
     restart: unless-stopped
     ports:
-      - "80"
+      - "1234:80"
     volumes:
       - kuno-data:/app/data
     healthcheck:

@@ -6,7 +6,7 @@ jwt_secret = "${password:32}"
 [config]
 [[config.domains]]
 serviceName = "i18n-blog"
-port = 80
+port = 1234
 host = "${main_domain}"
 
 [config.env]
