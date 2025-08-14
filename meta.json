@@ -45,6 +45,7 @@
     },
     "logo": "capso.png",
     "tags": ["web", "s3", "mysql", "development", "self-hosted"]
+    "tags": ["web", "s3", "mysql", "development", "self-hosted"]
   },
   {
     "id": "authentik",
@@ -296,6 +297,7 @@
       "website": "https://gitlab.com/",
       "docs": "https://docs.gitlab.com/ee/"
     },
+    "tags": ["git", "ci-cd", "version-control", "project-management"]
     "tags": ["git", "ci-cd", "version-control", "project-management"]
   },
   {
@@ -933,6 +935,7 @@
       "website": "https://habitica.com/",
       "docs": "https://habitica.fandom.com/wiki/Setting_up_Habitica_Locally"
     },
+    "tags": ["productivity", "gamification", "habits", "self-hosted"]
     "tags": ["productivity", "gamification", "habits", "self-hosted"]
   },
   {
@@ -2737,7 +2740,30 @@
       "website": "https://livekit.io/",
       "docs": "https://docs.livekit.io/"
     },
+<<<<<<< HEAD
+    "tags": [
+      "Video",
+      "Audio",
+      "Real-time",
+      "Streaming",
+      "Webrtc"
+    ]
+=======
     "tags": ["Video", "Audio", "Real-time", "Streaming", "Webrtc"]
+  },
+  {
+    "id": "livekit",
+    "name": "Livekit",
+    "version": "v1.9.0",
+    "description": "LiveKit is an open source platform for developers building realtime media applications.",
+    "logo": "livekit.svg",
+    "links": {
+      "github": "https://github.com/livekit/livekit",
+      "website": "https://livekit.io/",
+      "docs": "https://docs.livekit.io/"
+    },
+    "tags": ["Video", "Audio", "Real-time", "Streaming", "Webrtc"]
+>>>>>>> 54d9020 (Update Gitea to latest version with support for SQLite, MySQL, and PostgreSQL)
   },
   {
     "id": "ezbookkeeping",
@@ -2807,6 +2833,7 @@
       "docs": "https://www.filestash.app/docs/"
     },
     "tags": ["file-manager", "document-editor", "self-hosted"]
+    "tags": ["file-manager", "document-editor", "self-hosted"]
   },
   {
     "id": "mazanoke",
@@ -2872,6 +2899,7 @@
       "docs": "https://www.usememos.com/docs"
     },
     "tags": ["productivity", "notes", "bookmarks"]
+    "tags": ["productivity", "notes", "bookmarks"]
   },
   {
     "id": "linkstack",
@@ -2884,6 +2912,7 @@
       "website": "https://linkstack.org/",
       "docs": "https://docs.linkstack.org/"
     },
+    "tags": ["bio", "personal", "cms", "php"]
     "tags": ["bio", "personal", "cms", "php"]
   },
   {
@@ -3245,7 +3274,7 @@
   },
   {
 <<<<<<< HEAD
-<<<<<<< HEAD
+=======
     "id": "open_notebook",
     "name": "Open Notebook",
     "version": "latest",
@@ -3259,8 +3288,6 @@
     "tags": ["notebook", "ai", "database", "surrealdb"]
   },
   {
-=======
->>>>>>> a8704bb (Update meta.json)
     "id": "booklore",
     "name": "Booklore",
     "version": "latest",
@@ -3274,8 +3301,20 @@
     "tags": ["books", "library", "database", "mariadb"]
   },
   {
-=======
->>>>>>> 954e93b (Remove Booklore and Statping-NG entries from meta.json)
+    "id": "scrypted",
+    "name": "Scrypted",
+    "version": "latest",
+    "description": "Scrypted is a home automation platform that integrates with various smart home devices and provides NVR capabilities for video surveillance.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/koush/scrypted",
+      "website": "https://www.scrypted.app/",
+      "docs": "https://docs.scrypted.app/"
+    },
+    "tags": ["home-automation", "nvr", "smart-home", "surveillance"]
+  },
+  {
+>>>>>>> 54d9020 (Update Gitea to latest version with support for SQLite, MySQL, and PostgreSQL)
     "id": "wallos",
     "name": "Wallos",
     "version": "latest",
@@ -3286,6 +3325,13 @@
       "website": "https://wallosapp.com",
       "docs": "https://github.com/ellite/wallos?tab=readme-ov-file#getting-started"
     },
+    "tags": [
+      "finance",
+      "subscription",
+      "budgeting",
+      "expense-tracking",
+      "spending"
+    ]
     "tags": [
       "finance",
       "subscription",
@@ -3304,9 +3350,19 @@
       "github": "https://github.com/n8n-io/n8n",
       "website": "https://n8n.io/",
       "docs": "https://docs.n8n.io/"
+    "id": "n8n-with-postgres",
+    "name": "n8n with Postgres",
+    "version": "latest",
+    "description": "n8n is an open source low-code platform for automating workflows and integrations with PostgreSQL database for better performance and scalability.",
+    "logo": "n8n.png",
+    "links": {
+      "github": "https://github.com/n8n-io/n8n",
+      "website": "https://n8n.io/",
+      "docs": "https://docs.n8n.io/"
     },
     "tags": ["automation", "workflow", "low-code", "postgres"]
 <<<<<<< HEAD
+=======
   },
   {
     "id": "statping-ng",
@@ -3359,7 +3415,6 @@
       "docs": "https://docs.gitea.com/"
     },
     "tags": ["git", "scm", "mysql", "developer-tools", "self-hosted"]
-=======
->>>>>>> 954e93b (Remove Booklore and Statping-NG entries from meta.json)
+>>>>>>> 54d9020 (Update Gitea to latest version with support for SQLite, MySQL, and PostgreSQL)
   }
 ]
