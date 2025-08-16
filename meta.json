@@ -45,7 +45,6 @@
     },
     "logo": "capso.png",
     "tags": ["web", "s3", "mysql", "development", "self-hosted"]
-    "tags": ["web", "s3", "mysql", "development", "self-hosted"]
   },
   {
     "id": "authentik",
@@ -297,7 +296,6 @@
       "website": "https://gitlab.com/",
       "docs": "https://docs.gitlab.com/ee/"
     },
-    "tags": ["git", "ci-cd", "version-control", "project-management"]
     "tags": ["git", "ci-cd", "version-control", "project-management"]
   },
   {
@@ -717,6 +715,19 @@
     "tags": ["blog", "cms", "php"]
   },
   {
+    "id": "gitea",
+    "name": "Gitea",
+    "version": "1.22.3",
+    "description": "Git with a cup of tea! Painless self-hosted all-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD.",
+    "logo": "gitea.png",
+    "links": {
+      "github": "https://github.com/go-gitea/gitea.git",
+      "website": "https://gitea.com/",
+      "docs": "https://docs.gitea.com/installation/install-with-docker"
+    },
+    "tags": ["self-hosted", "storage"]
+  },
+  {
     "id": "gitea-mirror",
     "name": "Gitea Mirror",
     "version": "v2.11.2",
@@ -935,7 +946,6 @@
       "website": "https://habitica.com/",
       "docs": "https://habitica.fandom.com/wiki/Setting_up_Habitica_Locally"
     },
-    "tags": ["productivity", "gamification", "habits", "self-hosted"]
     "tags": ["productivity", "gamification", "habits", "self-hosted"]
   },
   {
@@ -2740,30 +2750,7 @@
       "website": "https://livekit.io/",
       "docs": "https://docs.livekit.io/"
     },
-<<<<<<< HEAD
-    "tags": [
-      "Video",
-      "Audio",
-      "Real-time",
-      "Streaming",
-      "Webrtc"
-    ]
-=======
     "tags": ["Video", "Audio", "Real-time", "Streaming", "Webrtc"]
-  },
-  {
-    "id": "livekit",
-    "name": "Livekit",
-    "version": "v1.9.0",
-    "description": "LiveKit is an open source platform for developers building realtime media applications.",
-    "logo": "livekit.svg",
-    "links": {
-      "github": "https://github.com/livekit/livekit",
-      "website": "https://livekit.io/",
-      "docs": "https://docs.livekit.io/"
-    },
-    "tags": ["Video", "Audio", "Real-time", "Streaming", "Webrtc"]
->>>>>>> 54d9020 (Update Gitea to latest version with support for SQLite, MySQL, and PostgreSQL)
   },
   {
     "id": "ezbookkeeping",
@@ -2833,7 +2820,6 @@
       "docs": "https://www.filestash.app/docs/"
     },
     "tags": ["file-manager", "document-editor", "self-hosted"]
-    "tags": ["file-manager", "document-editor", "self-hosted"]
   },
   {
     "id": "mazanoke",
@@ -2899,7 +2885,6 @@
       "docs": "https://www.usememos.com/docs"
     },
     "tags": ["productivity", "notes", "bookmarks"]
-    "tags": ["productivity", "notes", "bookmarks"]
   },
   {
     "id": "linkstack",
@@ -2912,7 +2897,6 @@
       "website": "https://linkstack.org/",
       "docs": "https://docs.linkstack.org/"
     },
-    "tags": ["bio", "personal", "cms", "php"]
     "tags": ["bio", "personal", "cms", "php"]
   },
   {
@@ -3273,48 +3257,6 @@
     "tags": ["vpn", "wireguard", "networking"]
   },
   {
-<<<<<<< HEAD
-=======
-    "id": "open_notebook",
-    "name": "Open Notebook",
-    "version": "latest",
-    "description": "Open Notebook with SurrealDB for data storage and AI-powered features.",
-    "logo": "open_notebook.svg",
-    "links": {
-      "github": "https://github.com/lfnovo/open_notebook",
-      "website": "https://www.open-notebook.ai/",
-      "docs": "https://www.open-notebook.ai/get-started.html"
-    },
-    "tags": ["notebook", "ai", "database", "surrealdb"]
-  },
-  {
-    "id": "booklore",
-    "name": "Booklore",
-    "version": "latest",
-    "description": "Booklore is an application for managing and serving book-related data, backed by a MariaDB database.",
-    "logo": "image.png",
-    "links": {
-      "github": "https://github.com/booklore-app/BookLore",
-      "website": "https://github.com/booklore-app/BookLore",
-      "docs": "https://github.com/booklore-app/BookLore/tree/develop/docs"
-    },
-    "tags": ["books", "library", "database", "mariadb"]
-  },
-  {
-    "id": "scrypted",
-    "name": "Scrypted",
-    "version": "latest",
-    "description": "Scrypted is a home automation platform that integrates with various smart home devices and provides NVR capabilities for video surveillance.",
-    "logo": "image.png",
-    "links": {
-      "github": "https://github.com/koush/scrypted",
-      "website": "https://www.scrypted.app/",
-      "docs": "https://docs.scrypted.app/"
-    },
-    "tags": ["home-automation", "nvr", "smart-home", "surveillance"]
-  },
-  {
->>>>>>> 54d9020 (Update Gitea to latest version with support for SQLite, MySQL, and PostgreSQL)
     "id": "wallos",
     "name": "Wallos",
     "version": "latest",
@@ -3332,24 +3274,8 @@
       "expense-tracking",
       "spending"
     ]
-    "tags": [
-      "finance",
-      "subscription",
-      "budgeting",
-      "expense-tracking",
-      "spending"
-    ]
   },
   {
-    "id": "n8n-with-postgres",
-    "name": "n8n with Postgres",
-    "version": "latest",
-    "description": "n8n is an open source low-code platform for automating workflows and integrations with PostgreSQL database for better performance and scalability.",
-    "logo": "n8n.png",
-    "links": {
-      "github": "https://github.com/n8n-io/n8n",
-      "website": "https://n8n.io/",
-      "docs": "https://docs.n8n.io/"
     "id": "n8n-with-postgres",
     "name": "n8n with Postgres",
     "version": "latest",
@@ -3361,60 +3287,5 @@
       "docs": "https://docs.n8n.io/"
     },
     "tags": ["automation", "workflow", "low-code", "postgres"]
-<<<<<<< HEAD
-=======
-  },
-  {
-    "id": "statping-ng",
-    "name": "Statping-NG",
-    "version": "latest",
-    "description": "Statping-NG is an easy-to-use status page for monitoring websites and applications with beautiful metrics, analytics, and health checks.",
-    "logo": "statping-ng.png",
-    "links": {
-      "github": "https://github.com/adamboutcher/statping-ng",
-      "website": "https://statping-ng.github.io/",
-      "docs": "https://statping-ng.github.io/install.html"
-    },
-    "tags": ["monitoring", "status-page"]
-  },
-  {
-    "id": "gitea-sqlite",
-    "name": "Gitea (SQLite)",
-    "version": "1.24.4",
-    "description": "Self-hosted Git service using SQLite for a simple one-container setup.",
-    "logo": "gitea.png",
-    "links": {
-      "github": "https://github.com/go-gitea/gitea",
-      "website": "https://gitea.io/",
-      "docs": "https://docs.gitea.com/"
-    },
-    "tags": ["git", "scm", "developer-tools", "self-hosted"]
-  },
-  {
-    "id": "gitea-postgres",
-    "name": "Gitea (PostgreSQL)",
-    "version": "1.24.4",
-    "description": "Gitea bundled with PostgreSQL.",
-    "logo": "gitea.png",
-    "links": {
-      "github": "https://github.com/go-gitea/gitea",
-      "website": "https://gitea.io/",
-      "docs": "https://docs.gitea.com/"
-    },
-    "tags": ["git", "scm", "postgres", "developer-tools", "self-hosted"]
-  },
-  {
-    "id": "gitea-mysql",
-    "name": "Gitea (MySQL)",
-    "version": "1.24.4",
-    "description": "Gitea bundled with MySQL 8.",
-    "logo": "gitea.png",
-    "links": {
-      "github": "https://github.com/go-gitea/gitea",
-      "website": "https://gitea.io/",
-      "docs": "https://docs.gitea.com/"
-    },
-    "tags": ["git", "scm", "mysql", "developer-tools", "self-hosted"]
->>>>>>> 54d9020 (Update Gitea to latest version with support for SQLite, MySQL, and PostgreSQL)
   }
 ]
