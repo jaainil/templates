@@ -3245,6 +3245,7 @@
   },
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "id": "open_notebook",
     "name": "Open Notebook",
     "version": "latest",
@@ -3273,6 +3274,8 @@
     "tags": ["books", "library", "database", "mariadb"]
   },
   {
+=======
+>>>>>>> 954e93b (Remove Booklore and Statping-NG entries from meta.json)
     "id": "wallos",
     "name": "Wallos",
     "version": "latest",
@@ -3303,6 +3306,7 @@
       "docs": "https://docs.n8n.io/"
     },
     "tags": ["automation", "workflow", "low-code", "postgres"]
+<<<<<<< HEAD
   },
   {
     "id": "statping-ng",
@@ -3355,5 +3359,7 @@
       "docs": "https://docs.gitea.com/"
     },
     "tags": ["git", "scm", "mysql", "developer-tools", "self-hosted"]
+=======
+>>>>>>> 954e93b (Remove Booklore and Statping-NG entries from meta.json)
   }
 ]
