@@ -3244,6 +3244,7 @@
     "tags": ["vpn", "wireguard", "networking"]
   },
   {
+<<<<<<< HEAD
     "id": "open_notebook",
     "name": "Open Notebook",
     "version": "latest",
@@ -3257,6 +3258,8 @@
     "tags": ["notebook", "ai", "database", "surrealdb"]
   },
   {
+=======
+>>>>>>> a8704bb (Update meta.json)
     "id": "booklore",
     "name": "Booklore",
     "version": "latest",
