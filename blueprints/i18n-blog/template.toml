@@ -1,12 +1,13 @@
 [variables]
 main_domain = "${domain}"
-# Secret key for signing JWT tokens. A random 32-character key is generated for security.
-jwt_secret = "${password:32}"
+jwt_secret = "${password:32}" # secure default
+recovery_mode = "false"
 
 [config]
+
 [[config.domains]]
-serviceName = "i18n-blog"
-port = 1234
+serviceName = "kuno"
+port = 80
 host = "${main_domain}"
 
 [config.env]
@@ -15,11 +16,9 @@ DB_PATH = "/app/data/blog.db"
 UPLOAD_DIR = "/app/data/uploads"
 GIN_MODE = "release"
 NODE_ENV = "production"
-RECOVERY_MODE = "false"
 JWT_SECRET = "${jwt_secret}"
+RECOVERY_MODE = "${recovery_mode}"
 
 [[config.mounts]]
-serviceName = "i18n-blog"
-type = "volume"
-source = "kuno-data"
-target = "/app/data"
+name = "kuno-data"
+mountPath = "/app/data"
