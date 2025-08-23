@@ -2785,6 +2785,26 @@
     ]
   },
   {
+<<<<<<< HEAD
+=======
+    "id": "obsidian-livesync",
+    "name": "Obsidian LiveSync",
+    "version": "latest",
+    "description": "Obsidian LiveSync with CouchDB for real-time note synchronization.",
+    "logo": "obsidian.png",
+    "links": {
+      "github": "https://github.com/apache/couchdb",
+      "website": "https://couchdb.apache.org/",
+      "docs": "https://docs.couchdb.apache.org/"
+    },
+    "tags": [
+      "database",
+      "sync",
+      "obsidian"
+    ]
+  },
+  {
+>>>>>>> f973fe0 (new feature related to Obsidian LiveSync (#260))
     "id": "odoo",
     "name": "Odoo",
     "version": "16.0",
