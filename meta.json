@@ -1833,22 +1833,6 @@
     ]
   },
   {
-    "id": "gitea",
-    "name": "Gitea",
-    "version": "1.22.3",
-    "description": "Git with a cup of tea! Painless self-hosted all-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD.",
-    "logo": "gitea.png",
-    "links": {
-      "github": "https://github.com/go-gitea/gitea.git",
-      "website": "https://gitea.com/",
-      "docs": "https://docs.gitea.com/installation/install-with-docker"
-    },
-    "tags": [
-      "self-hosted",
-      "storage"
-    ]
-  },
-  {
     "id": "gitea-mirror",
     "name": "Gitea Mirror",
     "version": "v2.11.2",
@@ -1866,6 +1850,62 @@
       "gitea",
       "self-hosted",
       "automation"
+    ]
+  },
+  {
+    "id": "gitea-mysql",
+    "name": "Gitea (MySQL)",
+    "version": "1.24.4",
+    "description": "Gitea bundled with MySQL 8.",
+    "logo": "gitea.png",
+    "links": {
+      "github": "https://github.com/go-gitea/gitea",
+      "website": "https://gitea.io/",
+      "docs": "https://docs.gitea.com/"
+    },
+    "tags": [
+      "git",
+      "scm",
+      "mysql",
+      "developer-tools",
+      "self-hosted"
+    ]
+  },
+  {
+    "id": "gitea-postgres",
+    "name": "Gitea (PostgreSQL)",
+    "version": "1.24.4",
+    "description": "Gitea bundled with PostgreSQL.",
+    "logo": "gitea.png",
+    "links": {
+      "github": "https://github.com/go-gitea/gitea",
+      "website": "https://gitea.io/",
+      "docs": "https://docs.gitea.com/"
+    },
+    "tags": [
+      "git",
+      "scm",
+      "postgres",
+      "developer-tools",
+      "self-hosted"
+    ]
+  },
+  {
+    "id": "gitea-sqlite",
+    "name": "Gitea (SQLite)",
+    "version": "1.24.4",
+    "description": "Self-hosted Git service using SQLite for a simple one-container setup.",
+    "logo": "gitea.png",
+    "links": {
+      "github": "https://github.com/go-gitea/gitea",
+      "website": "https://gitea.io/",
+      "docs": "https://docs.gitea.com/"
+    },
+    "tags": [
+      "git",
+      "scm",
+      "developer-tools",
+      "self-hosted"
     ]
   },
   {
