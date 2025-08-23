@@ -2203,6 +2203,25 @@
     ]
   },
   {
+    "id": "i18n-blog",
+    "name": "i18n Blog (Kuno)",
+    "version": "latest",
+    "description": "Kuno is an internationalized blogging platform with a backend built in Go and a frontend in Next.js.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/ictrun/kuno",
+      "website": "https://kuno.zli.li",
+      "docs": "https://github.com/ictrun/kuno#readme"
+    },
+    "tags": [
+      "blog",
+      "i18n",
+      "nextjs",
+      "go",
+      "web"
+    ]
+  },
+  {
     "id": "ihatemoney",
     "name": "I Hate Money",
     "version": "latest",
