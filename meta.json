@@ -1833,22 +1833,6 @@
     ]
   },
   {
-    "id": "gitea",
-    "name": "Gitea",
-    "version": "1.22.3",
-    "description": "Git with a cup of tea! Painless self-hosted all-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD.",
-    "logo": "gitea.png",
-    "links": {
-      "github": "https://github.com/go-gitea/gitea.git",
-      "website": "https://gitea.com/",
-      "docs": "https://docs.gitea.com/installation/install-with-docker"
-    },
-    "tags": [
-      "self-hosted",
-      "storage"
-    ]
-  },
-  {
     "id": "gitea-mirror",
     "name": "Gitea Mirror",
     "version": "v2.11.2",
