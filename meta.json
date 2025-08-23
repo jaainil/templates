@@ -1869,6 +1869,62 @@
     ]
   },
   {
+    "id": "gitea-mysql",
+    "name": "Gitea (MySQL)",
+    "version": "1.24.4",
+    "description": "Gitea bundled with MySQL 8.",
+    "logo": "gitea.png",
+    "links": {
+      "github": "https://github.com/go-gitea/gitea",
+      "website": "https://gitea.io/",
+      "docs": "https://docs.gitea.com/"
+    },
+    "tags": [
+      "git",
+      "scm",
+      "mysql",
+      "developer-tools",
+      "self-hosted"
+    ]
+  },
+  {
+    "id": "gitea-postgres",
+    "name": "Gitea (PostgreSQL)",
+    "version": "1.24.4",
+    "description": "Gitea bundled with PostgreSQL.",
+    "logo": "gitea.png",
+    "links": {
+      "github": "https://github.com/go-gitea/gitea",
+      "website": "https://gitea.io/",
+      "docs": "https://docs.gitea.com/"
+    },
+    "tags": [
+      "git",
+      "scm",
+      "postgres",
+      "developer-tools",
+      "self-hosted"
+    ]
+  },
+  {
+    "id": "gitea-sqlite",
+    "name": "Gitea (SQLite)",
+    "version": "1.24.4",
+    "description": "Self-hosted Git service using SQLite for a simple one-container setup.",
+    "logo": "gitea.png",
+    "links": {
+      "github": "https://github.com/go-gitea/gitea",
+      "website": "https://gitea.io/",
+      "docs": "https://docs.gitea.com/"
+    },
+    "tags": [
+      "git",
+      "scm",
+      "developer-tools",
+      "self-hosted"
+    ]
+  },
+  {
     "id": "gitlab-ce",
     "name": "GitLab CE",
     "version": "latest",
