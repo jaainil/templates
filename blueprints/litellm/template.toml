@@ -1,0 +1,74 @@
+[variables]
+main_domain = "${domain}"
+prometheus_domain = "prometheus.${domain}"
+postgres_password = "${password:32}"
+litellm_master_key = "sk-${password:32}"
+
+[config]
+[[config.domains]]
+serviceName = "litellm"
+port = 4000
+host = "${main_domain}"
+
+[[config.domains]]
+serviceName = "prometheus"
+port = 9090
+host = "${prometheus_domain}"
+
+[config.env]
+env = [
+    # --- LiteLLM & Database Configuration ---
+    "DATABASE_URL=postgresql://llmproxy:${postgres_password}@db:5432/litellm",
+    "STORE_MODEL_IN_DB=True",
+    "LITELLM_MASTER_KEY=${litellm_master_key}",
+    "POSTGRES_DB=litellm",
+    "POSTGRES_USER=llmproxy",
+    "POSTGRES_PASSWORD=${postgres_password}",
+
+    # --- AI Provider API Keys & Configs (Add your keys below) ---
+
+    # OpenAI
+    "OPENAI_API_KEY=", # API Key
+    "OPENAI_BASE_URL=",
+
+    # Cohere
+    "COHERE_API_KEY=", # API Key
+
+    # OpenRouter
+    "OR_SITE_URL=",
+    "OR_APP_NAME=LiteLLM Example app",
+    "OR_API_KEY=", # API Key
+
+    # Azure
+    "AZURE_API_BASE=",
+    "AZURE_API_VERSION=",
+    "AZURE_API_KEY=", # API Key
+
+    # Replicate
+    "REPLICATE_API_KEY=", # API Key
+    "REPLICATE_API_TOKEN=",
+
+    # Anthropic
+    "ANTHROPIC_API_KEY=", # API Key
+
+    # Infisical
+    "INFISICAL_TOKEN=", # API Key
+
+    # Novita AI
+    "NOVITA_API_KEY=", # API Key
+
+    # INFINITY
+    "INFINITY_API_KEY=", # API Key
+]
+
+[[config.mounts]]
+serviceName = "prometheus"
+filePath = "/etc/prometheus/prometheus.yml"
+content = """
+global:
+  scrape_interval: 15s
+scrape_configs:
+  - job_name: 'litellm'
+    static_configs:
+      - targets: ['litellm:4000']
+"""
