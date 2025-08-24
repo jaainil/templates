@@ -5,6 +5,32 @@ postgres_password = "${password:32}"
 litellm_master_key = "sk-${password:32}"
 
 [config]
+env = [
+  # Required for DB & LiteLLM
+  "POSTGRES_PASSWORD=${postgres_password}",
+  "POSTGRES_DB=litellm",
+  "POSTGRES_USER=llmproxy",
+  "STORE_MODEL_IN_DB=True",
+  "LITELLM_MASTER_KEY=${litellm_master_key}", # Master key for LiteLLM authentication
+  "DATABASE_URL=postgresql://llmproxy:${postgres_password}@db:5432/litellm",
+  # Provider API Keys (user fills in)
+  "OPENAI_API_KEY=${OPENAI_API_KEY}", # API key for OpenAI
+  "OPENAI_BASE_URL=${OPENAI_BASE_URL}",
+  "COHERE_API_KEY=${COHERE_API_KEY}", # API key for Cohere
+  "OR_SITE_URL=${OR_SITE_URL}",
+  "OR_APP_NAME=LiteLLM Example app",
+  "OR_API_KEY=${OR_API_KEY}", # API key for OpenRouter
+  "AZURE_API_BASE=${AZURE_API_BASE}",
+  "AZURE_API_VERSION=${AZURE_API_VERSION}",
+  "AZURE_API_KEY=${AZURE_API_KEY}", # API key for Azure
+  "REPLICATE_API_KEY=${REPLICATE_API_KEY}", # API key for Replicate
+  "REPLICATE_API_TOKEN=${REPLICATE_API_TOKEN}", # API token for Replicate
+  "ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}", # API key for Anthropic
+  "INFISICAL_TOKEN=${INFISICAL_TOKEN}", # Token for Infisical
+  "NOVITA_API_KEY=${NOVITA_API_KEY}", # API key for Novita AI
+  "INFINITY_API_KEY=${INFINITY_API_KEY}" # API key for Infinity
+]
+
 [[config.domains]]
 serviceName = "litellm"
 port = 4000
@@ -14,52 +40,6 @@ host = "${main_domain}"
 serviceName = "prometheus"
 port = 9090
 host = "${prometheus_domain}"
-
-[config.env]
-env = [
-    # --- LiteLLM & Database Configuration ---
-    "DATABASE_URL=postgresql://llmproxy:${postgres_password}@db:5432/litellm",
-    "STORE_MODEL_IN_DB=True",
-    "LITELLM_MASTER_KEY=${litellm_master_key}",
-    "POSTGRES_DB=litellm",
-    "POSTGRES_USER=llmproxy",
-    "POSTGRES_PASSWORD=${postgres_password}",
-
-    # --- AI Provider API Keys & Configs (Add your keys below) ---
-
-    # OpenAI
-    "OPENAI_API_KEY=", # API Key
-    "OPENAI_BASE_URL=",
-
-    # Cohere
-    "COHERE_API_KEY=", # API Key
-
-    # OpenRouter
-    "OR_SITE_URL=",
-    "OR_APP_NAME=LiteLLM Example app",
-    "OR_API_KEY=", # API Key
-
-    # Azure
-    "AZURE_API_BASE=",
-    "AZURE_API_VERSION=",
-    "AZURE_API_KEY=", # API Key
-
-    # Replicate
-    "REPLICATE_API_KEY=", # API Key
-    "REPLICATE_API_TOKEN=",
-
-    # Anthropic
-    "ANTHROPIC_API_KEY=", # API Key
-
-    # Infisical
-    "INFISICAL_TOKEN=", # API Key
-
-    # Novita AI
-    "NOVITA_API_KEY=", # API Key
-
-    # INFINITY
-    "INFINITY_API_KEY=", # API Key
-]
 
 [[config.mounts]]
 serviceName = "prometheus"
