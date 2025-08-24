@@ -1,28 +1,10 @@
+version: "3.8"
 services:
   litellm:
     image: ghcr.io/berriai/litellm:main-stable
     restart: unless-stopped
-    expose:
-      - 4000
-    environment:
-      - DATABASE_URL=${DATABASE_URL}
-      - STORE_MODEL_IN_DB=${STORE_MODEL_IN_DB}
-      - LITELLM_MASTER_KEY=${LITELLM_MASTER_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - OPENAI_BASE_URL=${OPENAI_BASE_URL}
-      - COHERE_API_KEY=${COHERE_API_KEY}
-      - OR_SITE_URL=${OR_SITE_URL}
-      - OR_APP_NAME=${OR_APP_NAME}
-      - OR_API_KEY=${OR_API_KEY}
-      - AZURE_API_BASE=${AZURE_API_BASE}
-      - AZURE_API_VERSION=${AZURE_API_VERSION}
-      - AZURE_API_KEY=${AZURE_API_KEY}
-      - REPLICATE_API_KEY=${REPLICATE_API_KEY}
-      - REPLICATE_API_TOKEN=${REPLICATE_API_TOKEN}
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - INFISICAL_TOKEN=${INFISICAL_TOKEN}
-      - NOVITA_API_KEY=${NOVITA_API_KEY}
-      - INFINITY_API_KEY=${INFINITY_API_KEY}
+    ports:
+      - "4000"
     depends_on:
       - db
     healthcheck:
@@ -38,12 +20,8 @@ services:
   db:
     image: postgres:16
     restart: unless-stopped
-    environment:
-      - POSTGRES_DB=litellm
-      - POSTGRES_USER=llmproxy
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
-      - "../files/postgres:/var/lib/postgresql/data"
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d litellm -U llmproxy"]
       interval: 1s
@@ -52,11 +30,16 @@ services:
   prometheus:
     image: prom/prometheus
     restart: unless-stopped
-    expose:
-      - 9090
     volumes:
-      - "../files/prometheus:/prometheus"
+      - prometheus_data:/prometheus
+    ports:
+      - "9090"
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
       - "--storage.tsdb.retention.time=15d"
+volumes:
+  prometheus_data:
+    driver: local
+  postgres_data:
+    name: litellm_postgres_data

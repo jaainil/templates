@@ -43,7 +43,7 @@ host = "${prometheus_domain}"
 
 [[config.mounts]]
 serviceName = "prometheus"
-filePath = "/etc/prometheus/prometheus.yml"
+filePath = "/prometheus/prometheus.yml"
 content = """
 global:
   scrape_interval: 15s
