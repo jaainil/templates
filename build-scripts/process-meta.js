@@ -114,8 +114,14 @@ class MetaProcessor {
 
       // Write output
       const outputFile = this.options.outputFile || this.options.inputFile;
-      const newContent = this.formatJSON(results.unique) + "\n";
+      const newContent = this.formatJSON(results.unique);
       fs.writeFileSync(outputFile, newContent, "utf8");
+
+      // Note about formatting
+      this.log(
+        "Tip: Run 'npm run format' to apply consistent Prettier formatting",
+        "info",
+      );
 
       // Report results
       const duration = Date.now() - startTime;
@@ -209,23 +215,7 @@ class MetaProcessor {
   }
 
   formatJSON(data) {
-    // Custom JSON formatter that keeps small arrays compact
-    return JSON.stringify(
-      data,
-      (key, value) => {
-        if (Array.isArray(value)) {
-          // Keep arrays compact if they're small and contain only strings
-          if (
-            value.length <= 5 &&
-            value.every((item) => typeof item === "string" && item.length < 50)
-          ) {
-            return value;
-          }
-        }
-        return value;
-      },
-      2,
-    );
+    return JSON.stringify(data, null, 2) + "\n";
   }
 }
 
