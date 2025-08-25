@@ -52,7 +52,7 @@ function dedupeAndSortMeta(filePath = "meta.json", options = {}) {
       if (!item.id) {
         console.warn(
           `⚠️  Skipping item without ID at index ${index}:`,
-          item.name || "Unknown"
+          item.name || "Unknown",
         );
         return;
       }
@@ -64,7 +64,7 @@ function dedupeAndSortMeta(filePath = "meta.json", options = {}) {
           originalIndex: index,
         });
         console.warn(
-          `🔍 Duplicate ID found: "${item.id}" (${item.name || "Unknown"})`
+          `🔍 Duplicate ID found: "${item.id}" (${item.name || "Unknown"})`,
         );
       } else {
         seenIds.add(item.id);
@@ -96,7 +96,7 @@ function dedupeAndSortMeta(filePath = "meta.json", options = {}) {
             if (
               value.length <= 5 &&
               value.every(
-                (item) => typeof item === "string" && item.length < 50
+                (item) => typeof item === "string" && item.length < 50,
               )
             ) {
               return value;
@@ -104,7 +104,7 @@ function dedupeAndSortMeta(filePath = "meta.json", options = {}) {
           }
           return value;
         },
-        2
+        2,
       );
     }
 
@@ -131,7 +131,7 @@ function dedupeAndSortMeta(filePath = "meta.json", options = {}) {
     const firstFew = unique.slice(0, 5).map((item) => item.id);
     const lastFew = unique.slice(-5).map((item) => item.id);
     console.log(
-      `\n🔤 ID range: ${firstFew[0]} ... ${lastFew[lastFew.length - 1]}`
+      `\n🔤 ID range: ${firstFew[0]} ... ${lastFew[lastFew.length - 1]}`,
     );
 
     return {

@@ -54,7 +54,6 @@ make build
 ### Core Scripts
 
 1. **`dedupe-and-sort-meta.js`** - Simple, standalone script
-
    - Removes duplicates (keeps first occurrence)
    - Sorts alphabetically by ID
    - Creates automatic backup

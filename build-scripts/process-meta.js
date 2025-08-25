@@ -52,7 +52,7 @@ class MetaProcessor {
     if (missing.length > 0) {
       this.log(
         `Item at index ${index} missing required fields: ${missing.join(", ")}`,
-        "warning"
+        "warning",
       );
       return false;
     }
@@ -66,7 +66,7 @@ class MetaProcessor {
     if (!Array.isArray(item.tags)) {
       this.log(
         `Item "${item.id}" has invalid tags (should be array)`,
-        "warning"
+        "warning",
       );
     }
 
@@ -90,13 +90,13 @@ class MetaProcessor {
         data = JSON.parse(fileContent);
       } catch (parseError) {
         throw new Error(
-          `Invalid JSON in ${this.options.inputFile}: ${parseError.message}`
+          `Invalid JSON in ${this.options.inputFile}: ${parseError.message}`,
         );
       }
 
       if (!Array.isArray(data)) {
         throw new Error(
-          `Expected array in ${this.options.inputFile}, got ${typeof data}`
+          `Expected array in ${this.options.inputFile}, got ${typeof data}`,
         );
       }
 
@@ -161,7 +161,7 @@ class MetaProcessor {
           `Skipping item without ID at index ${index}: ${
             item.name || "Unknown"
           }`,
-          "warning"
+          "warning",
         );
         schemaViolations++;
         return;
@@ -183,7 +183,7 @@ class MetaProcessor {
         });
         this.log(
           `Duplicate ID found: "${item.id}" (${item.name || "Unknown"})`,
-          "warning"
+          "warning",
         );
       } else {
         seenIds.add(item.id);
@@ -224,7 +224,7 @@ class MetaProcessor {
         }
         return value;
       },
-      2
+      2,
     );
   }
 }
