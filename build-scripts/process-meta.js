@@ -7,6 +7,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { execSync } = require("child_process");
 
 class MetaProcessor {
   constructor(options = {}) {
@@ -117,11 +118,15 @@ class MetaProcessor {
       const newContent = this.formatJSON(results.unique);
       fs.writeFileSync(outputFile, newContent, "utf8");
 
-      // Note about formatting
-      this.log(
-        "Tip: Run 'npm run format' to apply consistent Prettier formatting",
-        "info",
-      );
+      // Apply Prettier formatting to match local workflow
+      try {
+        execSync(`npx prettier --write "${outputFile}"`, {
+          stdio: this.options.verbose ? 'inherit' : 'pipe'
+        });
+        this.log(`Applied Prettier formatting to ${outputFile}`, "debug");
+      } catch (error) {
+        this.log(`Warning: Could not apply Prettier formatting: ${error.message}`, "warning");
+      }
 
       // Report results
       const duration = Date.now() - startTime;
@@ -215,7 +220,7 @@ class MetaProcessor {
   }
 
   formatJSON(data) {
-    return JSON.stringify(data, null, 2) + "\n";
+    return JSON.stringify(data) + "\n";
   }
 }
 
