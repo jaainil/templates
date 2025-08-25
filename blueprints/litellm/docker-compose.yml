@@ -1,45 +1,36 @@
-version: "3.8"
+version: "3.9"
+
 services:
   litellm:
-    image: ghcr.io/berriai/litellm:main-stable
+    image: ghcr.io/berriai/litellm:main-latest
     restart: unless-stopped
-    ports:
-      - "4000"
     depends_on:
-      - db
-    healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "wget --no-verbose --tries=1 http://localhost:4000/health/liveliness || exit 1",
-        ]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-  db:
-    image: postgres:16
+      litellm-db:
+        condition: service_healthy
+    environment:
+      # from template.toml -> [config.env]
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@litellm-db:5432/${POSTGRES_DB}
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY}
+      UI_USERNAME: ${UI_USERNAME}
+      UI_PASSWORD: ${UI_PASSWORD}
+      STORE_MODEL_IN_DB: "True"
+    expose:
+      - "4000" # internal app port, no host mapping
+
+  litellm-db:
+    image: postgres:16-alpine
     restart: unless-stopped
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -d litellm -U llmproxy"]
-      interval: 1s
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
       timeout: 5s
-      retries: 10
-  prometheus:
-    image: prom/prometheus
-    restart: unless-stopped
+      retries: 5
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - prometheus_data:/prometheus
-    ports:
-      - "9090"
-    command:
-      - "--config.file=/etc/prometheus/prometheus.yml"
-      - "--storage.tsdb.path=/prometheus"
-      - "--storage.tsdb.retention.time=15d"
+      - litellm-db-data:/var/lib/postgresql/data:rw
+
 volumes:
-  prometheus_data:
-    driver: local
-  postgres_data:
-    name: litellm_postgres_data
+  litellm-db-data: {}
