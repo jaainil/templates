@@ -2,8 +2,6 @@
   {
     "id": "ackee",
     "name": "Ackee",
-<<<<<<< HEAD
-=======
     "version": "latest",
     "description": "Ackee is a self-hosted analytics tool for your website.",
     "logo": "logo.png",
@@ -65,8 +63,6 @@
       "docs": "https://www.adminer.org/en/plugins/"
     },
     "tags": ["databases", "developer-tools", "mysql", "postgresql"]
-<<<<<<< HEAD
-=======
   },
   {
     "id": "affinepro",
@@ -88,7 +84,6 @@
       "oauth2",
       "self-hosted"
     ]
->>>>>>> 3867e68 (Update meta.json with new application entries and updated information)
   },
   {
     "id": "freescout",
@@ -1944,8 +1939,6 @@
       "docs": "https://answer.apache.org/docs"
     },
     "tags": ["q&a", "self-hosted"]
-=======
->>>>>>> 3867e68 (Update meta.json with new application entries and updated information)
   },
   {
     "id": "anythingllm",
@@ -1958,15 +1951,8 @@
       "website": "https://useanything.com",
       "docs": "https://github.com/Mintplex-Labs/anything-llm/tree/master/docs"
     },
-<<<<<<< HEAD
-    "tags": [
-      "ai",
-      "llm",
-      "chatbot"
-    ]
-=======
+
     "tags": ["ai", "llm", "chatbot"]
->>>>>>> b2ac5ab (Update meta.json with new application entries and updated information)
   },
   {
     "id": "apprise-api",
@@ -1980,7 +1966,7 @@
       "docs": "https://github.com/caronc/apprise-api/wiki"
     },
     "tags": ["notifications", "api"]
-<<<<<<< HEAD
+
   },
   {
     "id": "appsmith",
@@ -2020,8 +2006,6 @@
       "docs": "https://github.com/aptabase/aptabase/blob/main/README.md"
     },
     "tags": ["analytics", "self-hosted"]
-=======
->>>>>>> 3867e68 (Update meta.json with new application entries and updated information)
   },
   {
     "id": "arangodb",
@@ -2035,8 +2019,6 @@
       "docs": "https://www.arangodb.com/docs/"
     },
     "tags": ["database", "graph-database", "nosql"]
-<<<<<<< HEAD
-=======
   },
   {
     "id": "anonupload",
@@ -2050,7 +2032,6 @@
       "website": "https://anonupload.com/"
     },
     "tags": ["file-sharing", "privacy"]
->>>>>>> 3867e68 (Update meta.json with new application entries and updated information)
   },
   {
     "id": "argilla",
@@ -2077,12 +2058,11 @@
       "docs": "https://www.audiobookshelf.org/docs"
     },
     "tags": ["media", "audiobooks", "podcasts"]
-<<<<<<< HEAD
+
   },
   {
     "id": "authelia",
     "name": "Authelia",
->>>>>>> f973fe0 (new feature related to Obsidian LiveSync (#260))
     "version": "latest",
     "description": "Ackee is a self-hosted analytics tool for your website.",
     "logo": "logo.png",
