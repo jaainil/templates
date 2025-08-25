@@ -1,47 +1,29 @@
-# Dependencies
+# === Prettier ignore for Dokploy/templates ===
+
+# VCS
+.git/
+
+# Node / package caches
 node_modules/
 **/node_modules/
+.pnpm-store/
+.npm/
+.turbo/
+.cache/
 
-# Build outputs
+# Build outputs & tool caches
 dist/
 build/
+.out/
 .next/
 .nuxt/
 .vite/
 .vitepress/cache/
 .vitepress/dist/
 
-# Lock files
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-
-# Environment files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDE and editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Git
-.git/
-.gitignore
+# Coverage
+coverage/
+*.lcov
 
 # Logs
 logs/
@@ -51,40 +33,59 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# Coverage
-coverage/
-*.lcov
+# Package manager locks (don’t format)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
 
-# Temporary folders
-tmp/
-temp/
+# Env files (but keep samples)
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+!.env.sample
+!.env.template
 
-# Docker files (often have specific formatting requirements)
-# Dockerfile*
-# docker-compose*.yml
-# *.dockerfile
-
-# Config files that might have specific formatting
-.editorconfig
-.eslintrc*
-.babelrc*
-webpack.config.*
-rollup.config.*
-vite.config.*
-vitest.config.*
-
-# Generated files
+# Generated/minified/bundled
 *.min.js
 *.min.css
 *.map
 
-# Documentation build outputs
-# docs/.vitepress/dist/
-# docs/dist/
+# Binaries / archives / media (Prettier can’t format these)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.ico
+*.pdf
+*.zip
+*.tar
+*.gz
+*.tgz
+*.br
+*.7z
+*.mp4
+*.mp3
+*.mov
+*.wasm
 
-# Ignore blueprint template files that might have placeholders
-# blueprints/**/template.toml
-# blueprints/**/docker-compose.yml
+# Language build trash (some templates might include these)
+__pycache__/
+*.pyc
+.venv/
+venv/
+target/
+bin/
+obj/
 
-# Ignore specific project files
-# build-scripts/
+# NOTE: We intentionally DO NOT ignore:
+# - blueprints/**/docker-compose.yml
+# - blueprints/**/template.toml
+# - blueprints/**/meta.json
+# - **/*.yml, **/*.yaml, **/*.json, **/*.md, **/*.svg
+# so Prettier will format your actual template files.
