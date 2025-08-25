@@ -60,9 +60,9 @@ tmp/
 temp/
 
 # Docker files (often have specific formatting requirements)
-Dockerfile*
+# Dockerfile*
 # docker-compose*.yml
-*.dockerfile
+# *.dockerfile
 
 # Config files that might have specific formatting
 .editorconfig
@@ -79,19 +79,12 @@ vitest.config.*
 *.map
 
 # Documentation build outputs
-docs/.vitepress/dist/
-docs/dist/
+# docs/.vitepress/dist/
+# docs/dist/
 
 # Ignore blueprint template files that might have placeholders
-blueprints/**/template.toml
-blueprints/**/docker-compose.yml
+# blueprints/**/template.toml
+# blueprints/**/docker-compose.yml
 
 # Ignore specific project files
-build-scripts/
-
-# Ignore markdown files to prevent formatting issues
-*.md
-*.mdx
-README*
-CHANGELOG*
-*.markdown
+# build-scripts/
