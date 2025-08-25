@@ -88,3 +88,10 @@ blueprints/**/docker-compose.yml
 
 # Ignore specific project files
 build-scripts/
+
+# Ignore markdown files to prevent formatting issues
+*.md
+*.mdx
+README*
+CHANGELOG*
+*.markdown
