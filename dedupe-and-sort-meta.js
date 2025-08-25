@@ -90,11 +90,6 @@ function dedupeAndSortMeta(filePath = "meta.json", options = {}) {
     const newContent = JSON.stringify(unique, null, 2) + "\n";
     fs.writeFileSync(filePath, newContent, "utf8");
 
-    // Note: Run 'npm run format' after this script to ensure Prettier formatting
-    console.log(
-      "💡 Tip: Run 'npm run format' to apply consistent Prettier formatting",
-    );
-
     // Report results
     console.log("\n✅ Processing completed successfully!");
     console.log(`📈 Statistics:`);

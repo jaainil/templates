@@ -4,9 +4,10 @@
   "description": "Production scripts for processing meta.json - remove duplicates and sort alphabetically",
   "main": "build-scripts/process-meta.js",
   "scripts": {
-    "process-meta": "node dedupe-and-sort-meta.js",
-    "process-meta-verbose": "node build-scripts/process-meta.js --verbose",
-    "process-meta-with-backup": "node build-scripts/process-meta.js --backup",
+    "process-meta": "node dedupe-and-sort-meta.js && prettier --write meta.json",
+    "process-meta-only": "node dedupe-and-sort-meta.js",
+    "process-meta-verbose": "node build-scripts/process-meta.js --verbose && prettier --write meta.json",
+    "process-meta-with-backup": "node build-scripts/process-meta.js --backup && prettier --write meta.json",
     "validate-meta": "node build-scripts/process-meta.js --no-backup --verbose",
     "build": "npm run process-meta",
     "prebuild": "echo 'Processing meta.json for production build...'",
