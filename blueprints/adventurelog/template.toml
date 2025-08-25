@@ -39,6 +39,6 @@ FRONTEND_URL = "http://${frontend_domain}"
 PUBLIC_URL = "http://${backend_domain}"
 
 # --- Frontend
-PUBLIC_SERVER_URL = "http://server:8000"   # service:port inside network
+PUBLIC_SERVER_URL = "${backend_domain}" 
 ORIGIN = "http://${frontend_domain}"
 BODY_SIZE_LIMIT = "Infinity"
