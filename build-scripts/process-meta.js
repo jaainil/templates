@@ -121,11 +121,14 @@ class MetaProcessor {
       // Apply Prettier formatting to match local workflow
       try {
         execSync(`npx prettier --write "${outputFile}"`, {
-          stdio: this.options.verbose ? 'inherit' : 'pipe'
+          stdio: this.options.verbose ? "inherit" : "pipe",
         });
         this.log(`Applied Prettier formatting to ${outputFile}`, "debug");
       } catch (error) {
-        this.log(`Warning: Could not apply Prettier formatting: ${error.message}`, "warning");
+        this.log(
+          `Warning: Could not apply Prettier formatting: ${error.message}`,
+          "warning",
+        );
       }
 
       // Report results
