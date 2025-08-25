@@ -10,7 +10,11 @@
     "validate-meta": "node build-scripts/process-meta.js --no-backup --verbose",
     "build": "npm run process-meta",
     "prebuild": "echo 'Processing meta.json for production build...'",
-    "postbuild": "echo 'Meta.json processing completed!'"
+    "postbuild": "echo 'Meta.json processing completed!'",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:app": "cd app && npm run format",
+    "format:check:app": "cd app && npm run format:check"
   },
   "keywords": [
     "meta",
@@ -26,6 +30,7 @@
     "node": ">=14.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.0"
+    "nodemon": "^3.0.0",
+    "prettier": "^3.2.5"
   }
 }
