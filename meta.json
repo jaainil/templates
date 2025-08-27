@@ -1510,6 +1510,22 @@
     ]
   },
   {
+    "id": "drawnix",
+    "name": "Drawnix",
+    "version": "latest",
+    "description": "Drawnix is an application for generating and managing visual content, powered by pubuzhixing/drawnix Docker image.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/pubuzhixing/drawnix",
+      "website": "https://hub.docker.com/r/pubuzhixing/drawnix",
+      "docs": "https://hub.docker.com/r/pubuzhixing/drawnix"
+    },
+    "tags": [
+      "visualization",
+      "content-generation"
+    ]
+  },
+  {
     "id": "drizzle-gateway",
     "name": "drizzle gateway",
     "version": "latest",
@@ -1645,6 +1661,23 @@
       "sales",
       "pos",
       "hrms"
+    ]
+  },
+  {
+    "id": "etherpad",
+    "name": "Etherpad",
+    "version": "latest",
+    "description": "Etherpad is a real-time collaborative text editor that allows multiple users to edit documents simultaneously.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/ether/etherpad-lite",
+      "website": "https://etherpad.org/",
+      "docs": "https://github.com/ether/etherpad-lite/wiki"
+    },
+    "tags": [
+      "collaboration",
+      "text-editor",
+      "real-time"
     ]
   },
   {
@@ -1982,6 +2015,25 @@
     ]
   },
   {
+    "id": "gitingest",
+    "name": "Gitingest",
+    "version": "latest",
+    "description": "Gitingest is an application that supports Prometheus metrics, Sentry integration, and S3-backed storage.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/<your-org>/gitingest",
+      "website": "https://gitingest.com",
+      "docs": "https://github.com/<your-org>/gitingest#readme"
+    },
+    "tags": [
+      "analytics",
+      "s3",
+      "monitoring",
+      "sentry",
+      "metrics"
+    ]
+  },
+  {
     "id": "gitlab-ce",
     "name": "GitLab CE",
     "version": "latest",
@@ -2243,6 +2295,26 @@
     ]
   },
   {
+    "id": "hortusfox",
+    "name": "HortusFox",
+    "version": "5.0",
+    "description": "HortusFox is an open source task and photo management app, designed for photographers and creatives to manage projects, tasks, and images effectively.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/danielbrendel/hortusfox-web",
+      "website": "https://www.hortusfox.com",
+      "docs": "https://github.com/danielbrendel/hortusfox-web#readme",
+      "discord": "https://discord.gg/kc6xGmjzVS"
+    },
+    "tags": [
+      "productivity",
+      "photo",
+      "task-management",
+      "php",
+      "mariadb"
+    ]
+  },
+  {
     "id": "huly",
     "name": "Huly",
     "version": "0.6.377",
@@ -2486,6 +2558,42 @@
       "invoice",
       "business",
       "finance"
+    ]
+  },
+  {
+    "id": "kitchenowl",
+    "name": "KitchenOwl",
+    "version": "v0.7.1",
+    "description": "KitchenOwl is a self-hosted grocery list and recipe manager.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/TomBursch/kitchenowl",
+      "website": "https://kitchenowl.org/",
+      "docs": "https://github.com/TomBursch/kitchenowl/wiki"
+    },
+    "tags": [
+      "self-hosted",
+      "recipes",
+      "grocery",
+      "personal"
+    ]
+  },
+  {
+    "id": "kokoro-web",
+    "name": "Kokoro Web",
+    "version": "latest",
+    "description": "Kokoro Web provides an interface for text-to-speech using advanced AI voice synthesis. It allows model caching and API integration with authentication.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/eduardolat/kokoro-web",
+      "website": "https://github.com/eduardolat/kokoro-web",
+      "docs": "https://github.com/eduardolat/kokoro-web#readme"
+    },
+    "tags": [
+      "text-to-speech",
+      "ai",
+      "voice",
+      "web"
     ]
   },
   {
@@ -2852,6 +2960,23 @@
     },
     "tags": [
       "storage"
+    ]
+  },
+  {
+    "id": "morphos",
+    "name": "Morphos",
+    "version": "latest",
+    "description": "Morphos is a lightweight service for distributed operations and orchestration.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/danvergara/morphos-server",
+      "website": "https://github.com/danvergara/morphos-server",
+      "docs": "https://github.com/danvergara/morphos-server#readme"
+    },
+    "tags": [
+      "server",
+      "orchestration",
+      "lightweight"
     ]
   },
   {
@@ -3223,6 +3348,24 @@
     ]
   },
   {
+    "id": "pastefy",
+    "name": "Pastefy",
+    "version": "latest",
+    "description": "Pastefy is an open-source pastebin with support for syntax highlighting and OAuth2 authentication.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/interaapps/pastefy",
+      "website": "https://pastefy.app",
+      "docs": "https://github.com/interaapps/pastefy/wiki"
+    },
+    "tags": [
+      "pastebin",
+      "text-sharing",
+      "collaboration",
+      "oauth2"
+    ]
+  },
+  {
     "id": "penpot",
     "name": "Penpot",
     "version": "2.3.2",
@@ -3302,6 +3445,24 @@
     },
     "tags": [
       "database"
+    ]
+  },
+  {
+    "id": "picsur",
+    "name": "Picsur",
+    "version": "latest",
+    "description": "Picsur is a simple, self-hosted image hosting service with an admin interface and Postgres backend.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/CaramelFur/picsur",
+      "website": "https://github.com/CaramelFur/picsur",
+      "docs": "https://github.com/CaramelFur/picsur#readme"
+    },
+    "tags": [
+      "image-hosting",
+      "media",
+      "self-hosted",
+      "postgres"
     ]
   },
   {
@@ -3970,6 +4131,24 @@
     ]
   },
   {
+    "id": "tor-browser",
+    "name": "Tor Browser",
+    "version": "latest",
+    "description": "A Dockerized Tor Browser accessible via web VNC (noVNC) and VNC client.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/DomiStyle/docker-tor-browser",
+      "website": "https://www.torproject.org/",
+      "docs": "https://hub.docker.com/r/domistyle/tor-browser"
+    },
+    "tags": [
+      "privacy",
+      "security",
+      "browser",
+      "tor"
+    ]
+  },
+  {
     "id": "triggerdotdev",
     "name": "Trigger.dev",
     "version": "v3",
@@ -4162,6 +4341,24 @@
     ]
   },
   {
+    "id": "vikunja",
+    "name": "Vikunja",
+    "version": "0.23.0",
+    "description": "Vikunja is a self-hosted, open-source to-do list application to organize tasks, projects, and notes.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://kolaente.dev/vikunja/",
+      "website": "https://vikunja.io/",
+      "docs": "https://vikunja.io/docs/"
+    },
+    "tags": [
+      "productivity",
+      "tasks",
+      "self-hosted",
+      "project-management"
+    ]
+  },
+  {
     "id": "wallos",
     "name": "Wallos",
     "version": "latest",
@@ -4178,6 +4375,24 @@
       "budgeting",
       "expense-tracking",
       "spending"
+    ]
+  },
+  {
+    "id": "wanderer",
+    "name": "Wanderer",
+    "version": "1.0.0",
+    "description": "Wanderer is a self-hosted mapping and geolocation platform powered by Meilisearch, PocketBase, and a web frontend.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/flomp/wanderer",
+      "website": "https://wanderer.app",
+      "docs": "https://github.com/flomp/wanderer#readme"
+    },
+    "tags": [
+      "mapping",
+      "geolocation",
+      "search",
+      "self-hosted"
     ]
   },
   {
@@ -4279,6 +4494,25 @@
     },
     "tags": [
       "cms"
+    ]
+  },
+  {
+    "id": "yamtrack",
+    "name": "Yamtrack",
+    "version": "latest",
+    "description": "Yamtrack is a self-hosted anime and manga tracker with Redis backend support.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/fuzzygrim/yamtrack",
+      "website": "https://github.com/fuzzygrim/yamtrack",
+      "docs": "https://github.com/fuzzygrim/yamtrack"
+    },
+    "tags": [
+      "media",
+      "anime",
+      "manga",
+      "tracker",
+      "redis"
     ]
   },
   {
