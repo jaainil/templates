@@ -2731,6 +2731,23 @@
     ]
   },
   {
+    "id": "letterfeed",
+    "name": "Letterfeed",
+    "version": "latest",
+    "description": "Letterfeed is a self-hosted service that fetches emails via IMAP and serves them in a reader-friendly web interface.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/leonmuscoden/letterfeed",
+      "website": "https://github.com/leonmuscoden/letterfeed",
+      "docs": "https://github.com/leonmuscoden/letterfeed"
+    },
+    "tags": [
+      "email",
+      "self-hosted",
+      "productivity"
+    ]
+  },
+  {
     "id": "linkding",
     "name": "Linkding",
     "version": "latest",
