@@ -1,11 +1,32 @@
 [variables]
 main_domain = "${domain}"
+pb_admin_email = "${email}"
+pb_admin_password = "${password:32}"
+encryption_key = "${base64:32}"
+timezone = "Europe/Berlin"
 
 [config]
-env = {}
-mounts = []
-
 [[config.domains]]
 serviceName = "pocketbase"
 port = 8090
 host = "${main_domain}"
+
+[config.env]
+PB_HOST = "0.0.0.0"
+PB_PORT = "8090"
+PB_ADMIN_EMAIL = "${pb_admin_email}"
+PB_ADMIN_PASSWORD = "${pb_admin_password}"
+ENCRYPTION = "${encryption_key}"
+TZ = "${timezone}"
+
+[[config.mounts]]
+volumeName = "pb_data"
+mountPath = "/pb_data"
+
+[[config.mounts]]
+volumeName = "pb_public"
+mountPath = "/pb_public"
+
+[[config.mounts]]
+volumeName = "pb_hooks"
+mountPath = "/pb_hooks"
