@@ -4210,7 +4210,8 @@
     "logo": "image.png",
     "links": {
       "github": "https://github.com/RSS-Bridge/rss-bridge",
-      "website": "https://rss-bridge.github.io/rss-bridge/"
+      "website": "https://rss-bridge.github.io/rss-bridge/",
+      "docs": "https://rss-bridge.github.io/rss-bridge/General/Project_goals.html"
     },
     "tags": [
       "rss",
