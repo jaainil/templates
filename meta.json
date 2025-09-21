@@ -805,7 +805,7 @@
   {
     "id": "bugsink",
     "name": "Bugsink",
-    "version": "v1.4.2",
+    "version": "latest",
     "description": "Bugsink is a self-hosted Error Tracker. Built to self-host; Sentry-SDK compatible; Scalable and reliable",
     "logo": "bugsink.png",
     "links": {
