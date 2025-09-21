@@ -766,6 +766,25 @@
     ]
   },
   {
+    "id": "budget-board",
+    "name": "Budget Board",
+    "version": "release",
+    "description": "Self-hosted budgeting app with a web UI and a server backed by PostgreSQL.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/teelur/budget-board",
+      "website": "https://budgetboard.net/",
+      "docs": "https://budgetboard.net/"
+    },
+    "tags": [
+      "finance",
+      "postgres",
+      "self-hosted",
+      "docker",
+      "compose"
+    ]
+  },
+  {
     "id": "budibase",
     "name": "Budibase",
     "version": "3.5.3",
@@ -1391,6 +1410,25 @@
     ]
   },
   {
+    "id": "crawl4ai",
+    "name": "Crawl4AI",
+    "version": "0.7.3",
+    "description": "Crawl4AI is a modern AI-powered web crawler with support for screenshots, PDFs, JavaScript execution, and LLM-based extraction. Includes an interactive playground and MCP (Model Context Protocol) integration.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/unclecode/crawl4ai",
+      "website": "https://crawl4ai.com",
+      "docs": "https://github.com/unclecode/crawl4ai#readme"
+    },
+    "tags": [
+      "crawler",
+      "scraping",
+      "AI",
+      "LLM",
+      "API"
+    ]
+  },
+  {
     "id": "crowdsec",
     "name": "Crowdsec",
     "version": "latest",
@@ -1404,6 +1442,25 @@
     "tags": [
       "security",
       "firewall"
+    ]
+  },
+  {
+    "id": "cup",
+    "name": "Cup",
+    "version": "latest",
+    "description": "Cup is a self-hosted Docker container management UI.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/sergi0g/cup",
+      "website": "https://cup.sh",
+      "docs": "https://github.com/sergi0g/cup"
+    },
+    "tags": [
+      "docker",
+      "container",
+      "management",
+      "ui",
+      "self-hosted"
     ]
   },
   {
@@ -1930,6 +1987,42 @@
     ]
   },
   {
+    "id": "flowise",
+    "name": "Flowise",
+    "version": "latest",
+    "description": "Flowise is an open-source UI visual tool to build and run LLM-powered applications.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/FlowiseAI/Flowise",
+      "website": "https://flowiseai.com/",
+      "docs": "https://docs.flowiseai.com/"
+    },
+    "tags": [
+      "AI",
+      "LLM",
+      "workflow",
+      "automation"
+    ]
+  },
+  {
+    "id": "fmd-server",
+    "name": "FMD Server",
+    "version": "0.11.0",
+    "description": "A server to communicate with the FMD Android app, to locate and control your devices.",
+    "logo": "fmd-server.svg",
+    "links": {
+      "github": "https://gitlab.com/fmd-foss/fmd-server",
+      "website": "https://fmd-foss.org",
+      "docs": "https://fmd-foss.org/docs/fmd-server/overview"
+    },
+    "tags": [
+      "phone",
+      "security",
+      "gps",
+      "location"
+    ]
+  },
+  {
     "id": "focalboard",
     "name": "Focalboard",
     "version": "8.0.0",
@@ -2036,10 +2129,26 @@
     ]
   },
   {
+    "id": "garage",
+    "name": "Garage S3",
+    "version": "latest",
+    "description": "Garage is an open-source distributed object storage service tailored for self-hosting.",
+    "logo": "garage.svg",
+    "links": {
+      "github": "https://git.deuxfleurs.fr/Deuxfleurs/garage",
+      "website": "https://garagehq.deuxfleurs.fr",
+      "docs": "https://garagehq.deuxfleurs.fr/documentation/quick-start/"
+    },
+    "tags": [
+      "storage",
+      "object-storage"
+    ]
+  },
+  {
     "id": "garage-with-ui",
     "name": "Garage S3 with Web UI",
     "version": "latest",
-    "description": "Garage is an open-source distributed object storage service tailored for self-hosting",
+    "description": "Garage is an open-source distributed object storage service tailored for self-hosting. For authentication in the web-ui please go to https://github.com/khairul169/garage-webui?tab=readme-ov-file#authentication",
     "logo": "garage.svg",
     "links": {
       "github": "https://git.deuxfleurs.fr/Deuxfleurs/garage",
@@ -2149,9 +2258,9 @@
     "description": "Gitingest is an application that supports Prometheus metrics, Sentry integration, and S3-backed storage.",
     "logo": "image.png",
     "links": {
-      "github": "https://github.com/<your-org>/gitingest",
+      "github": "https://github.com/coderamp-labs/gitingest",
       "website": "https://gitingest.com",
-      "docs": "https://github.com/<your-org>/gitingest#readme"
+      "docs": "https://github.com/coderamp-labs/gitingest#readme"
     },
     "tags": [
       "analytics",
@@ -2466,9 +2575,9 @@
     "description": "Kuno is an internationalized blogging platform with a backend built in Go and a frontend in Next.js.",
     "logo": "image.png",
     "links": {
-      "github": "https://github.com/ictrun/kuno",
-      "website": "https://kuno.zli.li",
-      "docs": "https://github.com/ictrun/kuno#readme"
+      "github": "https://github.com/xuemian168/kuno",
+      "website": "https://qut.edu.kg/",
+      "docs": "https://github.com/xuemian168/kuno#readme"
     },
     "tags": [
       "blog",
@@ -2803,6 +2912,22 @@
       "email",
       "self-hosted",
       "productivity"
+    ]
+  },
+  {
+    "id": "libredesk",
+    "name": "Libredesk",
+    "logo": "libredesk.svg",
+    "version": "latest",
+    "description": "Open source, self-hosted customer support desk. Single binary app.",
+    "links": {
+      "github": "https://github.com/abhinavxd/libredesk",
+      "website": "https://libredesk.io",
+      "docs": "https://docs.libredesk.io/introduction"
+    },
+    "tags": [
+      "storage",
+      "object-storage"
     ]
   },
   {
@@ -3219,6 +3344,26 @@
     ]
   },
   {
+    "id": "navidrome",
+    "name": "Navidrome",
+    "version": "latest",
+    "description": "Navidrome is a modern music server and streamer compatible with Subsonic/Airsonic. Stream your music collection anywhere.",
+    "logo": "navidrome.png",
+    "links": {
+      "github": "https://github.com/navidrome/navidrome",
+      "website": "https://www.navidrome.org/",
+      "docs": "https://www.navidrome.org/docs/"
+    },
+    "tags": [
+      "music",
+      "streaming",
+      "media-server",
+      "subsonic",
+      "self-hosted",
+      "audio"
+    ]
+  },
+  {
     "id": "neko",
     "name": "Neko",
     "version": "latest",
@@ -3283,6 +3428,24 @@
       "spreadsheet",
       "low-code",
       "nocode"
+    ]
+  },
+  {
+    "id": "notifuse",
+    "name": "Notifuse",
+    "version": "latest",
+    "description": "Open-source newsletter and notification platform that empowers teams to create, send, and track communications at scale.",
+    "logo": "logo.png",
+    "links": {
+      "github": "https://github.com/notifuse/notifuse",
+      "website": "https://notifuse.com/",
+      "docs": "https://docs.notifuse.com/"
+    },
+    "tags": [
+      "newsletter",
+      "email",
+      "communication",
+      "notifications"
     ]
   },
   {
@@ -3580,6 +3743,26 @@
     ]
   },
   {
+    "id": "owncast",
+    "name": "Owncast",
+    "version": "latest",
+    "description": "Owncast is a self-hosted live video streaming and chat server for use with existing broadcasting software.",
+    "logo": "owncast.png",
+    "links": {
+      "github": "https://github.com/owncast/owncast",
+      "website": "https://owncast.online/",
+      "docs": "https://owncast.online/docs/"
+    },
+    "tags": [
+      "streaming",
+      "live-video",
+      "chat",
+      "broadcasting",
+      "self-hosted",
+      "rtmp"
+    ]
+  },
+  {
     "id": "palmr",
     "name": "Palmr",
     "version": "latest",
@@ -3612,6 +3795,27 @@
       "text-sharing",
       "collaboration",
       "oauth2"
+    ]
+  },
+  {
+    "id": "paymenter",
+    "name": "Paymenter",
+    "version": "latest",
+    "description": "Paymenter is a modern billing and payment management system for hosting providers, with automation, invoicing, and client management features.",
+    "logo": "paymenter.png",
+    "links": {
+      "github": "https://github.com/Paymenter/Paymenter",
+      "website": "https://paymenter.org/",
+      "docs": "https://paymenter.org/docs/"
+    },
+    "tags": [
+      "billing",
+      "payment",
+      "hosting",
+      "invoicing",
+      "business",
+      "automation",
+      "client-management"
     ]
   },
   {
@@ -3747,6 +3951,23 @@
     ]
   },
   {
+    "id": "plark",
+    "name": "Plark",
+    "version": "latest",
+    "description": "Self-hosted Website Builder",
+    "logo": "plark.svg",
+    "links": {
+      "github": "https://github.com/plark-inc/render",
+      "website": "https://plark.com",
+      "docs": "https://plark.com/get-started"
+    },
+    "tags": [
+      "cms",
+      "content-management",
+      "blog"
+    ]
+  },
+  {
     "id": "plausible",
     "name": "Plausible",
     "version": "v2.1.5",
@@ -3764,7 +3985,7 @@
   {
     "id": "pocket-id",
     "name": "Pocket ID",
-    "version": "0.35.1",
+    "version": "v1",
     "description": "A simple and easy-to-use OIDC provider that allows users to authenticate with their passkeys to your services.",
     "logo": "pocket-id.svg",
     "links": {
@@ -4390,8 +4611,8 @@
     "logo": "logo.svg",
     "links": {
       "github": "https://github.com/msgbyte/tianji",
-      "website": "https://github.com/msgbyte/tianji",
-      "docs": "https://github.com/msgbyte/tianji"
+      "website": "https://tianji.dev/",
+      "docs": "https://tianji.dev/docs/intro"
     },
     "tags": [
       "analytics",
@@ -4599,23 +4820,6 @@
     ]
   },
   {
-    "id": "unsend",
-    "name": "Unsend",
-    "version": "v1.3.2",
-    "description": "Open source alternative to Resend,Sendgrid, Postmark etc. ",
-    "logo": "unsend.png",
-    "links": {
-      "github": "https://github.com/unsend-dev/unsend",
-      "website": "https://unsend.dev/",
-      "docs": "https://docs.unsend.dev/get-started/"
-    },
-    "tags": [
-      "e-mail",
-      "marketing",
-      "business"
-    ]
-  },
-  {
     "id": "uptime-kuma",
     "name": "Uptime Kuma",
     "version": "1.23.15",
@@ -4628,6 +4832,24 @@
     },
     "tags": [
       "monitoring"
+    ]
+  },
+  {
+    "id": "usesend",
+    "name": "useSend",
+    "version": "latest",
+    "description": "Open source alternative to Resend, Sendgrid, Postmark etc.",
+    "logo": "usesend.png",
+    "links": {
+      "github": "https://github.com/usesend/usesend",
+      "website": "https://usesend.com/",
+      "docs": "https://docs.usesend.com/introduction"
+    },
+    "tags": [
+      "e-mail",
+      "marketing",
+      "business",
+      "self-hosted"
     ]
   },
   {
