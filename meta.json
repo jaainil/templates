@@ -1412,7 +1412,7 @@
     ]
   },
   {
-    "id": "cookiecloud",
+    "id": "cookie-cloud",
     "name": "CookieCloud",
     "version": "latest",
     "description": "CookieCloud lets you sync and manage browser cookies across devices securely using a self-hosted backend.",
