@@ -1,24 +1,41 @@
-version: '3'
+version: "3.8"
+
 services:
   tianji:
-    image: moonrailgun/tianji
-    ports:
-      - "12345"
+    image: moonrailgun/tianji:latest
+    restart: always
+    expose:
+      - 12345
     environment:
-      DATABASE_URL: postgresql://tianji:tianji@postgres:5432/tianji
-      # API Key
-      JWT_SECRET: ${jwt_secret}
-      ALLOW_REGISTER: "false"
-      ALLOW_OPENAPI: "true"
+      DATABASE_URL: ${DATABASE_URL}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_ISSUER: ${JWT_ISSUER}
+      JWT_AUDIENCE: ${JWT_AUDIENCE}
+      ALLOW_REGISTER: ${ALLOW_REGISTER}
+      ALLOW_OPENAPI: ${ALLOW_OPENAPI}
+      WEBSITE_ID: ${WEBSITE_ID}
+      CLICKHOUSE_URL: ${CLICKHOUSE_URL}
+      CLICKHOUSE_USER: ${CLICKHOUSE_USER}
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
+      CLICKHOUSE_DATABASE: ${CLICKHOUSE_DATABASE}
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
+
   postgres:
     image: postgres:15.4-alpine
+    restart: always
     environment:
-      POSTGRES_DB: tianji
-      POSTGRES_USER: tianji
-      POSTGRES_PASSWORD: tianji
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - tianji-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
 volumes:
-  tianji-db-data: {}
+  tianji-db-data:

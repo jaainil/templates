@@ -1,7 +1,7 @@
 [variables]
 main_domain = "${domain}"
-# API Key: Used for session security.
-jwt_secret = "${password:32}"
+postgres_password = "${password:32}"
+jwt_secret = "${password:64}"
 
 [config]
 [[config.domains]]
@@ -9,8 +9,29 @@ serviceName = "tianji"
 port = 12345
 host = "${main_domain}"
 
+[config.env]
+# Database
+POSTGRES_DB = "tianji"
+POSTGRES_USER = "tianji"
+POSTGRES_PASSWORD = "${postgres_password}"
+DATABASE_URL = "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public"
+
+# Auth & Security
+JWT_SECRET = "${jwt_secret}"
+JWT_ISSUER = "tianji.msgbyte.com"
+JWT_AUDIENCE = "msgbyte.com"
+
+# Features
+ALLOW_REGISTER = "false"
+ALLOW_OPENAPI = "true"
+
+# Optional tracking / analytics IDs
+WEBSITE_ID = ""
+
+# Optional ClickHouse integration
+CLICKHOUSE_URL = ""
+CLICKHOUSE_USER = ""
+CLICKHOUSE_PASSWORD = ""
+CLICKHOUSE_DATABASE = ""
+
 [[config.mounts]]
-serviceName = "postgres"
-type = "volume"
-source = "tianji-db-data"
-target = "/var/lib/postgresql/data"
