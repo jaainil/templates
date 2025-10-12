@@ -1419,7 +1419,8 @@
     "logo": "image.png",
     "links": {
       "github": "https://github.com/easychen/cookiecloud",
-      "website": "https://github.com/easychen/cookiecloud"
+      "website": "https://github.com/easychen/cookiecloud",
+      "docs": "https://github.com/easychen/cookiecloud#readme"
     },
     "tags": [
       "cookies",
