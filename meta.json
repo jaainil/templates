@@ -1412,6 +1412,23 @@
     ]
   },
   {
+    "id": "cookiecloud",
+    "name": "CookieCloud",
+    "version": "latest",
+    "description": "CookieCloud lets you sync and manage browser cookies across devices securely using a self-hosted backend.",
+    "logo": "image.png",
+    "links": {
+      "github": "https://github.com/easychen/cookiecloud",
+      "website": "https://github.com/easychen/cookiecloud"
+    },
+    "tags": [
+      "cookies",
+      "sync",
+      "selfhosted",
+      "privacy"
+    ]
+  },
+  {
     "id": "coralproject",
     "name": "Coral",
     "version": "9.7.0",
