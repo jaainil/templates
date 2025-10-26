@@ -96,7 +96,7 @@ To add a new template, follow these steps:
 
 5. **Add a Logo**: Place an SVG or PNG logo (e.g., `grafana.svg`) in the template folder. Keep it simple and representative (ideally 512x512 or similar).
 
-6. **Run Validation**: Before pushing, run `make validate` (if available) or manually check for syntax errors in YAML/TOML/JSON.
+6. **Run Validation**: Before pushing, run `node dedupe-and-sort-meta.js` (if available) or manually check for syntax errors in YAML/TOML/JSON.
 
 7. **Commit and PR**: Push your branch and open a PR. Include:
    - A description of the template.
