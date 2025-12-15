@@ -110,15 +110,6 @@ This document provides essential context for AI models interacting with this pro
     ```bash
     make check
     ```
-  - **Frontend development** (runs at http://localhost:5173)
-    ```bash
-    cd app && pnpm dev
-    ```
-  - **Build frontend for production**
-    ```bash
-    cd app && pnpm build
-    # Output: app/dist/ with blueprints and meta.json copied
-    ```
   - **Clean backup files**
     ```bash
     make clean
